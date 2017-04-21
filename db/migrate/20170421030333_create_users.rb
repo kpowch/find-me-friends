@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :password_digest
       t.date :dob
-      t.string :image
+      t.string :profile_picture
       t.text :bio
 
       t.timestamps null: false
