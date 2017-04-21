@@ -4,6 +4,8 @@ development:
 test:
   adapter: async
 
+
+# redis is in memory db for messages. May need to add to development too
 production:
   adapter: redis
   url: redis://localhost:6379/1
