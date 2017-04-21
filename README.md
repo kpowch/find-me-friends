@@ -60,12 +60,33 @@ Things you may want to cover:
 * ...
 
 # Getting Started
+
+```
+nvm install node                # download and install latest stable Node
+nvm alias default node          # make it default version
+nvm list                        # check
+
+brew install yarn               # you can use other installer if desired
+
+rvm install 2.3.1               # download and install latest stable Ruby (update to exact version)
+rvm use 2.3.1 --default         # use it and make it default
+rvm list                        # check
+
+gem install rails               # download and install latest stable Rails
+gem install foreman             # download and install Foreman
+bundle && yarn
+```
+
+### To Run the Server
+
+`foreman start -f Procfile.dev`
+
 This is based off a [react_on_rails gem tutorial](https://github.com/shakacode/react_on_rails/blob/master/docs/tutorial.md). Make sure you have all the dependencies installed.
 
 To get the app running: `foreman start -f Procfile.dev`
 then visit: `http://localhost:3000/`
 
-# Postgresql
+### Postgres Table Initializer
 
 To start postgres:
 `brew services start postgresql`
