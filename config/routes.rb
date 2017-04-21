@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   post '/users' => 'users#create'
 
+  resources :profiles, only: [:index, :show, :create]
+
 end
