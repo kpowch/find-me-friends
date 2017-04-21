@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController
   #show user profile
   def index
+
   end
   # update user stats
   def create
