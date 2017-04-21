@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   resources :chatrooms, param: :slug
   resources :messages
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
+
 end
