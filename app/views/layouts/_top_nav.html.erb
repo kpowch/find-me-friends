@@ -1,3 +1,28 @@
-THIS IS WHERE THE NAV BAR WILL GO
-<button>Login</button>
-<button>Join Now</button>
+<div class='navbar-wrapper'>
+  <div class='navbar'>
+    <div class='logo'>
+      <h1><%= link_to 'Find Me Friends', :root %></h1>
+    </div>
+
+    <div class='navbar-right'>
+      
+      <!-- TODO: make this a button with no border or background, then link to 'how it works' section -->
+      <div class='navbar-item button button-hover'>
+        <span>HOW IT WORKS</span>
+      </div>
+
+      <%= link_to '/register' do %>
+        <div class='navbar-item button filled button-hover'>
+          <span>Register</span>
+        </div>
+      <% end %>
+
+      <%= link_to '/login' do %>
+        <div class='navbar-item button outlined button-hover'>
+          <span>Login</span>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

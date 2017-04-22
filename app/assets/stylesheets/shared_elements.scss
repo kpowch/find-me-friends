@@ -1,0 +1,57 @@
+.button {
+  cursor: pointer;
+  padding: 10px;
+  width: 140px;
+  text-align: center;
+
+  &.outlined {
+    border-radius: 4px;
+    border: 1px solid orange;
+  }
+
+  &.filled {
+    border-radius: 4px;
+    border: 1px solid orange;
+    background-color: orange;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  &.button-hover {
+    transition: all 0.5s;
+    // background-color: inherit;
+  }
+
+  &.button-hover span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  &.button-hover:hover span {
+    padding-right: 25px;
+  }
+
+  &.button-hover:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+}
