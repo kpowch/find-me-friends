@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'navbar';
+@import 'shared_elements';
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+a:hover {
+  color: inherit;
+  background-color: inherit;
+}
+
+a:visited {
+  color: inherit;
+  background-color: inherit;
+}
+
+main {
+  margin-top: 80px;
+}
