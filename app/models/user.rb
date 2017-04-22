@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   has_many :interests_users
   has_many :interests, through: :interests_users
 
@@ -11,6 +13,20 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :chatrooms, through: :messages
-#   validates :username, presence: true, uniqueness: true
+
+  validates_uniqueness_of :email, case_sensitive: false
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :password, presence: true
+  validates :password, length: length: 6..20
+
+  def authenticate_with_credentials(email, password)
+    user = User.find_by_email(email)
+
+    if user && user.authenticate(password)
+      session[:user_id] = user.id
+      user
+    end
+  end
 end
 
