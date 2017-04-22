@@ -6,5 +6,6 @@ class Chatrooms < ActiveRecord::Migration[5.0]
       t.integer :message_id
 
       t.timestamp :true
+    end
   end
 end
