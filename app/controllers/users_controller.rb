@@ -5,14 +5,14 @@ class UsersController < ApplicationController
 
   def create
 
-    p user_params.inspect
-
     @user = User.new(user_params)
+    p @user.inspect
+
     if @user.save
       session[:user_id] = user.id
-      redirect_to '/'
+      redirect_to profiles_path(params[:product_id])
     else
-      flash[:alert] = user.errors.full_messages.to_s
+      flash[:alert] = @user.errors.full_messages.to_s
       redirect_to '/register'
     end
   end
@@ -27,5 +27,4 @@ class UsersController < ApplicationController
       :password_confirmation
     )
   end
-
 end

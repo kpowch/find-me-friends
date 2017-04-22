@@ -2,11 +2,13 @@
 <html>
   <head>
     <title>FindMeFriends</title>
+    <!-- Mitigates cross-site request forgery -->
     <%= csrf_meta_tags %>
     <!-- Links to chat -->
     <%= action_cable_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Links to master stylesheet -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Links to master React javascript file -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,6 +18,6 @@
     <main class='container'>
       <%= yield %>
     </main>
-    
+
   </body>
 </html>
