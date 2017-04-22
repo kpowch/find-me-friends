@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421204204) do
+ActiveRecord::Schema.define(version: 20170422204714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friendship_id"
+    t.integer  "message_id"
+    t.datetime "true"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +51,12 @@ ActiveRecord::Schema.define(version: 20170421204204) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string  "content"
+    t.integer "user_id"
+    t.integer "chatroom_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer  "location_id"
     t.string   "first_name"
@@ -55,6 +68,7 @@ ActiveRecord::Schema.define(version: 20170421204204) do
     t.text     "bio"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "messages"
     t.index ["location_id"], name: "index_users_on_location_id", using: :btree
   end
 
