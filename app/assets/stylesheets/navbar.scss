@@ -1,0 +1,29 @@
+.navbar-wrapper {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 900;
+  background-color: inherit;
+  padding: 10px;
+
+  .navbar {
+    margin: 0 auto;
+    max-width: 1200px; // TODO this might be replaced by a constant
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-right {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-item {
+      margin: 0 20px;
+    }
+  }
+}

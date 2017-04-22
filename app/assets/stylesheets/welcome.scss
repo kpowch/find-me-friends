@@ -1,3 +1,42 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sub-container {
+  max-width: 1200px; // TODO replace with constant
+  margin: 10px auto;
+  background-color: lightyellow;
+  padding: 20px;
+  text-align: center;
+}
+
+.full-container {
+  background-color: darkorange;
+  color: #FFF;
+  padding: 100px 10px;
+  text-align: center;
+
+  hr {
+    width: 30px;
+    color: #FFF;
+    background-color: #FFF;
+  }
+
+  .info-box-container {
+    margin: 0 auto;
+    max-width: 1200px; // TODO replace with constant
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+
+  .info-box {
+    background-color: #ff855c;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    margin: 5px;
+    padding: 30px;
+    flex: 0 0 25%;
+
+  }
+}

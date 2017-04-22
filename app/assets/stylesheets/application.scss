@@ -14,7 +14,8 @@
  *= require_self
  */
 
-
+@import 'navbar';
+@import 'shared_elements';
 
 /* Global styles */
 /* Variables*/
@@ -30,4 +31,24 @@ $color-background-light: #E4E7EA;
 /* Styles */
 body {
   background-color: $color-background-light;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+a:hover {
+  color: inherit;
+  background-color: inherit;
+}
+
+a:visited {
+  color: inherit;
+  background-color: inherit;
+}
+
+main {
+  margin-top: 80px;
 }
