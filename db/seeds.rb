@@ -29,18 +29,37 @@ Interest.create(id: 4, name: Faker::Team.sport)
 Interest.create(id: 5, name: "Felting")
 Interest.create(id: 6, name: "Food")
 
-## USERS
-puts "Generating some homies..."
-User.destroy_all
+
+## CHATROOMS
+puts "Generating some forced conversations..."
+Chatroom.destroy_all
+
+Chatroom.create(id: 1, friendship_id: 1, message_id: 1)
+Chatroom.create(id: 2, friendship_id: 1, message_id: 2)
+Chatroom.create(id: 3, friendship_id: 1, message_id: 3)
+Chatroom.create(id: 4, friendship_id: 1, message_id: 4)
+
+## MESSAGES
+puts "Generating made up things by made up people..."
+Message.destroy_all
+
+Message.create(id: 1, content: Faker::Friends.quote, user_id: 1, chatroom_id: 1)
+Message.create(id: 2, content: Faker::Friends.quote, user_id: 1, chatroom_id: 1)
+Message.create(id: 3, content: Faker::Friends.quote, user_id: 2, chatroom_id: 1)
+Message.create(id: 4, content: Faker::Friends.quote, user_id: 2, chatroom_id: 1)
 
 ## LOCATIONS
-puts "Finding Middle Earth Locations..."
+puts "Finding some nice places..."
 Location.destroy_all
 
 Location.create(id: 1, city: "Victoria", province: "BC", country: "Canada")
 Location.create(id: 2, city: "Vancouver", province: "BC", country: "Canada")
 Location.create(id: 3, city: "Kelowna", province: "BC", country: "Canada")
 Location.create(id: 4, city: "Banff", province: "AB", country: "Canada")
+
+## USERS
+puts "Generating some homies..."
+User.destroy_all
 
 User.create({
   id: 1,
@@ -100,7 +119,5 @@ User.create({
   dob: Faker::Date.birthday(18, 35),
   bio: Faker::Hipster.sentences(1)
   })
-
-
 
 puts "Seeding Complete!"
