@@ -18,6 +18,7 @@
 
 /* Global styles */
 /* Variables*/
+$max-width: 1200px;
 $font-stack: Noto sans, Open sans;
 $color-bright: #F89B36;
 $color-pop: #FB4539;
@@ -28,6 +29,5 @@ $color-background-light: #E4E7EA;
 
 /* Styles */
 body {
-  max-width: 1200px;
   background-color: $color-background-light;
 }
