@@ -1,4 +1,4 @@
-# Find Me Friends 
+# Find Me Friends
 The app for meeting new people and making lifelong friends. Have you ever wanted to try felting but can't convince your friends to craft with you? Or do you not have any friends? **Find Me Friends** is the app for you! Sign up today to start connecting with friends in your neighbourhood to felt with you!
 
 **Why use Find Me Friends?**
@@ -10,7 +10,7 @@ We provide a platform for you to connect with people in your community who enjoy
 Find amazing friends with similar interests and set a time and place to meet up! It's that simple!
 
 ## Tech Stack
-* **React** 
+* **React**
 * **Rails**
 * **Postgres**
 * **SASS**
@@ -19,7 +19,7 @@ Find amazing friends with similar interests and set a time and place to meet up!
 
 ## Styleguide
 * ES6
-* Rails 
+* Rails
     - No brackets
 * Class Names
     - Preference for longer names
@@ -91,9 +91,6 @@ then visit: `http://localhost:3000/`
 To start postgres:
 `brew services start postgresql`
 
-To stop postgres:
-`brew services stop postgresql`
-
 Then to start psql:
 `psql -d postgres`
 
@@ -105,4 +102,11 @@ CREATE ROLE
 postgres=# CREATE DATABASE find_me_friends OWNER friend;
 CREATE DATABASE
 ```
-`\q` to quit psql
+
+`\q to quit psql`
+
+Then run the migrations:
+`bin/rails db:migrate`
+
+If at any time you want to stop postgres:
+`brew services stop postgresql`

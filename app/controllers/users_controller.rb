@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     else
       flash[:alert] = user.errors.full_messages.to_s
       redirect_to '/register'
+    end
   end
 
   private
