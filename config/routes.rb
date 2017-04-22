@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :users, only: [:index, :create, :new, :edit]
+  resources :users, except: [:index, :delete]
   resources :profiles, only: [:index, :show, :create]
 
 end
