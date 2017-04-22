@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+/* Global styles */
+/* Variables*/
+$font-stack: Noto sans, Open sans;
+$color-bright: #F89B36;
+$color-pop: #FB4539;
+$color-mood: #8D295B;
+$color-dark: #365B36;
+$color-background-dark: #AFCAC4;
+$color-background-light: #E4E7EA;
+
+/* Styles */
+body {
+  max-width: 1200px;
+  background-color: $color-background-light;
+}
