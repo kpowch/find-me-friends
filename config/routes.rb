@@ -10,14 +10,18 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
+  #routes as specified in Action Cable setup
   resources :chatrooms, param: :slug
   resources :messages
 
+  #old style routing, should update if we can figure out how
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   get '/register' => 'users#new'
   post '/users' => 'users#create'
+
+  resources :profiles, only: [:index, :show, :create]
 
 end
