@@ -1,8 +1,66 @@
-<h1>Welcome to Find Me Friends</h1>
-<h2>Let us be the mutual friend that connects you to your new best friend</h2>
-<%= link_to 'Login', '/login' %> | <%= link_to 'Register', '/register' %>
-
-<h2>Meet New People</h2>
-<button>How It Works</button>
-
 <!-- <%= react_component("Welcome", props: @hello_world_props, prerender: false) %> -->
+<div class='welcome'>
+  <div class='full-container'>
+    <p>
+      Let us be the
+    </p>
+    <h1>MUTUAL FRIEND</h1>
+    <p>
+      that connects you to your
+    </p>
+    <h1>NEW BEST FRIEND</h1>
+    
+    <%= link_to '/register' do %>
+      <div class='navbar-item button filled button-hover'>
+        <span>Register</span>
+      </div>
+    <% end %>
+
+    <%= link_to '/login' do %>
+      <div class='navbar-item button outlined button-hover'>
+        <span>Login</span>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class='sub-container'>
+  <h2>Meet New People</h2>
+
+  </div>
+
+  <div class='full-container'>
+    <h2>How it Works</h2>
+    <div class='info-box-container'>
+      <div class='info-box'>
+        <article>
+          <img />
+          <h3 class='info-box-title'>You:</h3>
+          <p>
+            Tell us your interests
+          </p>
+        </article>
+      </div>
+
+      <div class='info-box'>
+        <article>
+          <img />
+          <h3 class='info-box-title'>We:</h3>
+          <p>
+            Match you with a like-minded human
+          </p>
+        </article>
+      </div>
+
+      <div class='info-box'>
+        <article>
+          <img />
+          <h3 class='info-box-title'>You both:</h3>
+          <p>
+            Hang out and see where it goes!
+          </p>
+        </article>
+      </div>
+
+  </div>
+</div>
