@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      flash[:alert] = "Welcome! Please fill in your interests so we can get started."
       # redirect to edit user path so they can input their interests (not profiles_path yet)
-      redirect_to '/' # edit_user_path(:user_id)
+      redirect_to edit_user_path(@user.id)
     else
       flash[:alert] = @user.errors.full_messages.to_s # TODO incorporate this into page
       redirect_to new_user_path
@@ -20,17 +21,21 @@ class UsersController < ApplicationController
   # render user's settings
   # TODO this might have to connect to the profile sidebar
   def show
+    # TODO page that shows their current info
   end
 
   # to receive form and edit settings (HTML form)
   def edit
+    @interests = Interest.order(:name).all
   end
 
   # updates edited settings
   def update
   end
 
-  # TODO delete a user?
+  # detete account TODO decide if we want this
+  def delete
+  end
 
   private
 
