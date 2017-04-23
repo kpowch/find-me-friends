@@ -1,6 +1,6 @@
 import React from'react';
 
-class ChatBar extends React.Component {
+class Chatbar extends React.Component {
 
   render() {
     return (
@@ -11,4 +11,4 @@ class ChatBar extends React.Component {
     );
   }
 }
-export default ChatBar;
+export default Chatbar;

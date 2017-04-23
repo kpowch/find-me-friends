@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default class Welcome extends React.Component {
+import Chatbar from './Chatbar.jsx';
+import Messages from './Messages.jsx';
+
+export default class Chatrooms extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired, // this is passed from the Rails view
   };
@@ -13,10 +16,20 @@ export default class Welcome extends React.Component {
   constructor(props, _railsContext) {
     super(props);
 
+    this.state = { name: "Paige" };
     // this.state = { name: this.props.name }; FROM HELLO WORLD EXAMPLE
   }
 
   render() {
-    return ()
+    return (
+     <div>
+        <h3>
+          Holla, {this.state.name}!
+          <Messages />
+          <Chatbar />
+        </h3>
+      </div>
+
+    )
   }
 }
