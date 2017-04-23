@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   #routes as specified in Action Cable setup
-  resources :chatrooms, param: :slug
+  resources :chatrooms, param: :id
   resources :messages
 
   #old style routing, should update if we can figure out how
