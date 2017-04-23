@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :interests_users
   has_many :interests, through: :interests_users
 
-  belongs_to :location
+  belongs_to :location, required: false # TODO will have to make sure location is given in edit profile page
 
   has_many :friendships
   has_many :friends, through: :friendships
@@ -29,4 +29,3 @@ class User < ApplicationRecord
     end
   end
 end
-
