@@ -1,42 +1,40 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
+@import 'application';
 
 .sub-container {
-  max-width: 1200px; // TODO replace with constant
-  margin: 10px auto;
-  background-color: lightyellow;
-  padding: 20px;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 80px 20px;
   text-align: center;
 }
 
-.full-container {
-  background-color: darkorange;
-  color: #FFF;
-  padding: 100px 10px;
-  text-align: center;
+h1.container-header {
+  color: $color-background-light;
+  margin-bottom: 30px;
+}
 
-  hr {
-    width: 30px;
-    color: #FFF;
-    background-color: #FFF;
-  }
+.full-container {
+  background-color: $color-background-dark;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
 
   .info-box-container {
     margin: 0 auto;
-    max-width: 1200px; // TODO replace with constant
+    max-width: $max-width;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     padding: 10px;
   }
 
-
   .info-box {
-    background-color: #ff855c;
+    background-color: $color-bright;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    color: #825601; //TODO replace this with a constant
     margin: 5px;
     padding: 30px;
     flex: 0 0 25%;
-
   }
 }

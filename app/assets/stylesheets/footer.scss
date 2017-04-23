@@ -1,8 +1,9 @@
-.footer-wrapper {
+@import 'application';
 
+.footer-wrapper {
   .footer {
-    margin: 0 auto;
-    max-width: 1200px; // TODO replace with constant
+    margin: 20px auto 0;
+    max-width: $max-width;
     text-align: center;
   }
 }
