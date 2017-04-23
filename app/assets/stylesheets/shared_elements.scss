@@ -1,28 +1,22 @@
+@import 'application';
+
+/* Buttons with links */
 .button {
   cursor: pointer;
   padding: 10px;
-  width: 140px;
+  min-width: 120px;
   text-align: center;
 
   &.outlined {
     border-radius: 4px;
-    border: 1px solid orange;
+    border: 1px solid $color-mood;
   }
 
   &.filled {
     border-radius: 4px;
-    border: 1px solid orange;
-    background-color: orange;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    outline: none;
-
-    &:hover {
-      background-color: inherit;
-    }
+    border: 1px solid $color-mood;
+    background-color: $color-mood;
+    color: #FFF;
   }
 
   span {
@@ -34,7 +28,6 @@
 
   &.button-hover {
     transition: all 0.5s;
-    // background-color: inherit;
   }
 
   &.button-hover span:after {
@@ -53,5 +46,29 @@
   &.button-hover:hover span:after {
     opacity: 1;
     right: 0;
+  }
+}
+
+
+/* Fake Modals */
+.fake-modal {
+  margin: 120px auto 0;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: $color-background-medium;
+  overflow: hidden;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+
+  .modal-header {
+    background-color: $color-background-dark;
+    padding: 20px;
+
+    h1 {
+      color: #FFF;
+    }
+  }
+
+  .modal-body {
+    padding: 20px;
   }
 }

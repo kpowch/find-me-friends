@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :interests_users
   has_many :interests, through: :interests_users
 
-  belongs_to :location
+  belongs_to :location, required: false # TODO will have to make sure location is given in edit profile page
 
   has_many :friendships
   has_many :friends, through: :friendships
@@ -14,19 +14,18 @@ class User < ApplicationRecord
   has_many :messages
   has_many :chatrooms, through: :messages
 
+  validates :first_name, :last_name, :email, presence: true
   validates_uniqueness_of :email, case_sensitive: false
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :password, presence: true
-  # validates :password, length: length: { in: 4..20 }
+  validates :password, :password_confirmation, presence: true
+  validates :password, length: { in: 4..15 }
 
-  def authenticate_with_credentials(email, password)
-    user = User.find_by_email(email)
+  def self.authenticate_with_credentials(email, password)
+    user = User.find_by_email(email.strip)
 
     if user && user.authenticate(password)
-      session[:user_id] = user.id
-      user
+      return user
+    else
+      return nil
     end
   end
 end
-

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # sends user to login page if they're not logged in on unauthorized page
   def authorize
     redirect_to '/login' unless current_user
   end

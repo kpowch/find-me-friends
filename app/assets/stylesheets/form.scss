@@ -1,0 +1,41 @@
+@import 'application';
+
+.form-field-input input {
+  padding: 5px 10px;
+  margin: 8px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid $color-bright;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: $font-stack;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    color: #757575; //TODO add this as a constant?
+  }
+}
+
+.form-button {
+  -webkit-appearance: none;
+  width: 100%;
+  font-family: $font-stack;
+  font-size: 16px;
+  /* from button styling */
+  cursor: pointer;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+  /* from filled button styling */
+  border-radius: 4px;
+  border: 1px solid $color-mood;
+  background-color: $color-mood;
+  color: #FFF;
+
+  &:hover {
+    transition: all 0.5s;
+    background-color: lighten($color-mood, 5);
+  }
+}
