@@ -5,5 +5,5 @@ import Profile from 'Profile/components/Profile';
 
 // This is how react_on_rails can see React components
 ReactOnRails.register({
-  Welcome, Profile
+  Welcome, Profile, Sidebar, SuggestionList, Friend
 });

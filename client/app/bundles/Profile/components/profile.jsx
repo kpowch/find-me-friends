@@ -3,6 +3,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Sidebar from './Sidebar.jsx';
+import SuggestionList from './SuggestionList.jsx'
+import Friend from './Friend.jsx'
+
 export default class Profile extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired, // this is passed from the Rails view
@@ -17,33 +21,30 @@ export default class Profile extends React.Component {
     super(props);
 
     this.state = {
-      currentUser: userStats(this.props.user),
+      currentUser: this.props.user,
       friendsList: []
      };
   }
 
   /* Need method to add friend panels */
-  addFriend(int) {
+  addFriend(friend) {
     for (let i = int; i>0; i++){
-      nextFriend =
-      this.state.friendsList.push()
+      nextFriend = new_friendships_path
+      console.log(nextFriend)
+      this.state.friendsList.push(nextFriend)
     }
   }
 
-  userStats(user) {
-
-  }
-
-  render() {
+  render () {
     return (
       <div className="profiles">
         <div>
-          <SuggestionList friendsList={this.state.friendsList} addFriend={this.state.addFriend}>
+          <SuggestionList friendsList={this.state.friendsList} addFriend={this.addFriend}>
         </div>
         <div className="sidebar">
-          <Sidebar >
+          <Sidebar user={this.state.currentUser}>
         </div>
       </div>
-      )
+    )
   }
 }
