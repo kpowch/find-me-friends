@@ -17,14 +17,15 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
 /* Global styles */
-/* Variables*/
+/* Variables */
 $max-width: 1200px;
 $font-stack: 'Noto Sans', Open sans;
 $color-bright: #F89B36;
 $color-pop: #FB4539;
 $color-mood: #8D295B;
 $color-dark: #365B36;
-$color-background-dark: #AFCAC4;
+$color-background-dark: #5E97A2;
+$color-background-medium: #AFCAC4;
 $color-background-light: #E4E7EA;
 
 
@@ -77,7 +78,20 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+/* This is added by us */
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+	:hover {
+	  color: inherit;
+	  background-color: inherit;
+	}
+	:visited {
+	  color: inherit;
+	  background-color: inherit;
+	}
+}
 
 
 /* Styles */
@@ -86,39 +100,20 @@ body {
   background-color: $color-background-light;
   font-family: $font-stack;
 }
-
 h1 {
-
+	text-align: center;
+	text-shadow: 1px 1px black;
+	font-size: 40px
 }
-
 h2 {
 
 }
-
 h3 {
 
 }
-
 p, span {
 
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
-  outline: none;
-}
-
-a:hover {
-  color: inherit;
-  background-color: inherit;
-}
-
-a:visited {
-  color: inherit;
-  background-color: inherit;
-}
-
 main {
   margin-top: 80px;
 }

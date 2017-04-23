@@ -3,7 +3,7 @@
 .footer-wrapper {
   .footer {
     margin: 20px auto 0;
-    max-width: 1200px; // TODO replace with constant
+    max-width: $max-width;
     text-align: center;
   }
 }
