@@ -1,0 +1,59 @@
+<h1>Edit Settings</h1>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+
+<!-- <%= form_for edit_user_path do %>
+
+  <% @interests.each do |i| %>
+    <%= check_box(:interest,{:id => "#{i.id}",:value => "#{i.name}"}) %>
+    <%= label_tag "#{i.name}" %>
+  <% end %>
+<% end %>
+
+<h1>Edit Profile</h1>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %> -->
+
+<div class='tab-container'>
+
+  <ul class="tabs">
+    <li>
+      <input type="radio" name="tabs" id="tab1" checked />
+      <label for="tab1" class='tab-label' tabindex="0">Edit Interests</label>
+      <div id="tab-content1" class="tab-content">
+
+        <%= form_for edit_user_path do %>
+          <% @interests.each do |i| %>
+            <%= check_box(:interest,{:id => "#{i.id}",:value => "#{i.name}"}) %>
+            <%= label_tag "#{i.name}" %>
+          <% end %>
+        <% end %>
+
+      </div>
+    </li>
+
+    <li>
+      <input type="radio" name="tabs" id="tab2" />
+      <label for="tab2" class='tab-label' tabindex="0">Edit Profile</label>
+      <div id="tab-content2" class="tab-content">
+
+        <%= form_for :user, url: '/users' do |f| %>
+          <span class='form-field-input'> <%= f.text_field :first_name, value: current_user.first_name %></span>
+          <span class='form-field-input'> <%= f.text_field :last_name, value: current_user.last_name %></span>
+          <span class='form-field-input'> <%= f.text_field :email, value: current_user.email %></span>
+          <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Edit Password'%></span>
+          <%= f.submit 'Submit', class: 'form-button' %>
+        <% end %>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class='button filled'>
+  <span>Go to home page</span>
+</div>
