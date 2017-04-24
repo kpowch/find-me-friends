@@ -8,7 +8,7 @@ import Sidebar from 'app-bundles/Profile/components/Sidebar';
 import SuggestionList from 'app-bundles/Profile/components/SuggestionList';
 import Friend from 'app-bundles/Profile/components/Friend';
 //Import Chatrooms components
-import Chatrooms from 'app-bundles/Chatrooms/components/chatrooms';
+import Chatrooms from 'app-bundles/Chatrooms/components/Chatrooms.jsx';
 
 import EditUser from 'app-bundles/Users/components/edit';
 
