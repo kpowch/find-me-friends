@@ -20,8 +20,15 @@ const config = {
     path: pathLib.resolve(__dirname, '../app/assets/webpack'),
   },
 
+  // This aliases the prefix to a file (so we don't need ../../../ etc.)
+  // _dirname is the current directory
+  // therefore everything with 'app-bundles' will now be the bundles folder
+  // note this is not necessary but makes it easier :)
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      'app-bundles': pathLib.resolve(__dirname, 'app', 'bundles')
+    }
   },
   plugins: [
     new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
