@@ -10,7 +10,6 @@ export default class Chatrooms extends React.Component {
     name: PropTypes.string.isRequired, // this is passed from the Rails view
   };
 
-
   constructor(props, _railsContext) {
     super(props);
 
@@ -25,25 +24,20 @@ export default class Chatrooms extends React.Component {
   render() {
     return (
     <div className='chatroom'>
-
       <div className='sidebar'>
         {this.state.friendships.map((friend, index) =>
             <Friendships key={index} friend={friend} />
           )}
       </div>
-
       <div className='messages'>
         {this.state.messages.map((message, index) =>
           <Messages key={index} message={message} />
           )}
       </div>
-
-      <div classNmae='chatbar'>
+      <div className='chatbar'>
         <Chatbar currentUser={this.state.name} />
       </div>
-
     </div>
-
     )
   }
 }
