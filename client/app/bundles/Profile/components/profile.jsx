@@ -31,26 +31,11 @@ export default class Profile extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>
-          Holla, {this.state.name}!
-        </h3>
-        <hr />
-        <form >
-          <label htmlFor="name">
-            Say hello to:
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={this.state.name}
-            onChange={(e) => this.updateName(e.target.value)}
-          />
-        </form>
+      <div className="profile">
         <div>
           <Sidebar user={this.props}/>
         </div>
-        <div>
+        <div className="list-container">
           <SuggestionList friends={this.props.friends}/>
         </div>
       </div>

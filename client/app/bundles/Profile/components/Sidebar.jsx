@@ -5,7 +5,7 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <main className="sidebar">
+      <div className="sidebar">
         <div>
           Sidebar!
         </div>
@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
         <div className="sidebar-bio">
           {this.props.user.bio}
         </div>
-      </main>
+      </div>
     );
   }
 }

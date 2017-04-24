@@ -5,12 +5,12 @@ class Friend extends React.Component {
 
   render() {
     return (
-      <main>
+      <div className="friend">
         <h2>Your new friend</h2>
-        <div className="friend">
+        <div>
           {this.props.name}
         </div>
-      </main>
+      </div>
     );
   }
 }

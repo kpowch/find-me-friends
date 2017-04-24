@@ -6,12 +6,12 @@ class SuggestionList extends React.Component {
 
   render() {
     return (
-      <main className="suggestion-list">
+      <div className="suggestion-list">
         {this.props.friends.map(function(friend) {
           return (<Friend name={friend}/>)
           }
         )}
-      </main>
+      </div>
     );
   }
 }
