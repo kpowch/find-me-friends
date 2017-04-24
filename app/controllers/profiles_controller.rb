@@ -1,7 +1,9 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
 
   #show user profile
   def index
+    @profile_props = {name: 'Wyatt'}
+
     @user = User.where(session[:user_id] = params[:id])
     # Pass in props to profile page; After unit testing complete;
     # @hello_world_props = { user: 'Wyatt', friends: ['Coffee', 'Donuts', 'Pizza'] }
