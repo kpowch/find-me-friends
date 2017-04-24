@@ -4,11 +4,12 @@
   <%= flash[:alert] %>
 <% end %>
 
-<%= react_component("EditUser", props: { interests: @interests }, prerender: false ) %>
+<%= react_component("EditUser", props: { allInterests: @interests, userInterests: @userInterests, currentUser: current_user }, prerender: false ) %>
 
 <div class='button filled'>
-  <span>Go to home page</span>
+  <span><%= link_to 'Home', :root %></span>
 </div>
+
 
 
 

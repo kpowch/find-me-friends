@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
 import EditAccount from './edit_account';
-import EditInterests from './edit_interests';
+import EditProfile from './edit_profile';
 
 // Constants
-const TAB_ACCOUNT = 'TAB_ACCOUNT'
-const TAB_INTERESTS = 'TAB_INTERESTS'
+const TAB_ACCOUNT = 'TAB_ACCOUNT' // account settings like name, email, password
+const TAB_PROFILE = 'TAB_PROFILE' // profile settings like interests, bio
 
 // it doesn't matter what we call this since the entire file is being exported
 // and given a new name in registration.jsx (called EditUser)
@@ -19,8 +19,7 @@ export default class EditUser extends React.Component {
   constructor(props, _railsContext) {
     super(props);
     this.state = {
-      tab: TAB_ACCOUNT,
-      interests: this.props.interests
+      tab: TAB_PROFILE,
     };
   }
 
@@ -30,17 +29,16 @@ export default class EditUser extends React.Component {
 
   renderContent () {
     if (this.state.tab === TAB_ACCOUNT) {
-      return <EditAccount />
+      return <EditAccount currentUser={this.props.currentUser}/>
     } else {
-      return <EditInterests />
+      return <EditProfile currentUser={this.props.currentUser} allInterests={this.props.allInterests} userInterests={this.props.userInterests}/>
     }
   }
 
   render() {
-
-    let tab1class = 'edit-tab interest-tab'
+    let tab1class = 'edit-tab profile-tab'
     let tab2class = 'edit-tab account-tab'
-    if (this.state.tab === TAB_INTERESTS) {
+    if (this.state.tab === TAB_PROFILE) {
       tab1class += ' selected'
     } else {
       tab2class += ' selected'
@@ -50,7 +48,7 @@ export default class EditUser extends React.Component {
       <div className='edit-page'>
         <div className='edit-tabs'>
           {/* updates the tab using lodash partial function */}
-          <div className={tab1class} onClick={_.partial(this.updateTab, TAB_INTERESTS)}> Edit Interests </div>
+          <div className={tab1class} onClick={_.partial(this.updateTab, TAB_PROFILE)}> Edit Profile </div>
           <div className={tab2class} onClick={_.partial(this.updateTab, TAB_ACCOUNT)}> Edit Account </div>
         </div>
 

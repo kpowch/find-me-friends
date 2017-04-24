@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # to receive form and edit settings (HTML form)
   def edit
     @interests = Interest.order(:name).all
+    @userInterests = InterestsUser.where(user_id: session[:user_id])
   end
 
   # updates edited settings
