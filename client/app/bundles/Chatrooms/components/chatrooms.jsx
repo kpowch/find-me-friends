@@ -27,8 +27,9 @@ export default class Chatrooms extends React.Component {
     <div className='chatroom'>
 
       <div className='sidebar'>
-        <Messages />
-
+        {this.state.messages.map((message) =>
+            <Messages key={message.key} username={this.props.name} content={message.content}  />
+          )}
       </div>
       <div>
         <Chatbar currentUser={this.state.name} />
