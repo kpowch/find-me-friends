@@ -1,13 +1,14 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
 
-  #show user profile
+  #dummy index profile
   def index
-    @user = User.where(session[:user_id] = params[:id])
     # Pass in props to profile page; After unit testing complete;
-    # @hello_world_props = { user: 'Wyatt', friends: ['Coffee', 'Donuts', 'Pizza'] }
+    @profile_props = {name: 'Wyatt', friends: ['Beavis', 'Butthead', 'The Other Guy']}
+    p @profile_props.inspect
+    # @user = User.where(session[:user_id] = params[:id])
   end
 
-  # update user stats
+  # update user stats - moved logic to user_controller?
   def create
     @user = User.new(user_params)
 
