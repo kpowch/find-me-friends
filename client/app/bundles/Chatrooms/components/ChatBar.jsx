@@ -4,10 +4,10 @@ class Chatbar extends React.Component {
 
   render() {
     return (
-      <footer className="chatbar">
-        <input className="chatbar-username" placeholder="Username" />
+      <div className="chatbar">
+        {this.props.currentUser}
         <input className="chatbar-message" onKeyPress={this.props.addChatMessage} placeholder="Message" />
-      </footer>
+      </div>
     );
   }
 }
