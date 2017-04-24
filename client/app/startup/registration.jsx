@@ -3,7 +3,9 @@ import ReactOnRails from 'react-on-rails';
 // Note app-bundles is an alias defined in webpack.config
 import Welcome from 'app-bundles/Welcome/components/Welcome';
 import Profile from 'app-bundles/Profile/components/Profile';
+
 import Chatrooms from 'app-bundles/Chatrooms/components/Chatrooms.jsx';
+
 import EditUser from 'app-bundles/Users/components/edit';
 
 // This is how react_on_rails can see React components
