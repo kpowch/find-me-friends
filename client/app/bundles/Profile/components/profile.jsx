@@ -1,11 +1,8 @@
 
-
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Sidebar from './Sidebar.jsx';
-import SuggestionList from './SuggestionList.jsx'
-import Friend from './Friend.jsx'
+console.log('do even exist over here in Profile.jsx?')
 
 export default class Profile extends React.Component {
   static propTypes = {
@@ -16,38 +13,37 @@ export default class Profile extends React.Component {
    * @param props - Comes from your rails view.
    * @param _railsContext - Comes from React on Rails
    */
-
   constructor(props, _railsContext) {
     super(props);
-
-    this.state = {
-      currentUser: 'Brian',
-      friendsList: ['Jim', 'Bob', 'John']
-     };
+    console.log('this.props.name is: ', this.props.name)
+    // How to set initial state in ES6 class syntax
+    // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
+    this.state = { name: this.props.name };
   }
 
-  /* Need method to add friend panels */
-  addFriend(friend) {
-    for (let i = int; i>0; i++){
-      nextFriend = new_friendships_path
-      console.log(nextFriend)
-      this.state.friendsList.push(nextFriend)
-    }
-  }
+  updateName = (name) => {
+    this.setState({ name });
+  };
 
-  render () {
+  render() {
     return (
-      <div className="profiles">
-        <div>
-          {this.state.currentUser}
-        </div>
-        <div>
-          <SuggestionList friendsList={this.state.friendsList} addFriend={this.addFriend}/>
-        </div>
-        <div className="sidebar">
-          <Sidebar user={this.state.currentUser}/>
-        </div>
+      <div>
+        <h3>
+          Holla, {this.state.name}!
+        </h3>
+        <hr />
+        <form >
+          <label htmlFor="name">
+            Say hello to:
+          </label>
+          <input
+            id="name"
+            type="text"
+            value={this.state.name}
+            onChange={(e) => this.updateName(e.target.value)}
+          />
+        </form>
       </div>
-    )
+    );
   }
 }
