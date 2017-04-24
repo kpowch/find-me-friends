@@ -14,10 +14,10 @@ class User < ApplicationRecord
   has_many :messages
   has_many :chatrooms, through: :messages
 
-  # validates :first_name, :last_name, :email, presence: true
-  # validates_uniqueness_of :email, case_sensitive: false
-  # validates :password, :password_confirmation, presence: true
-  # validates :password, length: { in: 4..15 }
+  validates :first_name, :last_name, :email, presence: true
+  validates_uniqueness_of :email, case_sensitive: false
+  validates :password, :password_confirmation, presence: true
+  validates :password, length: { in: 4..15 }
 
   def self.authenticate_with_credentials(email, password)
     user = User.find_by_email(email.strip)
