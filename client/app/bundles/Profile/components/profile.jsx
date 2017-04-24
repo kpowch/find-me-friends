@@ -21,8 +21,8 @@ export default class Profile extends React.Component {
     super(props);
 
     this.state = {
-      currentUser: this.props.user,
-      friendsList: []
+      currentUser: 'Brian',
+      friendsList: ['Jim', 'Bob', 'John']
      };
   }
 
@@ -39,10 +39,13 @@ export default class Profile extends React.Component {
     return (
       <div className="profiles">
         <div>
-          <SuggestionList friendsList={this.state.friendsList} addFriend={this.addFriend}>
+          {this.state.currentUser}
+        </div>
+        <div>
+          <SuggestionList friendsList={this.state.friendsList} addFriend={this.addFriend}/>
         </div>
         <div className="sidebar">
-          <Sidebar user={this.state.currentUser}>
+          <Sidebar user={this.state.currentUser}/>
         </div>
       </div>
     )

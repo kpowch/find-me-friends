@@ -3,6 +3,8 @@ class ProfileController < ApplicationController
   #show user profile
   def index
     @user = User.where(session[:user_id] = params[:id])
+    # Pass in props to profile page; After unit testing complete;
+    # @hello_world_props = { user: 'Wyatt', friends: ['Coffee', 'Donuts', 'Pizza'] }
   end
 
   # update user stats
