@@ -16,7 +16,7 @@ export default class Chatrooms extends React.Component {
   constructor(props, _railsContext) {
     super(props);
 
-    this.state = { name: "Paige" };
+    this.state = { name: this.props.name };
     // this.state = { name: this.props.name }; FROM HELLO WORLD EXAMPLE
   }
 
@@ -25,8 +25,8 @@ export default class Chatrooms extends React.Component {
      <div>
         <h3>
           Holla, {this.state.name}!
-          <Messages />
-          <Chatbar />
+          // <Messages />
+          // <Chatbar />
         </h3>
       </div>
 
