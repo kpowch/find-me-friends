@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Friend from './Friend'
 
 class SuggestionList extends React.Component {
 
   render() {
     return (
-      <main className="sidebar">
-        <div className="first-choice"></div>
-        <div className="second-choice"></div>
-        <div className="third-choice"></div>
-      </main>
+      <div className="suggestion-list">
+        {this.props.friends.map(function(friend) {
+          return (<Friend name={friend}/>)
+          }
+        )}
+      </div>
     );
   }
 }
