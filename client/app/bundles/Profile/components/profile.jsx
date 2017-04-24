@@ -1,6 +1,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import Sidebar from './Sidebar.jsx'
 
 console.log('do even exist over here in Profile.jsx?')
 
@@ -15,10 +16,12 @@ export default class Profile extends React.Component {
    */
   constructor(props, _railsContext) {
     super(props);
-    console.log('this.props.name is: ', this.props.name)
+    console.log('this.props is: ', this.props.name)
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-    this.state = { name: this.props.name };
+    this.state = {
+      name: this.props.name
+      };
   }
 
   updateName = (name) => {
@@ -43,6 +46,12 @@ export default class Profile extends React.Component {
             onChange={(e) => this.updateName(e.target.value)}
           />
         </form>
+        <div>
+          <Sidebar user={this.props}/>
+        </div>
+        <div>
+          <SuggestionList user={this.props}/>
+        </div>
       </div>
     );
   }

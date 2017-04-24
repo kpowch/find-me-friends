@@ -15,3 +15,10 @@ class SuggestionList extends React.Component {
 }
 
 export default SuggestionList;
+
+
+
+
+        <div>
+          <SuggestionList friendsList={this.state.currentUser.friendsList} addFriend={this.addFriend}/>
+        </div>

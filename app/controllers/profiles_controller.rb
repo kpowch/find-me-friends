@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   #dummy index profile
   def index
     # Pass in props to profile page; After unit testing complete;
-    @profile_props = {name: 'Wyatt', friends: ['Beavis', 'Butthead', 'The Other Guy']}
+    @profile_props = {name: 'Wyatt', bio: 'Likes to be fun.', friends: ['Beavis', 'Butthead', 'The Other Guy']}
     p @profile_props.inspect
     # @user = User.where(session[:user_id] = params[:id])
   end
