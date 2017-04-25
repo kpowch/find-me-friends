@@ -46,6 +46,15 @@
           <span class='form-field-input'> <%= f.text_field :last_name, value: current_user.last_name %></span>
           <span class='form-field-input'> <%= f.text_field :email, value: current_user.email %></span>
           <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Edit Password'%></span>
+          <span class="image-uploader">
+            <%= f.label :image %><br>
+            <%= f.file_field :image %>
+            <% if f.object.image? %>
+              <%= image_tag f.object.image.thumb.url %>
+              <%= f.label :remove_image %>
+              <%= f.check_box :remove_image %>
+            <% end %>
+          </span>
           <%= f.submit 'Submit', class: 'form-button' %>
         <% end %>
 
