@@ -1,12 +1,5 @@
 <h1>Your Profile</h1>
 
-<p>
-  <strong>Image?</strong>
-  <% if current_user.profile_picture %>
-    <%= current_user.profile_picture.thumb.url %>
-  <% end %>
-</p>
-
   <div class='button filled'>
     <span><%= link_to 'Edit', edit_user_path(current_user.id) %></span>
   </div>

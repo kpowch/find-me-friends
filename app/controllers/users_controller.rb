@@ -22,8 +22,12 @@ class UsersController < ApplicationController
   # render user's settings
   # TODO this might have to connect to the profile sidebar
   def show
+    @user = current_user
+    if @user.profile_picture == nil
+      User.update(@user.id, profile_picture: 'assets/images/20170425_125146.jpg')
+    end
     @profile_props = {
-      current_user: current_user
+      current_user: @user
     }
   end
 
