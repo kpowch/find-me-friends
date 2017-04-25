@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  mount_uploader :image, AvatarUploader
+
   has_many :interests_users
   has_many :interests, through: :interests_users
 
@@ -19,6 +21,11 @@ class User < ApplicationRecord
   # validates :password, :password_confirmation, presence: true
   # validates :password, length: { in: 4..15 }
 
+  # IMAGE VALIDATION
+  # validates_processing_of :image
+  # validate :image_size_validation
+
+
   def self.authenticate_with_credentials(email, password)
     user = User.find_by_email(email.strip)
 
@@ -27,5 +34,10 @@ class User < ApplicationRecord
     else
       return nil
     end
+  end
+
+  private
+  def image_size_validation
+    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
   end
 end
