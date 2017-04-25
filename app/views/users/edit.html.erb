@@ -4,19 +4,19 @@
   <%= flash[:alert] %>
 <% end %>
 
-<!-- <%= form_for edit_user_path do %>
+<%= react_component("EditUser", props: { allInterests: @interests, userInterests: @userInterests, currentUser: current_user }, prerender: false ) %>
 
-  <% @interests.each do |i| %>
-    <%= check_box(:interest,{:id => "#{i.id}",:value => "#{i.name}"}) %>
-    <%= label_tag "#{i.name}" %>
-  <% end %>
-<% end %>
+<div class='button filled'>
+  <span><%= link_to 'Home', :root %></span>
+</div>
 
-<h1>Edit Profile</h1>
 
-<% if flash[:alert] %>
-  <%= flash[:alert] %>
-<% end %> -->
+
+
+
+
+
+
 
 <div class='tab-container'>
 
@@ -63,3 +63,4 @@
 </p>
 <%= react_component("EditUser") %>
 yield
+
