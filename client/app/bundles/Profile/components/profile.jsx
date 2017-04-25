@@ -17,26 +17,31 @@ export default class Profile extends React.Component {
    */
   constructor(props, _railsContext) {
     super(props);
-    console.log('this.props is: ', this.props.name)
+    console.log('this.props is: ', this.props.current_user)
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
     this.state = {
-      name: this.props.name
-      };
+      user: {
+        first_name: this.props.current_user.first_name,
+        last_name: this.props.current_user.last_name,
+        email: this.props.current_user.email
+      },
+      friends: [
+        'Darryl',
+        'Steve',
+        'Brendan Walker'
+      ]
+    };
   }
-
-  updateName = (name) => {
-    this.setState({ name });
-  };
 
   render() {
     return (
       <div className="profile">
         <div>
-          <Sidebar user={this.props}/>
+          <Sidebar user={this.state.user}/>
         </div>
         <div className="list-container">
-          <SuggestionList friends={this.props.friends}/>
+          <SuggestionList friends={this.state.friends}/>
         </div>
       </div>
     );
