@@ -7,8 +7,8 @@ class SuggestionList extends React.Component {
   render() {
     return (
       <div className="suggestion-list">
-        {this.props.friends.map(function(friend) {
-          return (<Friend name={friend}/>)
+        {this.props.friends.map(function(friend, index) {
+          return (<Friend name={friend} key={index}/>)
           }
         )}
       </div>
