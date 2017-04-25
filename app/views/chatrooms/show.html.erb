@@ -1,13 +1,11 @@
 <h1>Welcome To The Chatroom <%= @chatroom.id %> </h1>
+<% @messages %>
 
-<% @messages.each do |message| %>
-<br/><br/>
-<%= message.user_id %>
-<%= message.content %>
-<% end %>
+
+<%= react_component("Chatrooms", props: {name: current_user.first_name, messages: @messages}) %>
 
 <%= form_for @message, remote: true do |f| %>
   <%= f.text_area :content %><br>
    <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
-  <%= f.submit 'Submit', class: 'form-button' %>
+  <%= f.submit 'Submit', class: 'form-button', data: {send: "message"} %>
 <% end %>

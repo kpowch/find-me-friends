@@ -16,7 +16,7 @@ export default class Chatrooms extends React.Component {
     this.state = {
       name: this.props.name,
       messages: this.props.messages,
-      friendships: this.props.friendships
+      // friendships: this.props.friendships
     };
 
   }
@@ -24,14 +24,10 @@ export default class Chatrooms extends React.Component {
   render() {
     return (
     <div className='chatroomz'>
-      <div className='sidebarz'>
-        {this.state.friendships.map((friend, index) =>
-            <Friendships key={index} friend={friend} />
-          )}
-      </div>
+
       <div className='messagez'>
         {this.state.messages.map((message, index) =>
-          <Messages key={index} message={message} />
+          <Messages key={index} message={message} name={name} />
           )}
       </div>
       <div className='chatbarz'>
@@ -41,3 +37,9 @@ export default class Chatrooms extends React.Component {
     )
   }
 }
+
+ // <div className='sidebarz'>
+ //        {this.state.friendships.map((friend, index) =>
+ //            <Friendships key={index} friend={friend} />
+ //          )}
+ //      </div>
