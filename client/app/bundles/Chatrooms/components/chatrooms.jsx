@@ -23,18 +23,18 @@ export default class Chatrooms extends React.Component {
 
   render() {
     return (
-    <div className='chatroom'>
-      <div className='sidebar'>
+    <div className='chatroomz'>
+      <div className='sidebarz'>
         {this.state.friendships.map((friend, index) =>
             <Friendships key={index} friend={friend} />
           )}
       </div>
-      <div className='messages'>
+      <div className='messagez'>
         {this.state.messages.map((message, index) =>
           <Messages key={index} message={message} />
           )}
       </div>
-      <div className='chatbar'>
+      <div className='chatbarz'>
         <Chatbar currentUser={this.state.name} />
       </div>
     </div>

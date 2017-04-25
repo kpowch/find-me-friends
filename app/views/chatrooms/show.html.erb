@@ -1,0 +1,13 @@
+<h1>Welcome To The Chatroom <%= @chatroom.id %> </h1>
+
+<% @messages.each do |message| %>
+<br/><br/>
+<%= message.user_id %>
+<%= message.content %>
+<% end %>
+
+<%= form_for @message, remote: true do |f| %>
+  <%= f.text_area :content %><br>
+   <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
+  <%= f.submit 'Submit', class: 'form-button' %>
+<% end %>
