@@ -7,14 +7,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
-    @user.profile_picture = 'assets/images/20170425_125146.jpg'
-
-    p @user.inspect
+    @user.first_name = "Bruce"
+    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/20170425_125146.jpg'))
 
     if @user.save
+      p @user.inspect
       session[:user_id] = @user.id
       flash[:alert] = "Welcome! Please fill in your interests so we can get started."
-      # redirect to edit user path so they can input their interests (not profiles_path yet)
+      # redirect to edit user path so they can input their interests
       redirect_to edit_user_path(@user.id)
     else
       flash[:alert] = @user.errors.full_messages.to_s # TODO incorporate this into page
@@ -22,8 +22,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # render user's settings
-  # TODO this might have to connect to the profile sidebar
+  # render user's profile
   def show
     @user = User.find(current_user.id)
     @profile_props = {
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
     @userInterests = InterestsUser.where(user_id: session[:user_id])
   end
 
-  # updates edited settings
+  # updates edited settings in db
   def update
     @user = User.find(current_user.id)
     @user.update(user_params)
