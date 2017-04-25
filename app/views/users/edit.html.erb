@@ -58,10 +58,13 @@
   </ul>
 </div>
 
-<div class='button filled'>
-  <!-- Need to link to profile page -->
-  <h4><%= link_to users_path(current_user.id) %></h4>
-</div>
+
+<%= link_to "/users/#{current_user.id}" do %>
+  <div class='button filled'>
+    <span>Profile page</span>
+  </div>
+<% end %>
+
 
 <p>
   here is the react:

@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
+    @user.profile_picture = 'assets/images/20170425_125146.jpg'
+
+    p @user.inspect
 
     if @user.save
       session[:user_id] = @user.id
@@ -22,10 +25,7 @@ class UsersController < ApplicationController
   # render user's settings
   # TODO this might have to connect to the profile sidebar
   def show
-    @user = current_user
-    if @user.profile_picture == nil
-      User.update(@user.id, profile_picture: 'assets/images/20170425_125146.jpg')
-    end
+    @user = User.find(current_user.id)
     @profile_props = {
       current_user: @user
     }
