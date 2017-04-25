@@ -11,8 +11,8 @@ class User < ApplicationRecord
   # has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   # has_many :inverse_friends, through: :inverse_friendships, source: :user
 
-  # has_many :messages
-  # has_many :chatrooms, through: :messages
+  has_many :messages
+  has_many :chatrooms, through: :messages
 
   # validates :first_name, :last_name, :email, presence: true
   # validates_uniqueness_of :email, case_sensitive: false

@@ -25,11 +25,7 @@ export default class Chatrooms extends React.Component {
     return (
     <div className='chatroomz'>
 
-      <div className='messagez'>
-        {this.state.messages.map((message, index) =>
-          <Messages key={index} message={message} name={name} />
-          )}
-      </div>
+
       <div className='chatbarz'>
         <Chatbar currentUser={this.state.name} />
       </div>
@@ -37,6 +33,13 @@ export default class Chatrooms extends React.Component {
     )
   }
 }
+
+
+// <div className='messagez'>
+//         {this.state.messages.map((message, index) =>
+//           <Messages key={index} message={message} name={name} />
+//           )}
+//       </div>
 
  // <div className='sidebarz'>
  //        {this.state.friendships.map((friend, index) =>

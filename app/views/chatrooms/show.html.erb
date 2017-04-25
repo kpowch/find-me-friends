@@ -1,11 +1,14 @@
-<h1>Welcome To The Chatroom <%= @chatroom.id %> </h1>
-<% @messages %>
+<div class="panel panel-default">
+  <% if @chatroom.messages.any? %>
+    <div class="panel-body" id="messages">
+      <%= render partial: 'messages/message', collection: @chatroom.messages%>
+    </div>
+  <%else%>
+    <div class="panel-body hidden" id="messages">
+    </div>
+  <%end%>
+</div>
 
 
-<%= react_component("Chatrooms", props: {name: current_user.first_name, messages: @messages}) %>
-
-<%= form_for @message, remote: true do |f| %>
-  <%= f.text_area :content %><br>
-   <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
-  <%= f.submit 'Submit', class: 'form-button', data: {send: "message"} %>
-<% end %>
+  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+</div>

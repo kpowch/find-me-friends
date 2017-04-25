@@ -1,7 +1,3 @@
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-
 
 //= require cable
 //= require_self
@@ -9,4 +5,4 @@
 
 this.App = {};
 
-App.cable = ActionCable.createConsumer();
+App.cable = ActionCable.createConsumer("/cable");
