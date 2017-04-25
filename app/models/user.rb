@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  mount_uploader :image, AvatarUploader
+  mount_uploader :profile_picture, AvatarUploader
 
   has_many :interests_users
   has_many :interests, through: :interests_users

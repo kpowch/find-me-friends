@@ -7,9 +7,7 @@ import SuggestionList from './SuggestionList.jsx'
 console.log('do even exist over here in Profile.jsx?')
 
 export default class Profile extends React.Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired, // this is passed from the Rails view
-  };
+  static propTypes = {};
 
   /**
    * @param props - Comes from your rails view.
@@ -21,11 +19,10 @@ export default class Profile extends React.Component {
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
     this.state = {
-      user: {
-        first_name: this.props.current_user.first_name,
-        last_name: this.props.current_user.last_name,
-        email: this.props.current_user.email
-      },
+      first_name: this.props.current_user.first_name,
+      last_name: this.props.current_user.last_name,
+      email: this.props.current_user.email,
+      profile_picture: this.props.current_user.profile_picture.thumb.url,
       friends: [
         'Darryl',
         'Steve',
@@ -38,7 +35,7 @@ export default class Profile extends React.Component {
     return (
       <div className="profile">
         <div>
-          <Sidebar user={this.state.user}/>
+          <Sidebar first_name={this.state.first_name} last_name={this.state.last_name} email={this.state.email} profile_picture={this.state.profile_picture}/>
         </div>
         <div className="list-container">
           <SuggestionList friends={this.state.friends}/>

@@ -22,17 +22,23 @@ class UsersController < ApplicationController
   # render user's settings
   # TODO this might have to connect to the profile sidebar
   def show
-    # TODO page that shows their current info
+    @profile_props = {
+      current_user: current_user
+    }
   end
 
   # to receive form and edit settings (HTML form)
   def edit
+    @user = User.find(current_user.id)
     @interests = Interest.order(:name).all
     @userInterests = InterestsUser.where(user_id: session[:user_id])
   end
 
   # updates edited settings
   def update
+    @user = User.find(current_user.id)
+    @user.update(user_params)
+    redirect_to user_path
   end
 
   # detete account TODO decide if we want this
@@ -46,6 +52,7 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :email,
+      :profile_picture,
       :password,
       :password_confirmation
     )
