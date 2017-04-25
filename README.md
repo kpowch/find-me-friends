@@ -68,6 +68,8 @@ nvm list                        # check
 
 brew install yarn               # you can use other installer if desired
 
+brew install imagemagick        # required for image uploader
+
 rvm install 2.3.1               # download and install latest stable Ruby (update to exact version)
 rvm use 2.3.1 --default         # use it and make it default
 rvm list                        # check
