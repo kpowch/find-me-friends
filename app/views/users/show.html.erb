@@ -1,0 +1,15 @@
+<h1>Your Profile</h1>
+
+<p>
+  <strong>Image?</strong>
+  <% if current_user.image %>
+    <%= current_user.image.thumb.url %>
+  <% end %>
+</p>
+
+  <div class='button filled'>
+    <span><%= link_to 'Edit', edit_user_path(current_user.id) %></span>
+  </div>
+
+<%= react_component("Profile", props: @profile_props) %>
+

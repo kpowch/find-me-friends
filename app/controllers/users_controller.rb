@@ -22,7 +22,10 @@ class UsersController < ApplicationController
   # render user's settings
   # TODO this might have to connect to the profile sidebar
   def show
-    # TODO page that shows their current info
+    @user =
+    @profile_props = {
+      current_user: current_user
+    }
   end
 
   # to receive form and edit settings (HTML form)
