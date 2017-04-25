@@ -2,8 +2,8 @@
 
 <p>
   <strong>Image?</strong>
-  <% if current_user.image %>
-    <%= current_user.image.thumb.url %>
+  <% if current_user.profile_picture %>
+    <%= current_user.profile_picture.thumb.url %>
   <% end %>
 </p>
 

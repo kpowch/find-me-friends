@@ -4,7 +4,7 @@
   <%= flash[:alert] %>
 <% end %>
 
-<%= react_component("EditUser", props: { allInterests: @interests, userInterests: @userInterests, currentUser: current_user }, prerender: false ) %>
+<!--<%= react_component("EditUser", props: { allInterests: @interests, userInterests: @userInterests, currentUser: current_user }, prerender: false ) %> -->
 
 <div class='button filled'>
   <span><%= link_to 'Home', :root %></span>
@@ -41,14 +41,14 @@
       <label for="tab2" class='tab-label' tabindex="0">Edit Profile</label>
       <div id="tab-content2" class="tab-content">
 
-        <%= form_for :user, url: '/users' do |f| %>
+        <%= form_for (@user) do |f| %>
           <span class='form-field-input'> <%= f.text_field :first_name, value: current_user.first_name %></span>
           <span class='form-field-input'> <%= f.text_field :last_name, value: current_user.last_name %></span>
           <span class='form-field-input'> <%= f.text_field :email, value: current_user.email %></span>
           <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Edit Password'%></span>
           <span class="image-uploader">
-            <%= f.label :image %><br>
-            <%= f.file_field :image %>
+            <%= f.label :profile_picture %><br>
+            <%= f.file_field :profile_picture %>
           </span>
           <%= f.submit 'Submit', class: 'form-button' %>
         <% end %>
@@ -60,7 +60,7 @@
 
 <div class='button filled'>
   <!-- Need to link to profile page -->
-  <h4><%= link_to profile_path(current_user.id) %></h4>
+  <h4><%= link_to users_path(current_user.id) %></h4>
 </div>
 
 <p>
