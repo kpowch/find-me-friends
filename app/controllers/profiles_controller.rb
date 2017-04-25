@@ -11,8 +11,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile_props = {
-      current_user: current_user(session[:user_id]),
-      current_friends: current_friends(session[:user_id])
+      current_user: current_user
     }
   end
 

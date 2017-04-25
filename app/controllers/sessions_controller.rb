@@ -8,9 +8,7 @@ class SessionsController < ApplicationController
     # authenticate email-password combo and strip email of edge whitespace
     if user = User.authenticate_with_credentials(params[:email].strip, params[:password])
       session[:user_id] = user.id
-      redirect_to profile: "show", id: session[:user_id]
-      # OR THIS ONE
-      redirect_to proc { edit_post_url(@post) }
+      redirect_to profile_path(current_user.id)
     else
       flash[:alert] = "There was an error with your credentials. Please try again."
       redirect_to '/login'
