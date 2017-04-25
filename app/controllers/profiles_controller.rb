@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-
+  # calls in methods from helper
+  helper ProfileHelper
   #dummy index profile
   def index
     # Pass in props to profile page; After unit testing complete;
@@ -8,19 +9,11 @@ class ProfilesController < ApplicationController
     # @user = User.where(session[:user_id] = params[:id])
   end
 
-  # update user stats - moved logic to user_controller?
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      redirect_to [:profile], notice: 'Profile updated, friend!'
-    else
-      render :new
-    end
-  end
-
-  #remove profile from databse, return to welcome?
-  def destroy
+  def show
+    @profile_props = {
+      current_user: current_user(session[:user_id]),
+      current_friends: current_friends(session[:user_id])
+    }
   end
 
   private
