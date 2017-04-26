@@ -67,7 +67,8 @@ User.create!({
 puts "Making friends come together...."
 Friendship.destroy_all
 
-Friendship.create(id: 1, user_id: 1, friend_id: 2, friendship_status: "Accepted")
+Friendship.create(id: 1, user_id: 1, friend_id: 2, friendship_status: "accepted")
+Friendship.create(id: 2, user_id: 2, friend_id: 3, friendship_status: "pending")
 
 ## INTERESTS
 puts "Making people enjoy doing things..."
@@ -85,7 +86,7 @@ Interest.create(id: 6, name: "Food")
 puts "Generating some forced conversations..."
 Chatroom.destroy_all
 
-Chatroom.create(id: 1)
+Chatroom.create(id: 1, friendship_id: 1)
 Chatroom.create(id: 2)
 
 puts "Seeding Complete!"
