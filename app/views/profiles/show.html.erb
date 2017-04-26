@@ -1,9 +1,0 @@
-<h1>Your Profile</h1>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @user.profile_picture.thumb.url %>
-</p>
-
-<%= react_component("Profile", props: @profile_props) %>
-
