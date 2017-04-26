@@ -12,7 +12,7 @@
         <span>HOW IT WORKS</span>
       </div>
         <% if current_user %>
-          <%= link_to "/users/#{current_user.id}" do %>
+          <%= link_to "/profiles" do %>
             <div class='navbar-item button outlined button-hover'>
               <span>Signed in as <%= current_user.first_name %></span>
             </div>
