@@ -79,10 +79,10 @@ input.signup-tab:checked + label {
 }
 
 @media screen and (max-width: 650px) {
-  label {
+  label.welcome {
     font-size: 0;
   }
-  label:before {
+  label.welcome:before {
     margin: 0;
     font-size: 18px;
   }
