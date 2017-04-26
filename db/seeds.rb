@@ -69,7 +69,6 @@ Friendship.destroy_all
 
 Friendship.create(id: 1, user_id: 1, friend_id: 2, friendship_status: "Accepted")
 
-
 ## INTERESTS
 puts "Making people enjoy doing things..."
 Interest.destroy_all
@@ -88,6 +87,5 @@ Chatroom.destroy_all
 
 Chatroom.create(id: 1)
 Chatroom.create(id: 2)
-
 
 puts "Seeding Complete!"

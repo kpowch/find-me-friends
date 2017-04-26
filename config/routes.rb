@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users, except: [:index, :delete]
-  resources :profiles, only: [:index, :show, :create]
+  resources :profiles, only: [:index]
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

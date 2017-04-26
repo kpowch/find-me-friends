@@ -25,6 +25,11 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
+  # Sets cable server's URI for proudction in Heroku
+  config.web_socket_server_url = "wss://findmefriends.herokuapp.com/cable"
+
+  # Action Cable to Accept WebSocket requests from specified origins; Configuration array
+  config.action_cable.allowed_request_origins = ['https://findmefriends.herokuapp.com', 'http://findmefriends.herokuapp.com']
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.

@@ -18,7 +18,16 @@
       <span class='form-field-input'> <%= f.text_field :last_name, value: current_user.last_name %></span>
       <span class='form-field-input'> <%= f.text_field :email, value: current_user.email %></span>
       <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Edit Password'%></span>
-      <span class='form-field-input'> <%= f.select :interest_ids, Interest.all.collect { |interest| [interest.name, interest.id] }, as: :checkbox, multiple: true %></span>
+
+      <div>
+        <% @interests.each do |interest| %>
+          <div>
+            <%= check_box_tag :interest_ids, interest.id, @user.interests.include?(interest), :name => 'user[interest_ids][]' %>
+            <%= label_tag :interest_id, interest.name %>
+          </div>
+        <% end %>
+      </div>
+
       <span class="image-uploader">
         <%= f.label :profile_picture %><br>
         <%= f.file_field :profile_picture %>
@@ -34,5 +43,3 @@
     <span>Profile page</span>
   </div>
 <% end %>
-
-

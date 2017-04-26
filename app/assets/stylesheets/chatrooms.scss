@@ -1,3 +1,50 @@
 // Place all the styles related to the chat controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chatroom-div {
+  width: 100%;
+
+  .friendships {
+    // float: left;
+    margin: 5px;
+    padding: 5px;
+
+    .friend-side {
+      margin: 15px;
+    }
+  }
+}
+.panel-body#messages {
+  margin: 25px;
+}
+
+.panel-body p {
+  margin: 5px;
+  display: inline-block;
+  margin-top: 15px;
+  padding: 13px;
+  border-radius: 21px;
+  // max-width: 23%;
+  background-color: #71d0b6;
+  word-wrap: break-word;
+}
+  .currentUser {
+    background-color: red;
+    text-align: right;
+  }
+
+textarea {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 50px;
+  z-index: 99;
+  background: white;
+  border: none;
+  padding-left: 55px;
+  padding-right: 55px;
+  resize: none;
+}
