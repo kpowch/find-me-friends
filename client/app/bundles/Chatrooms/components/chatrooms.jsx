@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Chatbar from './Chatbar.jsx';
-import Messages from './Messages.jsx';
 import Friendships from './Friendships.jsx';
 
 export default class Chatrooms extends React.Component {
@@ -15,8 +13,7 @@ export default class Chatrooms extends React.Component {
 
     this.state = {
       name: this.props.name,
-      messages: this.props.messages,
-      // friendships: this.props.friendships
+      friendships: this.props.friends
     };
 
   }
@@ -24,21 +21,16 @@ export default class Chatrooms extends React.Component {
   render() {
     return (
     <div className='chatroomz'>
-
-
-
-
-
+      <div className='sidebarz'>
+        {this.state.friendships.map((friend, index) =>
+        <Friendships key={index} friend={friend} />
+        )}
+      </div>
     </div>
     )
   }
 }
 
-// <div className='sidebarz'>
-//   {this.state.friendships.map((friend, index) =>
-//   <Friendships key={index} friend={friend} />
-//   )}
-// </div>
 //   <div className='messagez'>
 //   {this.state.messages.map((message, index) =>
 //   <Messages key={index} message={message} name={name} />

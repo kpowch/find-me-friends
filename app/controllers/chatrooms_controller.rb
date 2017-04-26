@@ -28,7 +28,8 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find_by(id: params[:id])
-    # @messages = Message.where(chatroom_id: params[:id])
+    @messages = Message.where(chatroom_id: params[:id])
+    @friendships = Friendship.where(user_id: current_user.id)
     @message = Message.new
   end
 
