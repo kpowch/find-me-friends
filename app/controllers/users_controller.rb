@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
-    @user.first_name = "Bruce"
     @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/20170425_125146.jpg'))
 
     if @user.save
@@ -34,13 +33,13 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(current_user.id)
     @interests = Interest.order(:name).all
-    @userInterests = InterestsUser.where(user_id: session[:user_id])
   end
 
   # updates edited settings in db
   def update
     @user = User.find(current_user.id)
     @user.update(user_params)
+
     redirect_to user_path
   end
 
@@ -57,7 +56,8 @@ class UsersController < ApplicationController
       :email,
       :profile_picture,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :interest_ids
     )
   end
 end
