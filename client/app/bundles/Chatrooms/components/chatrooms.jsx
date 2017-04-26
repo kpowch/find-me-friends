@@ -34,13 +34,13 @@ export default class Chatrooms extends React.Component {
   }
 }
 
-    // <div className='sidebarz'>
-    //   {this.state.friendships.map((friend, index) =>
-    //     <Friendships key={index} friend={friend} />
-    //   )}
-    // </div>
-// <div className='messagez'>
-//         {this.state.messages.map((message, index) =>
-//           <Messages key={index} message={message} name={name} />
-//           )}
-//       </div>
+// <div className='sidebarz'>
+//   {this.state.friendships.map((friend, index) =>
+//   <Friendships key={index} friend={friend} />
+//   )}
+// </div>
+//   <div className='messagez'>
+//   {this.state.messages.map((message, index) =>
+//   <Messages key={index} message={message} name={name} />
+//   )}
+// </div>
