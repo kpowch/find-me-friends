@@ -32,14 +32,19 @@ class UsersController < ApplicationController
   # to receive form and edit settings (HTML form)
   def edit
     @user = User.find(current_user.id)
-    @interests = Interest.order(:name).all
+    @interests = Interest.all.order(:name)
   end
 
   # updates edited settings in db
   def update
     @user = User.find(current_user.id)
-    @user.update(user_params)
 
+    # if they have no interests, make interest_ids = empty array
+    # otherwise it'll not 'save' and at least one interest will be checked
+    if user_params[:interest_ids].nil?
+      @user.update(interest_ids: [])
+    end
+    @user.update(user_params)
     redirect_to user_path
   end
 
@@ -50,14 +55,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(
+    params.require(:user)
+    .permit(
       :first_name,
       :last_name,
       :email,
       :profile_picture,
       :password,
       :password_confirmation,
-      :interest_ids
+      interest_ids: []
     )
   end
 end
