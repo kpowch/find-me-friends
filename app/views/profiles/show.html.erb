@@ -2,7 +2,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @user.image.thumb.url %>
+  <%= image_tag @user.profile_picture.thumb.url %>
 </p>
 
 <%= react_component("Profile", props: @profile_props) %>
