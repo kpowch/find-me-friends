@@ -1,57 +1,34 @@
-<div class='welcome'>
-  <div class='full-container'>
 
-    <%= link_to new_user_path do %>
-      <div class='navbar-item button filled button-hover'>
-        <span>Signup!</span>
-      </div>
+<main id=welcome-login>
+
+  <input id="tab1" class="signup-tab" type="radio" name="tabs" checked>
+  <label for="tab1" class="welcome">Signup</label>
+  <input id="tab2" class="signup-tab" type="radio" name="tabs">
+  <label for="tab2" class="welcome">Register</label>
+
+  <section class="welcome-tabs" id="content1">
+    <div>
+      <%= form_for :user, url: '/users' do |f| %>
+      <span class='form-field-input'> <%= f.text_field :first_name, placeholder: 'First Name'%></span>
+      <span class='form-field-input'> <%= f.text_field :last_name, placeholder: 'Last Name' %></span>
+      <span class='form-field-input'> <%= f.text_field :email, placeholder: 'Email' %></span>
+      <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Password'%></span>
+      <span class='form-field-input'> <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %></span>
+      <%= f.submit 'Submit', class: 'form-button' %>
     <% end %>
+    </div>
+  </section>
 
-    <%= link_to '/login' do %>
-      <div class='navbar-item button outlined button-hover'>
-        <span>Login</span>
-      </div>
+  <section class="welcome-tabs" id="content2">
+    <div>
+    <%= form_tag '/login' do %>
+      <span class='form-field-input'> <%= text_field_tag(:email, '', placeholder: 'Email') %></span>
+      <span class='form-field-input'> <%= password_field_tag(:password, '', placeholder: 'Password') %></span>
+      <%= submit_tag 'Submit', class: 'form-button' %>
     <% end %>
-
   </div>
+  </section>
 
-  <div class='sub-container'>
-  <h1 class='container-header'>Meet New People</h1>
 
-  </div>
+</main>
 
-  <div class='full-container'>
-    <h1 class='container-header'>How it Works</h1>
-    <div class='info-box-container'>
-      <div class='info-box'>
-        <article>
-          <img />
-          <h3 class='info-box-title'>You:</h3>
-          <p>
-            Tell us your interests
-          </p>
-        </article>
-      </div>
-
-      <div class='info-box'>
-        <article>
-          <img />
-          <h3 class='info-box-title'>We:</h3>
-          <p>
-            Match you with a like-minded human
-          </p>
-        </article>
-      </div>
-
-      <div class='info-box'>
-        <article>
-          <img />
-          <h3 class='info-box-title'>You both:</h3>
-          <p>
-            Hang out and see where it goes!
-          </p>
-        </article>
-      </div>
-
-  </div>
-</div>

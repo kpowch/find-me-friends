@@ -1,40 +1,95 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 @import 'application';
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
 
-.sub-container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 80px 20px;
-  text-align: center;
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1.container-header {
-  color: $color-background-light;
-  margin-bottom: 30px;
+html, body {
+  height: 100%;
 }
 
-.full-container {
-  background-color: $color-background-dark;
-  margin: 0 auto;
-  padding: 80px 20px;
-  text-align: center;
+form {
 
-  .info-box-container {
-    margin: 0 auto;
-    max-width: $max-width;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    padding: 10px;
+}
+
+body {
+  font: 14px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #eee;
+}
+
+main#welcome-login {
+  min-width: 320px;
+  max-width: 500px;
+  padding: 21px;
+  margin: 0 auto;
+  background: #fff;
+  margin-right: 5%;
+  border-radius: 17px;
+  box-shadow: -2px 2px 8px #777777;
+}
+
+section.welcome-tabs {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input.signup-tab {
+  display: none;
+}
+
+label.welcome {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label.welcome:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label.welcome:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input.signup-tab:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
   }
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
 
-  .info-box {
-    background-color: $color-bright;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-    color: #825601; //TODO replace this with a constant
-    margin: 5px;
-    padding: 30px;
-    flex: 0 0 25%;
+@media screen and (max-width: 400px) {
+  label.welcome {
+    padding: 15px;
   }
 }
