@@ -49,6 +49,25 @@ class UsersController < ApplicationController
 
   private
 
+  # iterates through current user interests, generates list of other user matches for each interest.
+  # master list of all users that matched plus count
+  def friend_finder(int, user)
+    # {user_id: count}
+    master_list = {}
+    while i < int do
+      all_interests = InterestUser.find(user_id: user.id)
+      while j < all_interests.count do
+        interests = all_interests[i]
+        while k < interests.count do
+          array = User.find(id: interests[k])
+
+        end
+      end
+    end
+    # sort and return master list
+    #pass user logic?
+  end
+
   def user_params
     params.require(:user).permit(
       :first_name,
