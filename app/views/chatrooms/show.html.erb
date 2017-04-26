@@ -1,17 +1,14 @@
 <div class="chatroom-div">
   <span class="friendships">
-     <h3> Messenger </h3>
+    <h3> Messenger </h3>
     <% @friendships.each do |friend| %>
       <div class="friend-side"><%= friend.friend.first_name %><br/></div>
     <% end %>
   </span>
-
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
-    </div>
-
-      <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
-
+  <div class="panel-body" id="messages">
+   <%= render partial: 'messages/message', collection: @chatroom.messages%>
+  </div>
+  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
 </div>
 
 

@@ -19,10 +19,3 @@ class MessagesController < ApplicationController
       params.require(:message).permit(:content, :chatroom_id)
     end
 end
-
-
-  # ActionCable.server.broadcast 'messages',
-  #       # set message and user
-  #       message: message.content,
-  #       user: message.user.first_name
-  #   head :ok
