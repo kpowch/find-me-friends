@@ -18,6 +18,7 @@ class FriendshipsController < ApplicationController
   end
 
   # GET /friendships/1/edit
+  #
   def edit
   end
 
