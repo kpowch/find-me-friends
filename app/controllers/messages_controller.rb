@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast 'messages',
         # set message and user
         message: message.content,
-        user: message.user.first_name
+        user: message.user.first_name,
+        current_user: current_user.first_name
     head :ok
     end
   end
