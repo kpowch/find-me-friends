@@ -32,8 +32,7 @@ User.create!({
   profile_picture: 'img.jpeg',
   bio: Faker::Hipster.sentences(1),
   created_at: '21-04-2017',
-  updated_at: '22-04-2017',
-  messages: []
+  updated_at: '22-04-2017'
   })
 
 User.create!({
@@ -47,8 +46,7 @@ User.create!({
   profile_picture: 'img.jpeg',
   bio: Faker::Hipster.sentences(1),
   created_at: '21-04-2017',
-  updated_at: '22-04-2017',
-  messages: []
+  updated_at: '22-04-2017'
   })
 
 User.create!({
@@ -62,8 +60,7 @@ User.create!({
   profile_picture: 'img.jpeg',
   bio: Faker::Hipster.sentences(1),
   created_at: '21-04-2017',
-  updated_at: '22-04-2017',
-  messages: []
+  updated_at: '22-04-2017'
   })
 
 ## FRIENDSHIPS
@@ -89,17 +86,8 @@ Interest.create(id: 6, name: "Food")
 puts "Generating some forced conversations..."
 Chatroom.destroy_all
 
-Chatroom.create(id: 1, friendship_id: 1, message_id: 1)
-Chatroom.create(id: 2, friendship_id: 1, message_id: 2)
-
-## MESSAGES
-puts "Generating made up things by made up people..."
-Message.destroy_all
-
-Message.create(id: 1, content: Faker::Friends.quote, user_id: 1, chatroom_id: 1)
-Message.create(id: 2, content: Faker::Friends.quote, user_id: 1, chatroom_id: 1)
-Message.create(id: 3, content: Faker::Friends.quote, user_id: 2, chatroom_id: 1)
-Message.create(id: 4, content: Faker::Friends.quote, user_id: 2, chatroom_id: 1)
+Chatroom.create(id: 1)
+Chatroom.create(id: 2)
 
 
 puts "Seeding Complete!"
