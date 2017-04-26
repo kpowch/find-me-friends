@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :welcome, only: [:index, :show]
 
-  # Serve websocket cable requests in-process
-  mount ActionCable.server => '/cable'
 
   #routes as specified in Action Cable setup
   resources :chatrooms, param: :id
@@ -22,4 +20,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :delete]
   resources :profiles, only: [:index, :show, :create]
 
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 end

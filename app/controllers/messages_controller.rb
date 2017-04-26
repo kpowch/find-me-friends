@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+
   def create
     message = Message.new(message_params)
     message.user = current_user
@@ -8,13 +9,19 @@ class MessagesController < ApplicationController
         # set message and user
         message: message.content,
         user: message.user.first_name
-      head :ok
+    head :ok
     end
   end
 
   private
-
     def message_params
       params.require(:message).permit(:content, :chatroom_id)
     end
 end
+
+
+  # ActionCable.server.broadcast 'messages',
+  #       # set message and user
+  #       message: message.content,
+  #       user: message.user.first_name
+  #   head :ok

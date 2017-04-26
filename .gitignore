@@ -25,3 +25,8 @@ node_modules
 
 # Generated js bundles
 /app/assets/webpack/*
+
+# Ignore temp pictures
+public/uploads/tmp/*
+
+.DS_Store
