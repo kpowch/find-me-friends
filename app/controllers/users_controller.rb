@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
     @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/20170425_125146.jpg'))
+    @user.bio = '';
 
     if @user.save
       p @user.inspect
@@ -51,20 +52,43 @@ class UsersController < ApplicationController
 
   # iterates through current user interests, generates list of other user matches for each interest.
   # master list of all users that matched plus count
-  def friend_finder(int, user)
+
+  def friend_seed
+    seed_hash = {}
+    while i < 3 do
+      seed_hash[:i] = friend_finder
+    end
+
+  def friend_finder
+    user = User.find(current_user.id)
     # {user_id: count}
     master_list = {}
-    while i < int do
-      all_interests = InterestUser.find(user_id: user.id)
-      while j < all_interests.count do
-        interests = all_interests[i]
-        while k < interests.count do
-          array = User.find(id: interests[k])
+    all_interests = InterestUser.find(user_id: user.id)
 
+    puts all_interests
+
+    while i < all_interests.count do
+      interest = all_interests[i]
+      puts interests
+
+      while j < interest.count do
+        array = InterestUser.find(interest_id: interests[j])
+        puts array
+
+        while k < array.count do
+          puts array[k]
+
+
+          if master_list.has_key?(:array[k])
+            master_list[:array[k]] += 1
+          else
+            master_list[:array[k]] = 1
         end
       end
+      master_list.sort
     end
     # sort and return master list
+    # HASH.MERGE
     #pass user logic?
   end
 
