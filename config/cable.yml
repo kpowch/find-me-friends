@@ -8,4 +8,4 @@ test:
 # redis is in memory db for messages. May need to add to development too
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:cdf6a0d6e1e9b3dccba08c1a6cad7e80@barreleye.redistogo.com:10567/
