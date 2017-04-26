@@ -10,7 +10,7 @@ import Friend from 'app-bundles/Profile/components/Friend';
 //Import Chatrooms components
 import Chatrooms from 'app-bundles/Chatrooms/components/Chatrooms.jsx';
 
-import EditUser from 'app-bundles/Users/components/edit';
+import User from 'app-bundles/Users/components/User';
 
 // This is how react_on_rails can see React components
 ReactOnRails.register({
@@ -21,5 +21,5 @@ ReactOnRails.register({
   SuggestionList: SuggestionList,
   Friend: Friend,
   Chatrooms: Chatrooms,
-  EditUser: EditUser
+  User: User
 });
