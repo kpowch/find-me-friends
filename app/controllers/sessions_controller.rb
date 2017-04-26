@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to '/login'
     end
   end
-
+  #
   # to logout
   def destroy
     flash[:alert] = "You have successfully been logged out. Come back soon!"
