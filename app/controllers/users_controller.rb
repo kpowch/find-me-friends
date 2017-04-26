@@ -23,10 +23,7 @@ class UsersController < ApplicationController
 
   # render user's profile
   def show
-    @user = User.find(current_user.id)
-    @profile_props = {
-      current_user: @user
-    }
+    @user = User.find(params[:id])
   end
 
   # to receive form and edit settings (HTML form)
