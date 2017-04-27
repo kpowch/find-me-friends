@@ -14,12 +14,10 @@ const config = {
     'babel-polyfill',
     './app/startup/registration.jsx'
   ],
-
   output: {
     filename: 'webpack-bundle.js',
     path: pathLib.resolve(__dirname, '../app/assets/webpack'),
   },
-
   // This aliases the prefix to a file (so we don't need ../../../ etc.)
   // _dirname is the current directory
   // therefore everything with 'app-bundles' will now be the bundles folder
