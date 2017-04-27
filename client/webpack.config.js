@@ -12,7 +12,7 @@ const config = {
     'es5-shim/es5-shim',
     'es5-shim/es5-sham',
     'babel-polyfill',
-    './app/startup/registration.jsx',
+    './app/startup/registration.jsx'
   ],
 
   output: {
