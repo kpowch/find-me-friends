@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
-    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/20170425_125146.jpg'))
+    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg'))
     @user.bio = '';
 
     if @user.save
