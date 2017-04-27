@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :delete]
   resources :profiles, only: [:index]
 
+  namespace :admin do
+    root to: 'dashboard#show'
+    resources :chatrooms, only: [:delete, :show]
+    resources :users, only: [:new, :delete, :update, :show]
+    resources :friendships, only: [:new, :delete, :show]
+  end
+
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 end
