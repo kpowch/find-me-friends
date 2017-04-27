@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     .permit(
       :first_name,
       :last_name,
+      :dob,
       :email,
       :profile_picture,
       :password,
