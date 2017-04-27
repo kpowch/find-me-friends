@@ -63,7 +63,7 @@ class FriendshipsController < ApplicationController
   end
 
 
-  private
+ # private
  # given user, will return an ordered array (?confirm order?) of users with matched interests
   def friendlist(user)
     User.find_by_sql(
@@ -84,6 +84,21 @@ class FriendshipsController < ApplicationController
         num_common_interests desc;"
     )
   end
+
+  def save_friendships
+    array = friendlist(current_user)
+    array.each do |id|
+      if Friendship.where(friend_id: id)
+        next
+      else
+        Friendship.new(user_id: current_user.id, friend_id: id, friendship_status: "initialized")
+      end
+    end
+  end
+
+
+
+  # Are we using this method?!
   # Use callbacks to share common setup or constraints between actions.
   def set_friendship
     @friendship = User.includes(:interests)
