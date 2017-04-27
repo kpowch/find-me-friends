@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
-
+    puts 'in friendships create'
     respond_to do |format|
       if @friendship.save
         format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
@@ -64,11 +64,6 @@ class FriendshipsController < ApplicationController
 
 
   private
- # given user, will return an ordered array (?confirm order?) of users with matched interests
-
-
-
-
   # Are we using this method?!
   # Use callbacks to share common setup or constraints between actions.
   def set_friendship

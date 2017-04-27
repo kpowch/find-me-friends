@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   # This shows the user's profile - their name, info, friends
   def index
     puts 'query'
-    current_friends = Friendship.where(user_id: current_user.id).where("friendship_status IN (?) OR friendship_status IN (?)", 'initiated', 'limbo')
+    current_friends = friendly_three_amigos_method
     puts 'current_friends'
     puts current_friends
     # Pass in props to profile page
@@ -15,7 +15,12 @@ class ProfilesController < ApplicationController
     }
   end
 
-  def friendly_three_amigos_function
-
+  def friendly_three_amigos_method
+    full_user_objects = {}
+    friendships = Friendship.where(user_id: current_user.id)
+    friendships.each do |friendship|
+      full_user_objects[friendship.id] = User.where(id: friendship.friend_id)
+    end
+    full_user_objects
   end
 end

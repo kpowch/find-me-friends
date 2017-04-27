@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
 
 
-
+  ## returns an array of user_id's from user with matching interests, ordered by # of hits
   def friendlist(user)
     User.find_by_sql(
       "SELECT
@@ -35,13 +35,22 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  # should save friendships based on array provided by friendlist
+  # loops through id's, see if friendship already exists
   def save_friendships
     array = friendlist(current_user)
-    array.each do |id|
-      if Friendship.where(friend_id: id)
+    puts "array"
+    puts array
+    array.each do |user|
+      puts 'user id is '
+      puts user.id
+      if Friendship.where(friend_id: user.id).exists?
+        puts 'darn'
+        puts Friendship.where(friend_id: user.id)
         next
       else
-        Friendship.new(user_id: current_user.id, friend_id: id, friendship_status: "initialized")
+        puts 'shit'
+        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "initialized")
       end
     end
   end

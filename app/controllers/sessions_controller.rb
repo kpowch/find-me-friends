@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     # authenticate email-password combo and strip email of edge whitespace
     if user = User.authenticate_with_credentials(params[:email].strip, params[:password])
       session[:user_id] = user.id
+      ## should be saving friendships everytime a user logs in
       save_friendships
       redirect_to profiles_path(current_user.id)
     else
