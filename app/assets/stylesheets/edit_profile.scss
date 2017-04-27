@@ -1,65 +1,70 @@
 @import 'application';
 
-.tab-container {
-  max-width: 500px;
-  margin: 20px auto 0;
-  min-height: 380px;
-
-  .tabs {
-    width: 100%;
-    position: relative;
-
-    li {
-      float: left;
-      display: block;
-    }
-
-    input[type="radio"] {
-      position: absolute;
-      top: 0;
-      left: -9999px;
-      outline: 0;
-      // &:checked
-    }
-
-    label.tab-label {
-      display: block;
-      padding: 20px;
-      border-radius: 2px 2px 0 0;
-      background: $color-background;
-      cursor: pointer;
-      position: relative;
-      top: 5px;
-      border-radius: 10px 10px 0 0;
-
-      &:hover {
-        background: $color-orange;
-      }
-    }
-
-    .tab-content{
-      z-index: 2;
-      display: none;
-      overflow: hidden;
-      padding: 20px;
-      position: absolute;
-      top: 53px;
-      left: 0;
-      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-      border-radius: 0 10px 10px 10px;
-      background: $color-background;
-    }
-
-    //The Magic
-    [id^="tab"]:checked + label {
-      top: 0;
-      padding-top: 17px;
-      background: $color-background;
-      outline: 0;
-    }
-
-    [id^="tab"]:checked ~ [id^="tab-content"] {
-      display: block;
-    }
-  }
+.edit-user {
+  max-width: 50%;
+  margin-left: 25%;
 }
+
+// .tab-container {
+//   max-width: 500px;
+//   margin: 20px auto 0;
+//   min-height: 380px;
+
+//   .tabs {
+//     width: 100%;
+//     position: relative;
+
+//     li {
+//       float: left;
+//       display: block;
+//     }
+
+//     input[type="radio"] {
+//       position: absolute;
+//       top: 0;
+//       left: -9999px;
+//       outline: 0;
+//       // &:checked
+//     }
+
+//     label.tab-label {
+//       display: block;
+//       padding: 20px;
+//       border-radius: 2px 2px 0 0;
+//       background: $color-background;
+//       cursor: pointer;
+//       position: relative;
+//       top: 5px;
+//       border-radius: 10px 10px 0 0;
+
+//       &:hover {
+//         background: $color-orange;
+//       }
+//     }
+
+//     .tab-content{
+//       z-index: 2;
+//       display: none;
+//       overflow: hidden;
+//       padding: 20px;
+//       position: absolute;
+//       top: 53px;
+//       left: 0;
+//       box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+//       border-radius: 0 10px 10px 10px;
+//       background: $color-background;
+//     }
+
+//     //The Magic
+//     [id^="tab"]:checked + label {
+//       top: 0;
+//       padding-top: 17px;
+//       background: $color-background;
+//       outline: 0;
+//     }
+
+//     [id^="tab"]:checked ~ [id^="tab-content"] {
+//       display: block;
+//     }
+//   }
+// }
