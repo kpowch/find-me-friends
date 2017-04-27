@@ -1,5 +1,6 @@
 class Chatroom < ApplicationRecord
   has_many :messages, dependent: :destroy
-  has_many :users, through: :messages
   belongs_to :friendship
+  has_many :users, through: :friendship
+  has_many :friends, through: :friendship
 end
