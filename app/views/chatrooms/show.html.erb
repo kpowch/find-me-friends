@@ -1,6 +1,13 @@
+<div>
+  Friendships belonging to this user:
+  <% @userChatrooms.each do |chatroom| %>
+    <%= chatroom.friendship_id %>
+  <% end %>
+</div>
+
 <div class="chatroom-div">
   <span class="friendships">
-    <h3> Messenger </h3>
+    <h1> Messenger </h1>
     <% @friendships.each do |friend| %>
       <div class="friend-side"><%= friend.friend.first_name %><br/></div>
     <% end %>
@@ -10,5 +17,3 @@
   </div>
   <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
 </div>
-
-

@@ -1,0 +1,6 @@
+New chatroom
+
+<%= form_for :chatroom, url: '/chatrooms' do |f| %>
+  <span class='form-field-input'> <%= f.text_field :friendship_id, placeholder: 'Friendship id'%></span>
+  <%= f.submit 'Submit', class: 'form-button' %>
+<% end %>

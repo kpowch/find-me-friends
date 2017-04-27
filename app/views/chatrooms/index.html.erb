@@ -1,0 +1,28 @@
+NOTE: this page is only for admin/testing reason. should not be viewable by any users
+
+<h1>Friendships</h1>
+    <% @chatrooms.each do |chatroom| %>
+    <p>
+      Chatroom #<%= chatroom.id %>
+    </p>
+    <p>
+      Members:
+      <%= chatroom.friendship.user.first_name %> (user <%= chatroom.friendship.user.id %>) and
+      <%= chatroom.friendship.friend.first_name %> (user <%= chatroom.friendship.friend.id %>)
+    </p>
+    <p>
+      <p class='button filled'><%= link_to 'Show', chatroom %></p>
+    </p>
+    <p>
+      <p class='button filled'><%= link_to 'Edit', edit_chatroom_path(chatroom) %></p>
+    </p>
+    <p>
+      <p class='button filled'><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </p>
+    <% end %>
+
+
+<br>
+<p class='button filled'>
+  <%= link_to 'New Chatroom', new_chatroom_path %>
+</p>
