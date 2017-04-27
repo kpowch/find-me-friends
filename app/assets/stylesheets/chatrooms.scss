@@ -1,50 +1,41 @@
-// Place all the styles related to the chat controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'application';
 
-.chatroom-div {
-  width: 100%;
+.chatroom-wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
 
-  .friendships {
-    // float: left;
-    margin: 5px;
-    padding: 5px;
+  .users-chatrooms-list {
+  }
 
-    .friend-side {
-      margin: 15px;
+  .panel-body p {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: lightgrey;
+    word-wrap: break-word;
+  }
+
+  .currentUser {
+    text-align: right;
+    p {
+      background-color: #71d0b6;
     }
   }
-}
-.panel-body#messages {
-  margin: 25px;
-}
 
-.panel-body p {
-  margin: 5px;
-  display: inline-block;
-  margin-top: 15px;
-  padding: 13px;
-  border-radius: 21px;
-  // max-width: 23%;
-  background-color: #71d0b6;
-  word-wrap: break-word;
-}
-  .currentUser {
-    background-color: red;
-    text-align: right;
+  .message-form textarea {
+    font-family: $font-stack;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 50px;
+    z-index: 99;
+    background: white;
+    border: none;
+    padding: 10px 40px;
+    resize: none;
   }
-
-textarea {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 50px;
-  z-index: 99;
-  background: white;
-  border: none;
-  padding-left: 55px;
-  padding-right: 55px;
-  resize: none;
 }
