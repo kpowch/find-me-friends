@@ -1,5 +1,11 @@
 NOTE: this page is only for admin/testing reason. should not be viewable by any users
 
+<div>
+  <% if flash[:alert] %>
+    <%= flash[:alert] %>
+  <% end %>
+</div>
+
 <h1>Friendships</h1>
     <% @chatrooms.each do |chatroom| %>
     <p>
@@ -14,15 +20,12 @@ NOTE: this page is only for admin/testing reason. should not be viewable by any 
       <p class='button filled'><%= link_to 'Show', chatroom %></p>
     </p>
     <p>
-      <p class='button filled'><%= link_to 'Edit', edit_chatroom_path(chatroom) %></p>
-    </p>
-    <p>
       <p class='button filled'><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></p>
     </p>
     <% end %>
 
 
-<br>
+<br />
 <p class='button filled'>
   <%= link_to 'New Chatroom', new_chatroom_path %>
 </p>
