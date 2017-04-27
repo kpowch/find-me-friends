@@ -24,8 +24,8 @@ $color-bright: #F89B36;
 $color-pop: #FB4539;
 $color-mood: #8D295B;
 $color-dark: #365B36;
-$color-background-dark: #5E97A2;
-$color-background-medium: #AFCAC4;
+$color-background-dark: #648F52;
+$color-background-medium: #648F52;
 $color-background-light: #E4E7EA;
 $color-blue: #406D7C;
 
@@ -81,7 +81,7 @@ table {
 /* This is added by us */
 a {
   text-decoration: none;
-  color: inherit;
+  color: white;
   outline: none;
 	:hover {
 	  color: inherit;
