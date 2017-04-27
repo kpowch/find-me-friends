@@ -62,6 +62,36 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def friendlist(user)
+
+    interests = user.interests.select(:id)
+    puts interests
+
+    like_users = InterestsUser.where(interest_id: interests).where.not(user_id: user.id).select(:user_id)
+    friend_array = User.where(id: like_users)
+
+  end
+
+  def friendlist2(user)
+    User.find_by_sql(
+      "SELECT
+        friend_interests_users.user_id as id,
+        count(common_interests.id) as num_common_interests
+      FROM
+        users as me
+        left join interests_users as my_interests_users on my_interests_users.user_id = me.id
+        left join interests as common_interests on my_interests_users.interest_id = common_interests.id
+        left join interests_users as friend_interests_users on common_interests.id = friend_interests_users.interest_id
+      WHERE
+        friend_interests_users.user_id <> #{user.id} and
+        me.id = #{user.id}
+      GROUP BY
+        friend_interests_users.user_id
+      ORDER BY
+        num_common_interests desc;"
+    )
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_friendship
@@ -72,5 +102,6 @@ class FriendshipsController < ApplicationController
   def friendship_params
     params.require(:friendship).permit(:user_id, :friend_id, :create, :destroy)
   end
+
 
 end
