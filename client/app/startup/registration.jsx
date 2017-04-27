@@ -20,6 +20,5 @@ ReactOnRails.register({
   Sidebar: Sidebar,
   SuggestionList: SuggestionList,
   Friend: Friend,
-  Chatrooms: Chatrooms,
   User: User
 });

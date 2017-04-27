@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
-    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/20170425_125146.jpg'))
+    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg'))
     @user.bio = '';
 
     if @user.save
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       @user.update(interest_ids: [])
     end
     @user.update(user_params)
-    redirect_to user_path
+    redirect_to profiles_path
   end
 
   # detete account TODO decide if we want this
@@ -61,6 +61,7 @@ class UsersController < ApplicationController
       :profile_picture,
       :password,
       :password_confirmation,
+      :bio,
       interest_ids: []
     )
   end
