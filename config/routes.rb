@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :users, except: [:index, :delete]
+  resources :users, except: [:index, :destroy]
   resources :profiles, only: [:index]
 
   namespace :admin do
     root to: 'dashboard#show'
-    resources :chatrooms, only: [:delete, :show]
-    resources :users, only: [:new, :delete, :update, :show]
+    resources :chatrooms, except: [:update]
+    resources :users, only: [:new, :destroy, :update, :show]
     resources :friendships, only: [:new, :delete, :show]
   end
 
