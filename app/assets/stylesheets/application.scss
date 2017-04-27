@@ -15,19 +15,17 @@
  */
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
-
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 /* Global styles */
 /* Variables */
 $max-width: 1200px;
 $font-stack: 'Noto Sans', Open sans;
-$color-bright: #F89B36;
-$color-pop: #FB4539;
-$color-mood: #8D295B;
-$color-dark: #365B36;
-$color-background-dark: #648F52;
-$color-background-medium: #648F52;
-$color-background-light: #E4E7EA;
-$color-blue: #406D7C;
+$color-background: #e7e7e8;
+$color-blue: #287fb8;
+$color-orange: #f89b36;
+$font-logo:'Pacifico', cursive;
+
+
 
 /* CSS Reset */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -81,7 +79,7 @@ table {
 /* This is added by us */
 a {
   text-decoration: none;
-  color: white;
+  color: $color-orange;
   outline: none;
 	:hover {
 	  color: inherit;
@@ -89,7 +87,7 @@ a {
 	}
 	:visited {
 	  color: inherit;
-	  background-color: inherit;
+	  background-color: $color-orange;
 	}
 }
 
@@ -97,7 +95,7 @@ a {
 /* Styles */
 /* TODO set heading defaults */
 body {
-  background-color: $color-background-light;
+  background-color: $color-background;
   font-family: $font-stack;
 }
 h1 {

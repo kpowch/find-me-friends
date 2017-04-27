@@ -10,8 +10,10 @@
   border-radius: 4px;
   min-height: 30%;
   margin-top: 10px;
-  margin-left: 5px;
+  margin-left: 10px;
   text-align: center;
+  box-shadow: -2px 2px 8px #777777;
+  padding: 15px;
 }
 
 .sidebar-name {
@@ -32,8 +34,10 @@
     margin-left: 100px;
 
     .friend {
-      background-color: goldenrod;
-      border: 1px solid black;
+      background-color: $color-orange;
+      border: 1px solid $color-orange;
+      box-shadow: -2px 2px 8px #777777;
+      color: white;
       border-radius: 4px;
       margin: 10px 5px;
       padding: 5px 10px;

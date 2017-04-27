@@ -6,9 +6,14 @@
   top: 0;
   width: 100%;
   z-index: 900;
-  background-color: #00897b;
+  background-color: white;
   padding: 10px;
   box-shadow: -2px 2px 8px #777777;
+
+  #logo {
+    font-family: $font-logo;
+    color: $color-orange;
+  }
 
   .navbar {
     margin: 0 auto;
@@ -25,8 +30,14 @@
       align-items: center;
     }
 
+    .logout-button {
+      background-color: $color-blue;
+      color: white;
+    }
+
     .navbar-item {
       margin: 0 20px;
     }
+
   }
 }

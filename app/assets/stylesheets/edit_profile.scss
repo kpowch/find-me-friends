@@ -26,14 +26,14 @@
       display: block;
       padding: 20px;
       border-radius: 2px 2px 0 0;
-      background: $color-background-dark;
+      background: $color-background;
       cursor: pointer;
       position: relative;
       top: 5px;
       border-radius: 10px 10px 0 0;
 
       &:hover {
-        background: $color-background-medium;
+        background: $color-orange;
       }
     }
 
@@ -47,14 +47,14 @@
       left: 0;
       box-shadow: 0 3px 5px rgba(0,0,0,0.2);
       border-radius: 0 10px 10px 10px;
-      background: $color-background-medium;
+      background: $color-background;
     }
 
     //The Magic
     [id^="tab"]:checked + label {
       top: 0;
       padding-top: 17px;
-      background: $color-background-medium;
+      background: $color-background;
       outline: 0;
     }
 
