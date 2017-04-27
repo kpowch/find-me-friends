@@ -60,11 +60,48 @@ User.create!({
   updated_at: '22-04-2017'
   })
 
-## FRIENDSHIPS
-puts "Making friends come together...."
-Friendship.destroy_all
+User.create!({
+  location_id: Faker::Number.between(1, 4),
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password_digest: "MOkngwjgnw",
+  dob: Faker::Date.birthday(18, 35),
+  profile_picture: 'img.jpeg',
+  bio: Faker::Hipster.sentences(1),
+  created_at: '21-04-2017',
+  updated_at: '22-04-2017'
+  })
 
-Friendship.create(user_id: 1, friend_id: 2, friendship_status: "Accepted")
+User.create!({
+  location_id: Faker::Number.between(1, 4),
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password_digest: "MOkngwjgnw",
+  dob: Faker::Date.birthday(18, 35),
+  profile_picture: 'img.jpeg',
+  bio: Faker::Hipster.sentences(1),
+  created_at: '21-04-2017',
+  updated_at: '22-04-2017'
+  })
+
+User.create!({
+  location_id: Faker::Number.between(1, 4),
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password_digest: "MOkngwjgnw",
+  dob: Faker::Date.birthday(18, 35),
+  profile_picture: 'img.jpeg',
+  bio: Faker::Hipster.sentences(1),
+  created_at: '21-04-2017',
+  updated_at: '22-04-2017'
+  })
+
+## FRIENDSHIPS
+puts "Making friends fall apart, as all things do...."
+Friendship.destroy_all
 
 ## INTERESTS
 puts "Making people enjoy doing things..."
@@ -80,12 +117,25 @@ Interest.create(name: "Food")
 
 ## INTERESTS_USERS
 InterestsUser.create(user_id: 1, interest_id: 2)
+InterestsUser.create(user_id: 1, interest_id: 1)
+InterestsUser.create(user_id: 1, interest_id: 3)
+InterestsUser.create(user_id: 1, interest_id: 4)
 InterestsUser.create(user_id: 2, interest_id: 1)
 InterestsUser.create(user_id: 2, interest_id: 2)
 InterestsUser.create(user_id: 2, interest_id: 3)
 InterestsUser.create(user_id: 3, interest_id: 2)
 InterestsUser.create(user_id: 3, interest_id: 3)
 InterestsUser.create(user_id: 3, interest_id: 4)
+InterestsUser.create(user_id: 4, interest_id: 2)
+InterestsUser.create(user_id: 4, interest_id: 3)
+InterestsUser.create(user_id: 4, interest_id: 4)
+InterestsUser.create(user_id: 5, interest_id: 2)
+InterestsUser.create(user_id: 5, interest_id: 1)
+InterestsUser.create(user_id: 5, interest_id: 3)
+InterestsUser.create(user_id: 6, interest_id: 3)
+InterestsUser.create(user_id: 6, interest_id: 2)
+InterestsUser.create(user_id: 6, interest_id: 1)
+InterestsUser.create(user_id: 6, interest_id: 4)
 
 
 ## CHATROOMS
