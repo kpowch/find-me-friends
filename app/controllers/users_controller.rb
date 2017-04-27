@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       @user.update(interest_ids: [])
     end
     @user.update(user_params)
-    redirect_to user_path
+    redirect_to profiles_path
   end
 
   # detete account TODO decide if we want this
@@ -61,6 +61,7 @@ class UsersController < ApplicationController
       :profile_picture,
       :password,
       :password_confirmation,
+      :bio,
       interest_ids: []
     )
   end
