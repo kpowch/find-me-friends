@@ -12,17 +12,16 @@ puts "Seeding Data.. .."
 puts "Finding some nice places..."
 Location.destroy_all
 
-Location.create(id: 1, city: "Victoria", province: "BC", country: "Canada")
-Location.create(id: 2, city: "Vancouver", province: "BC", country: "Canada")
-Location.create(id: 3, city: "Kelowna", province: "BC", country: "Canada")
-Location.create(id: 4, city: "Banff", province: "AB", country: "Canada")
+Location.create(city: "Victoria", province: "BC", country: "Canada")
+Location.create(city: "Vancouver", province: "BC", country: "Canada")
+Location.create(city: "Kelowna", province: "BC", country: "Canada")
+Location.create(city: "Banff", province: "AB", country: "Canada")
 
 ## USERS
 puts "Generating some homies..."
 User.destroy_all
 
 User.create!({
-  id: 1,
   location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -36,7 +35,6 @@ User.create!({
   })
 
 User.create!({
-  id: 2,
   location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -50,7 +48,6 @@ User.create!({
   })
 
 User.create!({
-  id: 3,
   location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -67,26 +64,25 @@ User.create!({
 puts "Making friends come together...."
 Friendship.destroy_all
 
-Friendship.create(id: 1, user_id: 1, friend_id: 2, friendship_status: "accepted")
-Friendship.create(id: 2, user_id: 2, friend_id: 3, friendship_status: "pending")
+Friendship.create(user_id: 1, friend_id: 2, friendship_status: "accepted")
+Friendship.create(user_id: 2, friend_id: 3, friendship_status: "pending")
 
 ## INTERESTS
 puts "Making people enjoy doing things..."
 Interest.destroy_all
 
-Interest.create(id: 1, name: Faker::Team.sport)
-Interest.create(id: 2, name: Faker::Team.sport)
-Interest.create(id: 3, name: Faker::Team.sport)
-Interest.create(id: 4, name: Faker::Team.sport)
-Interest.create(id: 5, name: "Felting")
-Interest.create(id: 6, name: "Food")
+Interest.create(name: Faker::Team.sport)
+Interest.create(name: Faker::Team.sport)
+Interest.create(name: Faker::Team.sport)
+Interest.create(name: Faker::Team.sport)
+Interest.create(name: "Felting")
+Interest.create(name: "Food")
 
 
 ## CHATROOMS
 puts "Generating some forced conversations..."
 Chatroom.destroy_all
 
-Chatroom.create(id: 1, friendship_id: 1)
-Chatroom.create(id: 2)
+Chatroom.create(friendship_id: 1)
 
 puts "Seeding Complete!"
