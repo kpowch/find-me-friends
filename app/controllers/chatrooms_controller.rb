@@ -26,15 +26,13 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  # TODO make this more efficient (how to get all user's chatrooms and do we need to pass
-  # the messages? or can they be accessed through chatroom)
+  # TODO make this more efficient? Might have to rearrange models/database
   # Shows individual chatrooms
   def show
     # For section showing all of the user's convos
-    # @friendships = Friendship.where(user_id: current_user.id)
-    # @userChatrooms = Chatroom.includes(@friendships)
-    # @friends = Friendship.where(user_id: 2).or(Friendship.where(friend_id: 2))
-    # @userChatrooms = Chatroom.includes(Friendship.includes("user.user_id = 2"))
+    @userChatrooms = Chatroom.joins(:users).where(friendships: { user: 2 })
+    @friendChatrooms = Chatroom.joins(:users).where(friendships: { friend: 2 })
+
     # For the specific chatroom and messages
     @chatroom = Chatroom.find_by(id: params[:id])
     @message = Message.new
