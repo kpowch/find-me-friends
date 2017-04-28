@@ -1,0 +1,6 @@
+<div>
+  <%= link_to "Chatroom ID: #{chatroom.id} ", "/chatrooms/#{chatroom.id}" %>
+  <%= link_to ' Delete', [:admin, chatroom], class: 'button', method: :delete, data: { confirm: "Are you sure you want to delete the chatroom with ID of #{chatroom.id}?" } %>
+  <br/>
+  <br/>
+</div>

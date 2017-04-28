@@ -4,17 +4,18 @@ class User < ApplicationRecord
   mount_uploader :profile_picture, AvatarUploader
 
   has_many :interests_users
-  has_many :interests, through: :interests_users
+  has_many :interests, through: :interests_users, dependent: :destroy
 
   # TODO will have to make sure location is given in edit profile page
   belongs_to :location, required: false
 
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
 
   has_many :messages
+
 
   # validates :first_name, :last_name, :email, presence: true
   # validates_uniqueness_of :email, case_sensitive: false
