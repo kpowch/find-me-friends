@@ -1,11 +1,11 @@
 <% @userChatrooms.each do |chatroom| %>
   <div class='chatroom-link'>
-    <%= link_to "#{chatroom.friends[0].first_name}", chatroom_path(chatroom.id) %>
+    <%= link_to "#{chatroom.friends[0].first_name} #{chatroom.friends[0].last_name}", chatroom_path(chatroom.id) %>
   </div>
 <% end %>
 
 <% @friendChatrooms.each do |chatroom| %>
   <div class='chatroom-link'>
-    <%= link_to "#{chatroom.users[0].first_name}", chatroom_path(chatroom.id) %>
+    <%= link_to "#{chatroom.users[0].first_name} #{chatroom.friends[0].last_name}", chatroom_path(chatroom.id) %>
   </div>
 <% end %>
