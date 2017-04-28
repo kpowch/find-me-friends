@@ -30,3 +30,4 @@ node_modules
 public/uploads/tmp/*
 
 .DS_Store
+.env

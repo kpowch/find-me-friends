@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422204617) do
+ActiveRecord::Schema.define(version: 20170426221958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chatrooms", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "friendship_id"
+    t.index ["friendship_id"], name: "index_chatrooms_on_friendship_id", using: :btree
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170422204617) do
     t.index ["location_id"], name: "index_users_on_location_id", using: :btree
   end
 
+  add_foreign_key "chatrooms", "friendships"
   add_foreign_key "interests_users", "interests"
   add_foreign_key "interests_users", "users"
   add_foreign_key "messages", "chatrooms"
