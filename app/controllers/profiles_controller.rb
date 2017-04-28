@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
       current_hash = current.as_json
       current_person = current_hash[0]
       full_user_objects.push({
+        id: current_person["id"],
         first_name: current_person["first_name"],
         last_name: current_person["last_name"],
         email: current_person["email"],
