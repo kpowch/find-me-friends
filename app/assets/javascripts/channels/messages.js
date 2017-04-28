@@ -4,7 +4,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
     $('#messages').append(this.returnMessageElement(data));
 
     // Moves window down so most recent message is in view
-    $(window).scrollTop($(document).height());
+    $('.messages-wrapper').scrollTop($('.panel-body.scrollable').height());
   },
   returnMessageElement: function(data) {
     // Determine the current user based on their cookie
