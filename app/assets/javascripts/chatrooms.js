@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  $('textarea#message_content').focus();
   submitNewMessage();
 });
 
