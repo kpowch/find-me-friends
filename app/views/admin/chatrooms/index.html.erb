@@ -1,0 +1,26 @@
+<div>
+  <% if flash[:alert] %>
+   <%= flash[:alert] %>
+  <% end %>
+</div>
+
+<h1>Friendships</h1>
+<br/>
+<% @chatrooms.each do |chatroom| %>
+  <p>
+    <h1>Chatroom #<%= chatroom.id %> </h1>
+  </p>
+  <p>
+    Members:
+    <%= chatroom.friendship.user.first_name %> (user <%= chatroom.friendship.user.id %>) and
+    <%= chatroom.friendship.friend.first_name %> (user <%= chatroom.friendship.friend.id %>)
+
+  <p class='button filled'><%= link_to 'Show', chatroom %></p>
+  <br/>
+  <p class='button filled'><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </p>
+<% end %>
+<br /><br/>
+<p class='button filled'>
+<%= link_to 'New Chatroom', new_chatroom_path %>
+</p>
