@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
-
+    puts 'in friendships create'
     respond_to do |format|
       if @friendship.save
         format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
@@ -62,14 +62,18 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_friendship
-      @friendship = Friendship.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id, :create, :destroy)
-    end
+  private
+  # Are we using this method?!
+  # Use callbacks to share common setup or constraints between actions.
+  def set_friendship
+    @friendship = User.includes(:interests)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def friendship_params
+    params.require(:friendship).permit(:user_id, :friend_id, :create, :destroy)
+  end
+
+
 end

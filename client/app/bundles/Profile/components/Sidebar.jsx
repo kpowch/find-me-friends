@@ -7,13 +7,13 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar">
         <div>
-          Sidebar!
-        </div>
-        <div className="sidebar-name">
-          {this.props.first_name} {this.props.last_name}
+          Your Profile
         </div>
         <div className="sidebar-avatar">
           <img src={this.props.profile_picture}/>
+        </div>
+        <div className="sidebar-name">
+          {this.props.first_name} {this.props.last_name}
         </div>
         <div className="sidebar-email">
           {this.props.email}

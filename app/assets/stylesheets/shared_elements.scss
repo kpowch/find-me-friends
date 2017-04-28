@@ -9,13 +9,13 @@
 
   &.outlined {
     border-radius: 4px;
-    border: 1px solid $color-mood;
+    border: 1px solid $color-blue;
   }
 
   &.filled {
     border-radius: 4px;
-    border: 1px solid $color-mood;
-    background-color: $color-mood;
+    border: 1px solid $color-blue;
+    background-color: $color-blue;
     color: #FFF;
   }
 
@@ -49,18 +49,17 @@
   }
 }
 
-
 /* Fake Modals */
 .fake-modal {
   margin: 120px auto 0;
   max-width: 500px;
   border-radius: 10px;
-  background-color: $color-background-medium;
+  background-color: $color-blue;
   overflow: hidden;
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 
   .modal-header {
-    background-color: $color-background-dark;
+    background-color: $color-background;
     padding: 20px;
 
     h1 {

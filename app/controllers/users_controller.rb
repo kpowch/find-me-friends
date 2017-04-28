@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.id = User.maximum(:id).next
-    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/20170425_125146.jpg'))
+    @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg'))
+    @user.bio = '';
 
     if @user.save
       p @user.inspect
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
       @user.update(interest_ids: [])
     end
     @user.update(user_params)
-    redirect_to user_path
+    redirect_to profiles_path
   end
 
   # detete account TODO decide if we want this
@@ -50,35 +51,17 @@ class UsersController < ApplicationController
   end
 
   private
-
-  # iterates through current user interests, generates list of other user matches for each interest.
-  # master list of all users that matched plus count
-  def friend_finder(int, user)
-    # {user_id: count}
-    master_list = {}
-    while i < int do
-      all_interests = InterestUser.find(user_id: user.id)
-      while j < all_interests.count do
-        interests = all_interests[i]
-        while k < interests.count do
-          array = User.find(id: interests[k])
-
-        end
-      end
-    end
-    # sort and return master list
-    #pass user logic?
-  end
-
   def user_params
     params.require(:user)
     .permit(
       :first_name,
       :last_name,
+      :dob,
       :email,
       :profile_picture,
       :password,
       :password_confirmation,
+      :bio,
       interest_ids: []
     )
   end

@@ -1,7 +1,7 @@
 <div class='navbar-wrapper'>
   <div class='navbar'>
     <div class='logo'>
-      <h1><%= link_to 'Find Me Friends', :root %></h1>
+      <h1 id="logo"><%= link_to 'Find Me Friends', :root %></h1>
     </div>
 
     <div class='navbar-right'>
@@ -12,31 +12,19 @@
         <span>HOW IT WORKS</span>
       </div>
         <% if current_user %>
-          <%= link_to "/users/#{current_user.id}" do %>
-            <div class='navbar-item button outlined button-hover'>
+          <%= link_to "/profiles" do %>
+            <div class='navbar-item button outlined button-hover sign-in'>
               <span>Signed in as <%= current_user.first_name %></span>
             </div>
           <% end %>
 
           <%= link_to '/logout' do %>
-            <div class='navbar-item button outlined button-hover'>
+            <div class='navbar-item button outlined button-hover logout-button'>
               <span>Logout</span>
             </div>
           <% end %>
 
         <% else %>
-
-          <%= link_to new_user_path do %>
-            <div class='navbar-item button filled button-hover'>
-              <span>Signup!</span>
-            </div>
-          <% end %>
-
-          <%= link_to '/login' do %>
-            <div class='navbar-item button outlined button-hover'>
-              <span>Login</span>
-            </div>
-          <% end %>
 
         <% end %>
 
