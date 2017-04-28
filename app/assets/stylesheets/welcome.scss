@@ -1,17 +1,11 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 @import 'application';
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-@import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
 
 *, *:before, *:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
 }
 
 form {
