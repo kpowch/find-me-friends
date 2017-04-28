@@ -1,50 +1,69 @@
-// Place all the styles related to the chat controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'application';
 
-.chatroom-div {
-  width: 100%;
+.chatroom-wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  overflow: hidden;
 
-  .friendships {
-    // float: left;
-    margin: 5px;
-    padding: 5px;
-
-    .friend-side {
-      margin: 15px;
+  .users-chatrooms-list {
+    flex: 1 1 auto;
+    height: 10%;
+    overflow-y: scroll;
+    // display: flex;
+    // flex-flow: column nowrap;
+    background-color: yellow;
+    .chatroom-link {
+      border: 1px solid black;
+      padding: 20px;
+      text-align: center;
     }
   }
-}
-.panel-body#messages {
-  margin: 25px;
-}
 
-.panel-body p {
-  margin: 5px;
-  display: inline-block;
-  margin-top: 15px;
-  padding: 13px;
-  border-radius: 21px;
-  // max-width: 23%;
-  background-color: #71d0b6;
-  word-wrap: break-word;
-}
-  .currentUser {
+  .active-chatroom {
+    flex: 1 1 80%;
     background-color: red;
-    text-align: right;
-  }
+    height: 100%;
+    overflow-y: scroll;
 
-textarea {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 50px;
-  z-index: 99;
-  background: white;
-  border: none;
-  padding-left: 55px;
-  padding-right: 55px;
-  resize: none;
+    .panel-body {
+    }
+
+    .panel-body p {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: lightgrey;
+      word-wrap: break-word;
+    }
+
+    .currentUser {
+      text-align: right;
+      p {
+        background-color: #71d0b6;
+      }
+    }
+
+    .message-form  {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      height: 50px;
+      z-index: 99;
+      background: white;
+      padding: 10px 40px;
+      resize: none;
+
+      textarea {
+        border: none;
+        font-family: $font-stack;
+        font-size: 16px;
+        width: 100%;
+      }
+    }
+  }
 }
