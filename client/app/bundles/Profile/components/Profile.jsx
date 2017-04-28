@@ -29,12 +29,18 @@ export default class Profile extends React.Component {
         this.props.current_friends[0],
         this.props.current_friends[1],
         this.props.current_friends[2]
-      ]
+      ],
     };
+    this.remove = this.remove.bind(this);
   }
+
   remove(friend){
-    var friends = this.state.showFriends.filter(function(fnd){
+    console.log(this.state)
+    var friends = this.state.friends.filter(function(fnd){
       return friend.id !== fnd.id;
+    });
+    this.setState({
+      friends: friends
     });
   }
 
@@ -45,7 +51,7 @@ export default class Profile extends React.Component {
           <Sidebar first_name={this.state.first_name} last_name={this.state.last_name} email={this.state.email} bio={this.state.bio} profile_picture={this.state.profile_picture}/>
         </div>
         <div className="list-container">
-          <SuggestionList friends={this.state.showFriends} onRemove={this.remove}/>
+          <SuggestionList friends={this.state.friends} onRemove={this.remove}/>
         </div>
       </div>
     );
