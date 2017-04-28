@@ -4,6 +4,9 @@ class Admin::ChatroomsController < ApplicationController
   def show
   end
 
-  def delete
+  def index
+  end
+
+  def destroy
   end
 end
