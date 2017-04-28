@@ -1,33 +1,36 @@
 <div class='navbar-wrapper'>
-  <div class='navbar'>
-    <div class='logo'>
-      <h1 id="logo"><%= link_to 'Find Me Friends', :root %></h1>
+  <div class='nav'>
+    <div class='nav-header'>
+      <div class='nav-title logo'>
+        <%= link_to 'Find Me Friends', :root %>
+      </div>
     </div>
 
-    <div class='navbar-right'>
+    <div class='nav-btn'>
+      <label for='nav-check'>
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
 
-      <!-- TODO: make this a button with no border or background, then link to 'how it works' section -->
-      <!-- TODO only show if on welcome page -->
-      <div class='navbar-item button button-hover'>
-        <span>HOW IT WORKS</span>
-      </div>
-        <% if current_user %>
-          <%= link_to "/profiles" do %>
-            <div class='navbar-item button outlined button-hover sign-in'>
-              <span>Signed in as <%= current_user.first_name %></span>
-            </div>
-          <% end %>
+    <input type='checkbox' id='nav-check'>
 
-          <%= link_to '/logout' do %>
-            <div class='navbar-item button outlined button-hover logout-button'>
-              <span>Logout</span>
-            </div>
-          <% end %>
-
-        <% else %>
-
-        <% end %>
-
+    <div class='nav-links'>
+      <% if current_user %>
+        <span class='nav-item'>
+          <%= link_to 'Chatrooms', chatrooms_path %>
+        </span>
+        <span class='nav-item'>
+          <%= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user.id) %>
+        </span>
+        <span class='nav-item'>
+          <%= link_to 'Edit Settings', edit_user_path(current_user.id) %>
+        </span>
+        <span class='nav-item'>
+          <%= link_to 'Logout', logout_path %>
+        </span>
+      <% end %>
     </div>
   </div>
 </div>
