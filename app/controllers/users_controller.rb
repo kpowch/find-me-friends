@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user.id = User.maximum(:id).next
     @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg'))
     @user.bio = '';
+    save_friendships
 
     if @user.save
       p @user.inspect
