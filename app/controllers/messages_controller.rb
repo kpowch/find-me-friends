@@ -6,16 +6,16 @@ class MessagesController < ApplicationController
     if message.save
       # 'messages' is name of channel we are broadcasting to
       ActionCable.server.broadcast 'messages',
-        # set message and user
+        # Set message and user
         message: message.content,
-        user: message.user.first_name,
-        current_user: current_user.first_name
-    head :ok
+        user: message.user.first_name
+      head :ok
     end
   end
 
   private
-    def message_params
-      params.require(:message).permit(:content, :chatroom_id)
-    end
+
+  def message_params
+    params.require(:message).permit(:content, :chatroom_id)
+  end
 end

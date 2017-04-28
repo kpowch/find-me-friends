@@ -103,6 +103,9 @@ User.create!({
 puts "Making friends fall apart, as all things do...."
 Friendship.destroy_all
 
+Friendship.create(user_id: 1, friend_id: 2, friendship_status: "accepted")
+Friendship.create(user_id: 2, friend_id: 3, friendship_status: "pending")
+
 ## INTERESTS
 puts "Making people enjoy doing things..."
 Interest.destroy_all
@@ -113,7 +116,6 @@ Interest.create(name: Faker::Team.sport)
 Interest.create(name: Faker::Team.sport)
 Interest.create(name: "Felting")
 Interest.create(name: "Food")
-
 
 ## INTERESTS_USERS
 InterestsUser.create(user_id: 1, interest_id: 2)
@@ -137,12 +139,11 @@ InterestsUser.create(user_id: 6, interest_id: 2)
 InterestsUser.create(user_id: 6, interest_id: 1)
 InterestsUser.create(user_id: 6, interest_id: 4)
 
-
 ## CHATROOMS
 puts "Generating some forced conversations..."
 Chatroom.destroy_all
 
-Chatroom.create()
-Chatroom.create()
+Chatroom.create(friendship_id: 1)
+Chatroom.create(friendship_id: 2)
 
 puts "Seeding Complete!"

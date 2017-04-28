@@ -1,20 +1,18 @@
 class ApplicationController < ActionController::Base
-
   protect_from_forgery with: :exception
 
+  # Pass current user to all other controllers
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
 
-  # sends user to login page if they're not logged in on unauthorized page
+  # Sends user to login page if they're authorized to the page
   def authorize
     redirect_to '/login' unless current_user
   end
 
-
-
-  ## returns an array of user_id's from user with matching interests, ordered by # of hits
+  # Returns an array of user_id's from user with matching interests, ordered by # of hits
   def friendlist(user)
     User.find_by_sql(
       "SELECT
@@ -35,8 +33,8 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  # should save friendships based on array provided by friendlist
-  # loops through id's, see if friendship already exists
+  # Should save friendships based on array provided by friendlist
+  # Loops through id's, see if friendship already exists
   def save_friendships
     array = friendlist(current_user)
     puts "array"
