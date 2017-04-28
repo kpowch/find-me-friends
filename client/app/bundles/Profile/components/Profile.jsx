@@ -23,11 +23,7 @@ export default class Profile extends React.Component {
       email: this.props.current_user.email,
       profile_picture: this.props.current_user.profile_picture.thumb.url,
       bio: this.props.current_user.bio,
-      friends: [
-        'Darryl',
-        'Steve',
-        'Brendan Walker'
-      ]
+      friends: this.props.current_friends
     };
   }
 
