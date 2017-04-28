@@ -5,7 +5,7 @@
   <% end %>
 </div>
 
-<h1>Friendships</h1>
+<h1 class="page-header">Chatrooms</h1>
 <br/>
 <% @chatrooms.each do |chatroom| %>
   <p>
@@ -18,7 +18,7 @@
 
   <p class='button filled'><%= link_to 'Show', chatroom %></p>
   <br/>
-  <p class='button filled'><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p class='button filled'><%= link_to 'Destroy', [:admin, chatroom], method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </p>
 <% end %>
 <br /><br/>

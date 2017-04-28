@@ -1,11 +1,10 @@
 class Admin::UsersController < ApplicationController
-  http_basic_authenticate_with name: 'tellmewhatyouwant', password: 'whatyoureallyreallywant'
-
+  http_basic_authenticate_with name: 'admin', password: 'admin'
   def new
   end
 
-  def show
-    @user = User.order(id: :desc).all
+  def index
+    @users = User.all
   end
 
   def update

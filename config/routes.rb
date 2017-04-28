@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :chatrooms, except: [:update]
-    resources :users, only: [:new, :destroy, :update, :index]
+    resources :users
     resources :friendships, except: [:update]
   end
 

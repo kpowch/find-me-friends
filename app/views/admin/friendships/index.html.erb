@@ -1,1 +1,14 @@
 <%= link_to 'Back', admin_root_url %>
+
+<h1 class="page-header">Friendships</h1>
+<% @chatrooms.each do |chatroom| %>
+  <p>
+    Friendship ID <%= chatroom.friendship.id %>:
+  </p>
+  <p>
+    Friends:
+    <%= chatroom.friendship.user.first_name %> (user <%= chatroom.friendship.user.id %>) and
+    <%= chatroom.friendship.friend.first_name %> (user <%= chatroom.friendship.friend.id %>)
+  </p>
+  <br/><br/>
+<% end %>

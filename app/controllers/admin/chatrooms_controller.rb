@@ -1,13 +1,10 @@
 class Admin::ChatroomsController < ApplicationController
-  http_basic_authenticate_with name: 'tellmewhatyouwant', password: 'whatyoureallyreallywant'
-
+  http_basic_authenticate_with name: ['ADMI'], password: ENV['ADMIN_PASSWORD']
   def show
   end
 
   def index
     @chatrooms = Chatroom.all
-    @userChatrooms = Chatroom.joins(:users).where(friendships: { user: 2 })
-    @friendChatrooms = Chatroom.joins(:users).where(friendships: { friend: 2 })
   end
 
   def new
