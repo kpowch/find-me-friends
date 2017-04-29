@@ -17,12 +17,16 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new(chatroom_params)
     # TODO We probably shouldn't redirect to any page once a chatroom is made since it's
     # made once a friendship status changes and the user might be on a different page.
-    if @chatroom.save
-      flash[:alert] = "Chatroom created!"
-      redirect_to @chatroom
-    else
-      flash[:alert] = "There was an error creating the chatroom"
-      redirect_to new_chatroom_path
+    respond_to do |format|
+      format.json do
+        if @chatroom.save
+          flash[:alert] = "Chatroom created!"
+          render :json => @chatroom
+        else
+          flash[:alert] = "There was an error creating the chatroom"
+          render :json => { :errors => @chatroom.errors.messages}
+        end
+      end
     end
   end
 
@@ -41,16 +45,17 @@ class ChatroomsController < ApplicationController
   # TODO this should move to admin
   # Deletes a chatroom
   def destroy
-    @chatroom = Chatroom.find params[:id]
     @chatroom.destroy
-    flash[:alert] = 'Chatroom deleted!'
-    redirect_to [:chatrooms]
+    respond_to do |format|
+      format.html { redirect_to chatrooms_url, notice: 'Friendship was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:friendship_id)
+    params.permit(:friendship_id)
   end
 
   def set_user

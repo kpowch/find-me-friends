@@ -9,13 +9,34 @@ class SuggestionList extends React.Component {
       event.preventDefault();
       return this.props.onRemove(friend);
     }.bind(this);
+    $.ajax({
+      data: friend.id,
+      url: "/chatrooms",
+      type: "DELETE",
+      dataType: "json",
+      success: console.log("you are so successful at deleting friends")
+    });
+  }
+
+  accept(friend) {
+    return function(event) {
+      event.preventDefault();
+      $.ajax({
+        data: friend.id,
+        url: "/chatrooms",
+        type: "POST",
+        dataType: "json",
+        success: console.log("did we just become best friends?!?")
+      });
+    }
   }
 
   render() {
     var friends = this.props.friends.map(function(friend, i) {
     return (
       <li key={i} className="friend">
-        <a href data-id={friend.id} className="remove-filter" onClick={this.remove(friend)}>REMOVE</a>
+        <a href data-id={friend.id} className="remove-filter" onClick={this.remove(friend)}>REMOVE</a><br/>
+        <a href data-id={friend.id} className="accept-filter" onClick={this.accept(friend)}>ACCEPTANCE IS GRANTED!</a>
         <h2 className="card-title">Meet:</h2>
         <div className="card-name">
           {friend.first_name}
