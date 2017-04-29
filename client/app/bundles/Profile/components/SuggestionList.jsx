@@ -5,12 +5,13 @@ import Friend from './Friend'
 class SuggestionList extends React.Component {
 
   remove(friend) {
+    console.log('in suggestion-list remove function')
     return function(event) {
       event.preventDefault();
       return this.props.onRemove(friend);
     }.bind(this);
     $.ajax({
-      data: friend.id,
+      data: friend,
       url: "/chatrooms",
       type: "DELETE",
       dataType: "json",
@@ -21,8 +22,9 @@ class SuggestionList extends React.Component {
   accept(friend) {
     return function(event) {
       event.preventDefault();
+        console.log('do i have the friend:', friend);
       $.ajax({
-        data: friend.id,
+        data: friend,
         url: "/chatrooms",
         type: "POST",
         dataType: "json",

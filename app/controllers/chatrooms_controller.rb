@@ -18,6 +18,8 @@ class ChatroomsController < ApplicationController
     # TODO We probably shouldn't redirect to any page once a chatroom is made since it's
     # made once a friendship status changes and the user might be on a different page.
     respond_to do |format|
+      puts 'format'
+      puts format.inspect
       format.json do
         if @chatroom.save
           flash[:alert] = "Chatroom created!"
@@ -47,6 +49,8 @@ class ChatroomsController < ApplicationController
   def destroy
     @chatroom.destroy
     respond_to do |format|
+      puts 'format'
+      puts format
       format.html { redirect_to chatrooms_url, notice: 'Friendship was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -55,6 +59,8 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
+    puts 'params'
+    puts params.inspect
     params.permit(:friendship_id)
   end
 

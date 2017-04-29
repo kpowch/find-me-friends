@@ -4,10 +4,9 @@ class ProfilesController < ApplicationController
 
   # This shows the user's profile - their name, info, friends
   def index
-    puts 'query'
     current_friends = friendly_three_amigos_method
-    puts 'current_friends'
-    puts current_friends
+    # puts 'current_friends'
+    # puts current_friends
     # Pass in props to profile page
     @profile_props = {
       current_user: current_user,
@@ -24,6 +23,7 @@ class ProfilesController < ApplicationController
       current_person = current_hash[0]
       full_user_objects.push({
         id: current_person["id"],
+        friendship_id: friendship.id,
         first_name: current_person["first_name"],
         last_name: current_person["last_name"],
         email: current_person["email"],

@@ -18,7 +18,7 @@ export default class Profile extends React.Component {
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
     this.state = {
-      id: this.props.current_user.id,
+      friendshipId: this.props.current_user.friendship_id,
       firstName: this.props.current_user.first_name,
       lastName: this.props.current_user.last_name,
       email: this.props.current_user.email,
@@ -36,6 +36,7 @@ export default class Profile extends React.Component {
 
   remove(friend){
     console.log(this.state)
+    console.log('in profile remove function')
     var friends = this.state.friends.filter(function(fnd){
       return friend.id !== fnd.id;
     });
