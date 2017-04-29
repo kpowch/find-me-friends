@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :password, :password_confirmation, presence: true
   validates :password, length: { in: 4..15 }
   validate :no_minors, if: :dob
+  validates :bio, length: { in: 0..140 }
 
   # profile picture validation
   # TODO test these
