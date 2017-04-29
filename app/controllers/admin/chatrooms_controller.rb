@@ -24,10 +24,6 @@ class Admin::ChatroomsController < AdminController
     redirect_to [:admin, :chatrooms], notice: "Chatroom deleted successfully."
   end
 
-  # TODO do we need this?
-  def show
-  end
-
   private
 
   def chatroom_params
