@@ -6,6 +6,7 @@ import Welcome from 'app-bundles/Welcome/components/Welcome.jsx';
 import Profile from 'app-bundles/Profile/components/Profile.jsx';
 import Sidebar from 'app-bundles/Profile/components/Sidebar.jsx';
 import SuggestionList from 'app-bundles/Profile/components/SuggestionList.jsx';
+import Pending from 'app-bundles/Profile/components/Pending.jsx';
 import Friend from 'app-bundles/Profile/components/Friend.jsx';
 //Import Chatrooms components
 
@@ -18,6 +19,7 @@ ReactOnRails.register({
   Welcome: Welcome,
   Profile: Profile,
   Sidebar: Sidebar,
+  Pending: Pending,
   SuggestionList: SuggestionList,
   Friend: Friend,
   User: User

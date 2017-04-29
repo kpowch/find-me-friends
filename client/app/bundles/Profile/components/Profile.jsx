@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Sidebar from './Sidebar.jsx'
 import SuggestionList from './SuggestionList.jsx'
+import Pending from './Pending.jsx'
 
 export default class Profile extends React.Component {
   static propTypes = {};
@@ -14,6 +15,7 @@ export default class Profile extends React.Component {
     super(props);
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
+    console.log('props', props)
     this.state = {
       friendshipId: this.props.current_user.friendship_id,
       firstName: this.props.current_user.first_name,
@@ -22,11 +24,7 @@ export default class Profile extends React.Component {
       profilePicture: this.props.current_user.profile_picture.thumb.url,
       bio: this.props.current_user.bio,
       friends: this.props.current_friends,
-      showFriends: [
-        this.props.current_friends[0],
-        this.props.current_friends[1],
-        this.props.current_friends[2]
-      ],
+      pending: this.props.pending_friends
     };
     this.remove = this.remove.bind(this);
   }
@@ -45,12 +43,9 @@ export default class Profile extends React.Component {
   render() {
     return (
       <div className="profile">
-        <div>
           <Sidebar first_name={this.state.first_name} last_name={this.state.last_name} email={this.state.email} bio={this.state.bio} profile_picture={this.state.profile_picture}/>
-        </div>
-        <div className="list-container">
+          <Pending pending={this.state.pending}/>
           <SuggestionList friends={this.state.friends} onRemove={this.remove}/>
-        </div>
       </div>
     );
   }
