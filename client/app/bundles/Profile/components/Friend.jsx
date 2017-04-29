@@ -4,21 +4,19 @@ import ReactDOM from 'react-dom';
 class Friend extends React.Component {
 
   render() {
+    const friend = this.props.friend;
     return (
-      <div className="friend">
-        <a href="#" onClick={handleClick}>
-          Dismiss
-        </a>
-        <h2 className="card-title">Meet:</h2>
+      <div className="friend-card">
+        <a href data-id={friend.id} className="remove-filter" onClick={this.props.onRemove}>REMOVE</a><br/>
         <div className="card-name">
-          {this.props.first_name}
+          {friend.first_name}
         </div>
         <div className="card-name">
-          {this.props.last_name}
+          {friend.last_name}
         </div>
-        <img className="card-pic" src={this.props.profile_picture}/>
+        <img className="card-pic" src={friend.profile_picture}/>
         <div className="card-email">
-          {this.props.email}
+          {friend.email}
         </div>
       </div>
     );

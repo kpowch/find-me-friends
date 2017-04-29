@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+console.log('this is a sidebar')
+
 class Sidebar extends React.Component {
 
   render() {
