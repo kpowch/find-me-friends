@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # TODO potentially delete index, new
   resources :chatrooms, param: :id, except: [:edit, :update]
 
-  resources :messages, only [:create]
+  resources :messages, only: [:create]
 
   # TODO old style routing, should update if we can figure out how
   get '/login' => 'sessions#new'
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:index]
 
-  # TODO need to delete some more of these routes? 
+  # TODO need to delete some more of these routes?
   namespace :admin do
     root to: 'dashboard#show'
     resources :chatrooms, except: [:show, :edit, :update]
