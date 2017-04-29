@@ -7,6 +7,12 @@ class Admin::FriendshipsController < AdminController
   def new
   end
 
+  def create
+  end
+
+  def edit
+  end
+
   def update
   end
 

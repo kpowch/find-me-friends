@@ -1,10 +1,16 @@
 class Admin::UsersController < AdminController
 
+  def index
+    @users = User.all
+  end
+
   def new
   end
 
-  def index
-    @users = User.all
+  def create
+  end
+
+  def edit
   end
 
   def update
@@ -24,6 +30,7 @@ class Admin::UsersController < AdminController
   end
 
   private
+
   def user_params
     params.require(:user)
     .permit(

@@ -48,11 +48,8 @@ class UsersController < ApplicationController
     redirect_to profiles_path
   end
 
-  # detete account TODO decide if we want this
-  def delete
-  end
-
   private
+  
   def user_params
     params.require(:user)
     .permit(

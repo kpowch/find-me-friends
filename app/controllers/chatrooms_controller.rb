@@ -38,7 +38,6 @@ class ChatroomsController < ApplicationController
     @message = Message.new
   end
 
-  # TODO this should move to admin
   # Deletes a chatroom
   def destroy
     @chatroom = Chatroom.find params[:id]
