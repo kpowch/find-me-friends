@@ -1,6 +1,4 @@
-class Admin::DashboardController < ApplicationController
-  http_basic_authenticate_with name: 'admin', password: 'admin'
+class Admin::DashboardController < AdminController
   def show
   end
-
 end

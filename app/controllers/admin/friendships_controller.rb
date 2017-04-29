@@ -1,5 +1,4 @@
-class Admin::FriendshipsController < ApplicationController
-  http_basic_authenticate_with name: 'admin', password: 'admin'
+class Admin::FriendshipsController < AdminController
 
   def index
     @chatrooms = Chatroom.all

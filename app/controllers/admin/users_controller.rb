@@ -1,5 +1,5 @@
-class Admin::UsersController < ApplicationController
-  http_basic_authenticate_with name: 'admin', password: 'admin'
+class Admin::UsersController < AdminController
+
   def new
   end
 
