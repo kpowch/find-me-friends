@@ -13,6 +13,11 @@
   <label for="tab2" class="welcome">Signup</label>
 
   <section class="welcome-tabs" id="content1">
+    <div class='flash-message'>
+      <% if flash[:alert] %>
+        <%= flash[:alert] %>
+      <% end %>
+    </div>
     <div>
       <%= form_tag '/login' do %>
         <span class='form-field-input'> <%= text_field_tag(:email, '', placeholder: 'Email') %></span>
@@ -23,6 +28,11 @@
   </section>
 
   <section class="welcome-tabs" id="content2">
+    <div class='flash-message'>
+      <% if flash[:alert] %>
+        <%= flash[:alert] %>
+      <% end %>
+    </div>
     <div>
       <%= form_for :user, url: '/users' do |f| %>
         <span class='form-field-input'> <%= f.text_field :first_name, placeholder: 'First Name'%></span>
