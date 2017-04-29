@@ -24,13 +24,19 @@ class SuggestionList extends React.Component {
   accept(friend) {
     return function(event) {
       event.preventDefault();
-        console.log('do i have the friend:', friend);
+        console.log(friend.friendship);
       $.ajax({
-        data: friend,
-        url: "/chatrooms",
-        type: "POST",
+        data: {
+          friendship: {
+            id: friend.friendship_id,
+            user_id: friend.current_user_id,
+            friendship_status: "pending"
+          }
+        },
+        url: "/friendships/" + friend.friendship_id,
+        type: "PATCH",
         dataType: "json",
-        success: console.log("did we just become best friends?!?")
+        success: console.log("Did we just become best friends?!?")
       });
     }
   }

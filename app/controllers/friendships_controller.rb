@@ -41,6 +41,7 @@ class FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
+    @friendship = Friendship.find(params[:id])
     respond_to do |format|
       if @friendship.update(friendship_params)
         format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
@@ -72,7 +73,8 @@ class FriendshipsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def friendship_params
-    params.require(:friendship).permit(:user_id, :friend_id, :create, :destroy)
+    puts params
+    params.require(:friendship).permit(:user_id, :friend_id, :created, :destroy, :friendship_status, :id, :created_at, :updated_at)
   end
 
 
