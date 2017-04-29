@@ -6,7 +6,10 @@ class Friend extends React.Component {
   render() {
     return (
       <div className="friend">
-        <h2 className="card-title">Meet</h2>
+        <a href="#" onClick={handleClick}>
+          Dismiss
+        </a>
+        <h2 className="card-title">Meet:</h2>
         <div className="card-name">
           {this.props.first_name}
         </div>
