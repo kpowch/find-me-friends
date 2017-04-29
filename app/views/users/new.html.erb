@@ -1,0 +1,21 @@
+<div class='fake-modal'>
+  <div class='modal-header'>
+    <h1>Signup</h1>
+  </div>
+
+  <% if flash[:alert] %>
+    <%= flash[:alert] %>
+  <% end %>
+
+  <div class='modal-body'>
+    <%= form_for :user, url: '/users' do |f| %>
+      <span class='form-field-input'> <%= f.text_field :first_name, placeholder: 'First Name'%></span>
+      <span class='form-field-input'> <%= f.text_field :last_name, placeholder: 'Last Name' %></span>
+      <span class='form-field-imput'> <% f.label :dob %> Date of Birth: <br/><br/> <%= f.date_select :dob, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 80 %> </span>
+      <span class='form-field-input'> <%= f.text_field :email, placeholder: 'Email' %></span>
+      <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Password'%></span>
+      <span class='form-field-input'> <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %></span>
+      <%= f.submit 'Submit', class: 'form-button' %>
+    <% end %>
+  </div>
+</div>

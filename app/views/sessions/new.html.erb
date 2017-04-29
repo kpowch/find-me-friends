@@ -1,0 +1,17 @@
+<div class='fake-modal'>
+  <div class='modal-header'>
+    <h1>Login</h1>
+  </div>
+
+  <% if flash[:alert] %>
+    <%= flash[:alert] %>
+  <% end %>
+
+  <div class='modal-body'>
+    <%= form_tag '/login' do %>
+      <span class='form-field-input'> <%= text_field_tag(:email, '', placeholder: 'Email') %></span>
+      <span class='form-field-input'> <%= password_field_tag(:password, '', placeholder: 'Password') %></span>
+      <%= submit_tag 'Submit', class: 'form-button' %>
+    <% end %>
+  </div>
+</div>
