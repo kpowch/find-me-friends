@@ -1,4 +1,7 @@
 class MessagesController < ApplicationController
+  # redirect users who are not logged in
+  before_action :require_login
+  
   # create a new message
   def create
     message = Message.new(message_params)

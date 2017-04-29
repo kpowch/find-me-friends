@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # redirect users who are not logged in
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
+
   # render the signup form
   def new
   end
@@ -49,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def user_params
     params.require(:user)
     .permit(

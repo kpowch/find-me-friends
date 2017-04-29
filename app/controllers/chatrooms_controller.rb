@@ -1,9 +1,12 @@
 class ChatroomsController < ApplicationController
-  # Set cookie (current user's name) so chat can differentiate between sender/receiver
+  # redirect users who are not logged in
+  before_action :require_login
+
+  # set cookie (current user's name) so chat can differentiate between sender/receiver
   before_action :set_user
 
   # TODO this should move to admin
-  # Shows all the chatrooms and it's members, and buttons to create or delete them
+  # shows all the chatrooms and it's members, and buttons to create or delete them
   def index
     @chatrooms = Chatroom.all
   end
@@ -12,7 +15,7 @@ class ChatroomsController < ApplicationController
   def new
   end
 
-  # Creates a chatroom given a friendship_id
+  # creates a chatroom given a friendship_id
   def create
     @chatroom = Chatroom.new(chatroom_params)
     # TODO We probably shouldn't redirect to any page once a chatroom is made since it's
@@ -27,18 +30,18 @@ class ChatroomsController < ApplicationController
   end
 
   # TODO make this more efficient? Might have to rearrange models/database
-  # Shows individual chatrooms
+  # shows individual chatrooms
   def show
-    # For section showing all of the user's convos
+    # for section showing all of the user's convos
     @userChatrooms = Chatroom.joins(:users).where(friendships: { user: 2 })
     @friendChatrooms = Chatroom.joins(:users).where(friendships: { friend: 2 })
 
-    # For the specific chatroom and messages
+    # for the specific chatroom and messages
     @chatroom = Chatroom.find_by(id: params[:id])
     @message = Message.new
   end
 
-  # Deletes a chatroom
+  # deletes a chatroom
   def destroy
     @chatroom = Chatroom.find params[:id]
     @chatroom.destroy

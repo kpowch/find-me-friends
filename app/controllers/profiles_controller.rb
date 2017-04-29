@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  # redirect users who are not logged in
+  before_action :require_login
 
   helper ProfileHelper
 
