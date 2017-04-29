@@ -1,10 +1,7 @@
-
 import PropTypes from 'prop-types';
 import React from 'react';
 import Sidebar from './Sidebar.jsx'
 import SuggestionList from './SuggestionList.jsx'
-
-console.log('do even exist over here in Profile.jsx?')
 
 export default class Profile extends React.Component {
   static propTypes = {};
