@@ -9,13 +9,13 @@
 
   &.outlined {
     border-radius: 4px;
-    border: 1px solid $color-blue;
+    border: 1px solid $color-secondary;
   }
 
   &.filled {
     border-radius: 4px;
-    border: 1px solid $color-blue;
-    background-color: $color-blue;
+    border: 1px solid $color-secondary;
+    background-color: $color-secondary;
     color: #FFF;
   }
 
@@ -54,7 +54,7 @@
   margin: 120px auto 0;
   max-width: 500px;
   border-radius: 10px;
-  background-color: $color-blue;
+  background-color: $color-secondary;
   overflow: hidden;
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 

@@ -1,22 +1,4 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
 @import 'application';
-
-*, *:before, *:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-form {
-
-}
-
-body {
-  font: 14px/1 'Open Sans', sans-serif;
-  color: #555;
-  background: #eee;
-}
 
 main#welcome-login {
   min-width: 320px;

@@ -1,0 +1,38 @@
+@import 'variables';
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+  outline: none;
+	:hover {
+	  color: inherit;
+	  background-color: inherit;
+	}
+	:visited {
+	  color: inherit;
+	  background-color: $color-primary;
+	}
+}
+
+body {
+  background-color: $color-background;
+  font-family: $font-stack;
+  color: $font-color-main;
+}
+h1 {
+	text-align: center;
+	font-size: $font-size-large;
+  padding-bottom: $vertical-spacing-unit;
+}
+h2 {
+  text-align: center;
+  font-size: $font-size-base;
+  padding-bottom: $vertical-spacing-unit;
+}
+p, span {
+  font-size: $font-size-base;
+  padding-bottom: $vertical-spacing-unit;
+}
+main {
+  margin-top: $navbar-height + 30px;
+}
