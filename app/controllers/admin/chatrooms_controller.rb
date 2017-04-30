@@ -1,10 +1,7 @@
-class Admin::ChatroomsController < ApplicationController
-  http_basic_authenticate_with name: ['ADMI'], password: ENV['ADMIN_PASSWORD']
-  def show
-  end
+class Admin::ChatroomsController < AdminController
 
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.order(id: :desc).all
   end
 
   def new
@@ -15,21 +12,21 @@ class Admin::ChatroomsController < ApplicationController
     @chatroom = Chatroom.new(chatroom_params)
 
     if @chatroom.save
-      redirect_to '/admin'
+      redirect_to [:admin, :chatrooms], notice: 'Chatroom created!'
     else
-      redirect_to '/admin'
+      redirect_to [:admin, :chatrooms], notice: 'There was an error creating the chatroom.'
     end
   end
 
   def destroy
     @chatroom = Chatroom.find params[:id]
     @chatroom.destroy
-    redirect_to '/admin/chatrooms', notice: "Chatroom deleted successfully."
+    redirect_to [:admin, :chatrooms], notice: "Chatroom deleted successfully."
   end
 
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:chatroom_id)
+    params.require(:chatroom).permit(:friendship_id)
   end
 end

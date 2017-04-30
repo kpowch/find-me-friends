@@ -1,10 +1,16 @@
-class Admin::UsersController < ApplicationController
-  http_basic_authenticate_with name: 'admin', password: 'admin'
-  def new
-  end
+class Admin::UsersController < AdminController
 
   def index
     @users = User.all
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def edit
   end
 
   def update
@@ -24,6 +30,7 @@ class Admin::UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user)
     .permit(
