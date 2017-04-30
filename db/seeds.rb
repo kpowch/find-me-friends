@@ -8,21 +8,11 @@
 
 puts "Seeding Data.. .."
 
-## LOCATIONS
-puts "Finding some nice places..."
-Location.destroy_all
-
-Location.create(city: "Victoria", province: "BC", country: "Canada")
-Location.create(city: "Vancouver", province: "BC", country: "Canada")
-Location.create(city: "Kelowna", province: "BC", country: "Canada")
-Location.create(city: "Banff", province: "AB", country: "Canada")
-
 ## USERS
 puts "Generating some homies..."
 User.destroy_all
 
 User.create!({
-  location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
@@ -35,7 +25,6 @@ User.create!({
   })
 
 User.create!({
-  location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
@@ -48,7 +37,6 @@ User.create!({
   })
 
 User.create!({
-  location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
@@ -61,7 +49,6 @@ User.create!({
   })
 
 User.create!({
-  location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
@@ -74,7 +61,6 @@ User.create!({
   })
 
 User.create!({
-  location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
@@ -87,7 +73,6 @@ User.create!({
   })
 
 User.create!({
-  location_id: Faker::Number.between(1, 4),
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
