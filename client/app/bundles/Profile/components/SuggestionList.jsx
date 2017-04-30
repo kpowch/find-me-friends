@@ -17,23 +17,6 @@ class SuggestionList extends React.Component {
     this.remove = this.remove.bind(this);
   }
 
-  remove(friend) {
-    console.log('in suggestion-list remove function')
-    console.log(this.props)
-
-    return function(event) {
-      event.preventDefault();
-      return this.props.onRemove(friend);
-    }.bind(this);
-    $.ajax({
-      data: friend,
-      url: "/chatrooms",
-      type: "DELETE",
-      dataType: "json",
-      success: console.log("you are so successful at deleting friends")
-    });
-  }
-
   accept(friend) {
     return function(event) {
       event.preventDefault();
@@ -54,6 +37,20 @@ class SuggestionList extends React.Component {
     }
   }
 
+  remove(friend) {
+    return function(event) {
+      event.preventDefault();
+      return this.props.onRemove(friend);
+    }.bind(this);
+    $.ajax({
+      data: friend,
+      url: "/chatrooms",
+      type: "DELETE",
+      dataType: "json",
+      success: console.log("you are so successful at deleting friends")
+    });
+  }
+
   render() {
     return (
       <div className="suggestion-list">
@@ -61,10 +58,10 @@ class SuggestionList extends React.Component {
           return <Friend
             friend={friend}
             onAccept={() => this.accept(friend)}
-            onRemove={() => this.state.onRemove(friend)}
+            onRemove={this.remove(friend)}
             key={i}
             />
-          }
+          }, this
         ) : null}
       </div>
     );
