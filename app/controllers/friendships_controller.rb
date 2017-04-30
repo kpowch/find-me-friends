@@ -33,6 +33,8 @@ class FriendshipsController < ApplicationController
     puts 'in friendships create'
     respond_to do |format|
       if @friendship.save
+        @new_friend = User.where(id: :friend_id)
+        UserMailer.welcome_email(@user, @new_friend).deliver_now
         format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
         format.json { render :show, status: :created, location: @friendship }
       else
