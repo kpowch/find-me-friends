@@ -18,9 +18,11 @@ class SuggestionList extends React.Component {
   }
 
   accept(friend) {
-    return function(event) {
-      event.preventDefault();
-        console.log(friend.friendship);
+    console.log("SuggestionList accept fnxn")
+    return function(e) {
+      // event.preventDefault();
+        console.log('this.props in SuggestionList accept', this.props);
+        return this.props.onAccept(friend);
       $.ajax({
         data: {
           friendship: {
@@ -38,6 +40,7 @@ class SuggestionList extends React.Component {
   }
 
   remove(friend) {
+    console.log("SuggestionList remove fnxn")
     return function(event) {
       event.preventDefault();
       return this.props.onRemove(friend);
