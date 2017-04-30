@@ -1,13 +1,7 @@
 <div class='navbar-wrapper'>
   <div class='navbar'>
-
-</div>
-
-  <div class='nav'>
-    <div class='nav-header'>
-      <div class='nav-title logo'>
+    <div class='nav-brand'>
         <%= link_to 'Find Me Friends', :root %>
-      </div>
     </div>
 
     <div class='nav-btn'>
@@ -22,17 +16,24 @@
 
     <div class='nav-links'>
       <% if current_user %>
-        <span class='nav-item'>
+        <span class='nav-link'>
           <%= link_to 'Chatrooms', chatrooms_path %>
         </span>
-        <span class='nav-item'>
-          <%= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user.id) %>
+        <span class='nav-link'>
+          <%= link_to "#{current_user.first_name} #{current_user.last_name}", profiles_path %>
         </span>
-        <span class='nav-item'>
+        <span class='nav-link'>
           <%= link_to 'Edit Settings', edit_user_path(current_user.id) %>
         </span>
-        <span class='nav-item'>
+        <span class='nav-link nav-auth'>
           <%= link_to 'Logout', logout_path %>
+        </span>
+      <% else %>
+        <span class='nav-link nav-auth'>
+          <%= link_to "Login", login_path %>
+        </span>
+        <span class='nav-link nav-auth'>
+          <%= link_to "Sign Up", new_user_path %>
         </span>
       <% end %>
     </div>
