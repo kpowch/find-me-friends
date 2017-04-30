@@ -43,7 +43,7 @@ class ProfilesController < ApplicationController
 
   def pending_three_amigos_method
     full_user_objects = []
-    pending = Friendship.where(user_id: current_user.id).where(friendship_status: "pending")
+    pending = Friendship.where(user_id: current_user.id).where(friendship_status: "pending" && "Pending")
     pending.each do |friendship|
       current = User.where(id: friendship.friend_id)
       current_hash = current.as_json
