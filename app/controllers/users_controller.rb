@@ -18,10 +18,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        p @user.inspect
         session[:user_id] = @user.id
         flash[:alert] = "Welcome! Please fill in your interests so we can get started."
-        #send email when a new user is registered
+        # send email when a new user is registered
         UserMailer.welcome_email(@user).deliver_now
 
         # redirect to edit user path so they can input their interests
@@ -44,7 +43,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(current_user.id)
     @interests = Interest.all.order(:name)
-    save_friendships
   end
 
   # updates edited settings in db
@@ -57,6 +55,7 @@ class UsersController < ApplicationController
       @user.update(interest_ids: [])
     end
     @user.update(user_params)
+    # save_friendships
     redirect_to profiles_path
   end
 
