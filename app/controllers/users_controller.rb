@@ -16,14 +16,22 @@ class UsersController < ApplicationController
     @user.profile_picture = File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg'))
     @user.bio = '';
 
-    if @user.save
-      session[:user_id] = @user.id
-      flash[:alert] = "Welcome! Please fill in your interests so we can get started."
-      # redirect to edit user path so they can input their interests
-      redirect_to edit_user_path(@user.id)
-    else
-      flash[:alert] = @user.errors.full_messages.to_s # TODO incorporate this into page
-      redirect_to new_user_path
+    respond_to do |format|
+      if @user.save
+        p @user.inspect
+        session[:user_id] = @user.id
+        flash[:alert] = "Welcome! Please fill in your interests so we can get started."
+        #send email when a new user is registered
+        UserMailer.welcome_email(@user).deliver_now
+
+        # redirect to edit user path so they can input their interests
+        format.html { redirect_to edit_user_path(@user.id) }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        flash[:alert] = @user.errors.full_messages.to_s # TODO incorporate this into page
+        format.html { redirect_to new_user_path }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
