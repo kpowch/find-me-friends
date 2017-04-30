@@ -7,8 +7,8 @@ class Friend extends React.Component {
     const friend = this.props.friend;
     return (
       <div className="friend">
-        <a href data-id={friend.id} className="remove-filter" onClick={this.props.onACCEPT}>ACCEPT</a><br/>
-        <a href data-id={friend.id} className="remove-filter" onClick={this.props.onRemove}>REMOVE</a><br/>
+        <a className="remove-filter" onClick={this.props.onACCEPT}>ACCEPT</a><br/>
+        <a className="remove-filter" onClick={this.props.onRemove}>REMOVE</a><br/>
         <div className="card-name">
           {friend.first_name}
         </div>

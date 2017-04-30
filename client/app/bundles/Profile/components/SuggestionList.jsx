@@ -6,6 +6,17 @@ console.log('am I in SuggestionList or some alternate reality')
 
 class SuggestionList extends React.Component {
 
+  constructor(props, _railsContext) {
+    super(props);
+    // How to set initial state in ES6 class syntax
+    // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
+    console.log('props', props)
+    this.state = {
+      onRemove: this.props.onRemove
+    };
+    this.remove = this.remove.bind(this);
+  }
+
   remove(friend) {
     console.log('in suggestion-list remove function')
     console.log(this.props)
@@ -50,7 +61,7 @@ class SuggestionList extends React.Component {
           return <Friend
             friend={friend}
             onAccept={() => this.accept(friend)}
-            onRemove={() => this.props.onRemove}
+            onRemove={() => this.state.onRemove(friend)}
             key={i}
             />
           }
