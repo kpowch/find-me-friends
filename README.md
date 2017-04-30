@@ -1,11 +1,11 @@
 # Find Me Friends
 The app for meeting new people and making lifelong friends. Have you ever wanted to try felting but can't convince your friends to craft with you? Or do you not have any friends? **Find Me Friends** is the app for you! Sign up today to start connecting with friends in your neighbourhood to felt with you!
 
-**Why use Find Me Friends?**
+## Why use Find Me Friends?
 
 We provide a platform for you to connect with people in your community who enjoy doing the same activties or are interested in trying new things! Consider us as the ice breaker, the mutual friend to connect you with someone awesome on an inviting and more personal level!
 
-**How it Works**
+## How it Works
 
 Find amazing friends with similar interests and set a time and place to meet up! It's that simple!
 
@@ -34,7 +34,7 @@ Find amazing friends with similar interests and set a time and place to meet up!
         - *Testing/branch-name-object*
 * Consistency
 * **NO CODING ON MASTER**
-    - Must face *shame* if so.
+  - Must face *shame* if so.
 * Trello & Slack for communication
 
 
@@ -59,7 +59,7 @@ Things you may want to cover:
 
 * ...
 
-# Getting Started
+## Getting Started
 
 ```
 nvm install node                # download and install latest stable Node
@@ -122,3 +122,8 @@ If you need to change something with the migrations/seeds and you need to drop t
 3. Create the database again: `psql -d postgres` then `create database find_me_friends owner friend;` (same as above)
 4. Migrate the tables: `bin/rails db:migrate`
 4. Seed the database: `bin/rails db:seed`
+
+# Resources
+[Shakacode React on Rails boilerplate](https://github.com/shakacode/react_on_rails)
+
+[Real-Time Rails: Implementing WebSockets in Rails 5 with Action Cable](https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable)

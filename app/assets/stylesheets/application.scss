@@ -18,48 +18,5 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
 @import 'css_reset';
-
-/* Variables */
-$max-width: 1200px;
-$font-stack: 'Noto Sans', Open sans;
-$color-background: #e7e7e8;
-$color-blue: #287fb8;
-$color-orange: #f89b36;
-$font-logo:'Pacifico', cursive;
-
-/* Styles added by us */
-/* TODO set heading defaults */
-a {
-  text-decoration: none;
-  color: $color-orange;
-  outline: none;
-	:hover {
-	  color: inherit;
-	  background-color: inherit;
-	}
-	:visited {
-	  color: inherit;
-	  background-color: $color-orange;
-	}
-}
-
-body {
-  background-color: $color-background;
-  font-family: $font-stack;
-}
-h1 {
-	text-align: center;
-	font-size: 40px
-}
-h2 {
-
-}
-h3 {
-
-}
-p, span {
-
-}
-main {
-  margin-top: 80px;
-}
+@import '_variables.scss';
+@import '_typography.scss';

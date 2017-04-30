@@ -3,20 +3,43 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
     $('#messages').removeClass('hidden');
     $('#messages').append(this.returnMessageElement(data));
 
-    // Moves window down so most recent message is in view
+    // moves window down so most recent message is in view
     $('.messages-wrapper').scrollTop($('.panel-body.scrollable').height());
   },
+
   returnMessageElement: function(data) {
-    // Determine the current user based on their cookie
+    // determine the current user based on their cookie
     var user_cookie = document.cookie;
-    // Split the cookie string to access just the first name
+    // split the cookie string to access just the first name
     var current_user = user_cookie.substring(user_cookie.indexOf('=') + 1);
 
-    // Add currentUser class if message was written by current user
+    // escape any potential html injections
+    messageName = this.escapeHtmlInjection(data.user);
+    messageContent = this.escapeHtmlInjection(data.message);
+
+    // add currentUser class if message was written by current user
     if (current_user === data.user) {
-      return `<div class='message-bubble currentUser'><p>${data.user}: ${data.message}</p></div>`;
+      return "<div class='message-bubble currentUser'><p>" + messageName + ": " + messageContent + "</p></div>";
     } else {
-      return `<div class='message-bubble'><p>${data.user}: ${data.message}</p></div>`;
+      return "<div class='message-bubble'><p>" + messageName + ": " + messageContent + "</p></div>";
     }
+  },
+
+  // replaces html injection characters with their 'safe' alternative
+  escapeHtmlInjection: function(string) {
+    var entityMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+      '/': '&#x2F;',
+      '`': '&#x60;',
+      '=': '&#x3D;'
+    };
+
+    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+      return entityMap[s];
+    });
   }
 });

@@ -1,91 +1,90 @@
 @import 'application';
 
-$navbar-height: 60px;
-
 .navbar-wrapper {
-  background-color: #FFF;
-  box-shadow: -2px 2px 8px #777;
+  background-color: $navbar-background-color;
+  box-shadow: $navbar-box-shadow;
   height: $navbar-height;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 900;
-  .nav {
-    max-width: $max-width;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    .nav-header {
-      .nav-title.logo {
-        font-family: $font-logo;
-        font-size: 40px;
-        color: $color-orange;
-        padding: 10px;
-      }
+}
+
+.navbar {
+  max-width: $max-width;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-family: $font-logo;
+  font-size: $font-size-logo;
+  color: $color-primary;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+}
+
+#nav-check {
+  display: none;
+}
+
+.nav-links {
+  height: 100%;
+}
+
+.nav-btn {
+  display: none;
+}
+
+.nav-link a {
+    box-sizing: border-box;
+    color: $navbar-link-color;
+    font-size: $navbar-font-size;
+    padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  &:hover {
+    border: $navbar-link-border;
+    border-radius: $navbar-link-border-radius;
+    color: $navbar-link-hover-color;
+  }
+}
+
+@media (max-width:800px) {
+  .nav-btn {
+    display: inline-block;
+    padding: 13px 13px 0;
+    &:hover {
+      background-color: $navbar-link-hover-background-color;
     }
-    #nav-check {
-      display: none;
-    }
-    .nav-links {
-      height: 100%;
-      .nav-btn {
-        display: none;
-      }
-      .nav-item a {
-          box-sizing: border-box;
-          color: darkgrey;
-          font-size: 18px;
-          padding: 10px;
-        &:hover {
-          border: 1px solid $color-blue;
-          border-radius: 5px;
-          color: black;
-        }
-      }
+    span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      padding-bottom: 0;
+      border-top: 2px solid darkgrey;
     }
   }
-
-  @media (max-width:800px) {
-    .nav {
-      .nav-btn > label {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        padding: 13px;
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.3);
-        }
-        span {
-          display: block;
-          width: 25px;
-          height: 10px;
-          border-top: 2px solid grey;
-        }
-      }
-      .nav-links {
-        position: absolute;
-        display: block;
-        background-color: #FFF;
-        box-shadow: 2px 2px 8px #777, -2px 2px 8px #777;
-        transition: all 0.3s ease-in;
-        overflow-y: hidden;
-        top: $navbar-height;
-        right: 0;
-        width: 100%;
-        .nav-item {
-          display: block;
-          padding: 20px;
-        }
-      }
-      #nav-check:not(:checked) + .nav-links {
-        height: 0px;
-      }
-      #nav-check:checked + .nav-links {
-        height: 30vh;
-        overflow-y: visible;
-      }
-    }
+  .nav-links {
+    position: absolute;
+    display: block;
+    background-color: $navbar-background-color;
+    box-shadow: 2px 2px 8px #777, -2px 2px 8px #777;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: $navbar-height;
+    right: 0;
+    width: 100%;
+  }
+  .nav-link {
+    display: block;
+    padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  }
+  #nav-check:not(:checked) + .nav-links {
+    height: 0px;
+  }
+  #nav-check:checked + .nav-links {
+    height: $navbar-height-responsive;
+    overflow-y: visible;
   }
 }

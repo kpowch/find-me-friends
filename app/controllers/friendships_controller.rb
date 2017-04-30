@@ -1,6 +1,10 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
 
+  # TODO uncomment this if we make friendship pages
+  # # redirect users who are not logged in
+  # before_action :require_login
+
   # GET /friendships
   # GET /friendships.json
   def index
@@ -29,6 +33,8 @@ class FriendshipsController < ApplicationController
     puts 'in friendships create'
     respond_to do |format|
       if @friendship.save
+        @new_friend = User.where(id: :friend_id)
+        UserMailer.welcome_email(@user, @new_friend).deliver_now
         format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
         format.json { render :show, status: :created, location: @friendship }
       else

@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  # redirect users who are not logged in
+  before_action :require_login
 
   helper ProfileHelper
 
@@ -41,7 +43,7 @@ class ProfilesController < ApplicationController
 
   def pending_three_amigos_method
     full_user_objects = []
-    pending = Friendship.where(user_id: current_user.id).where(friendship_status: "pending")
+    pending = Friendship.where(user_id: current_user.id).where(friendship_status: "pending" && "Pending")
     pending.each do |friendship|
       current = User.where(id: friendship.friend_id)
       current_hash = current.as_json

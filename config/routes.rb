@@ -1,32 +1,35 @@
 Rails.application.routes.draw do
-  resources :friendships
-  get 'hello_world', to: 'hello_world#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  #welcome page
+  # welcome page
   root 'welcome#index'
-  resources :welcome, only: [:index, :show]
 
+  resources :welcome, only: [:index]
 
-  #routes as specified in Action Cable setup
-  resources :chatrooms, param: :id
-  resources :messages
+  # TODO need to delete any of these routes?
+  resources :friendships
 
-  #old style routing, should update if we can figure out how
+  # routes as specified in Action Cable setup
+  # TODO potentially delete index, new
+  resources :chatrooms, param: :id, except: [:edit, :update]
+
+  resources :messages, only: [:create]
+
+  # TODO old style routing, should update if we can figure out how
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   resources :users, except: [:index, :destroy]
+
   resources :profiles, only: [:index]
 
+  # TODO need to delete some more of these routes?
   namespace :admin do
     root to: 'dashboard#show'
-    resources :chatrooms, except: [:update]
-    resources :users
-    resources :friendships, except: [:update]
+    resources :chatrooms, except: [:show, :edit, :update]
+    resources :users, except: [:show]
+    resources :friendships, except: [:show]
   end
 
-  # Serve websocket cable requests in-process
+  # serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 end
