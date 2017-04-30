@@ -40,18 +40,17 @@ class ApplicationController < ActionController::Base
   # loops through id's, see if friendship already exists
   def save_friendships
     array = friendlist(current_user)
-    puts "array"
-    puts array
+    puts "array: \n #{array}"
     array.each do |user|
-      puts 'user id is '
-      puts user.id
+      puts "user id is #{user.id}"
+      puts "current user is #{current_user.id}"
+      # TODO check if the user-current_user friendship exists - not just if the other person is a friend_id
       if Friendship.where(friend_id: user.id).exists?
-        puts 'darn'
-        puts Friendship.where(friend_id: user.id)
+        puts "#{user.id} is already a friend as #{Friendship.where(friend_id: user.id).inspect}"
         next
       else
-        puts 'shit'
-        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "initialized")
+        puts "#{user.id} isn't a friend yet!"
+        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "pending")
       end
     end
   end
