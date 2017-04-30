@@ -53,9 +53,7 @@
 @media (max-width:800px) {
   .nav-btn {
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    padding: 13px;
+    padding: 13px 13px 0;
     &:hover {
       background-color: $navbar-link-hover-background-color;
     }
@@ -63,6 +61,7 @@
       display: block;
       width: 25px;
       height: 10px;
+      padding-bottom: 0;
       border-top: 2px solid darkgrey;
     }
   }
