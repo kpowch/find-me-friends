@@ -6,7 +6,6 @@ import Pending from './Pending.jsx'
 
 export default class Profile extends React.Component {
   static propTypes = {};
-
   /**
    * @param props - Comes from your rails view.
    * @param _railsContext - Comes from React on Rails
@@ -30,8 +29,8 @@ export default class Profile extends React.Component {
   }
 
   remove(friend){
-    console.log(this.state)
     console.log('in profile remove function')
+    console.log(this.state)
     var friends = this.state.friends.filter(function(fnd){
       return friend.id !== fnd.id;
     });
@@ -42,7 +41,7 @@ export default class Profile extends React.Component {
 
   render() {
     return (
-      <div className="profile">
+      <div className="list-container">
           <Sidebar first_name={this.state.first_name} last_name={this.state.last_name} email={this.state.email} bio={this.state.bio} profile_picture={this.state.profile_picture}/>
           <Pending pending={this.state.pending}/>
           <SuggestionList friends={this.state.friends} onRemove={this.remove}/>
