@@ -14,9 +14,9 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
 
     // Add currentUser class if message was written by current user
     if (current_user === data.user) {
-      return `<div class='message-bubble currentUser'><p>${data.user}: ${data.message}</p></div>`;
+      return "<div class='message-bubble currentUser'><p>" + data.user + ": " + data.message + "</p></div>";
     } else {
-      return `<div class='message-bubble'><p>${data.user}: ${data.message}</p></div>`;
+      return "<div class='message-bubble'><p>" + data.user + ": " + data.message + "</p></div>";
     }
   }
 });
