@@ -1,6 +1,10 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
 
+  # TODO uncomment this if we make friendship pages
+  # # redirect users who are not logged in
+  # before_action :require_login
+
   # GET /friendships
   # GET /friendships.json
   def index

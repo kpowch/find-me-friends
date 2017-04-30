@@ -1,0 +1,29 @@
+/* GENERAL VARIABLES */
+$font-stack: 'Noto Sans', 'Open Sans', sans-serif;
+$font-logo:'Pacifico', cursive;
+$font-size-base: 16px;
+$font-size-large: 28px;
+$font-size-logo: 40px;
+
+$color-primary: #f89b36;
+$color-secondary: #287fb8;
+$color-background: #e7e7e8;
+$font-color-main: #555;
+
+$max-width: 1200px;
+$horizontal-spacing-unit: 10px;
+$vertical-spacing-unit: 10px;
+
+/* NAVBAR VARIABLES */
+$navbar-font-size: 18px;
+
+$navbar-box-shadow: -2px 2px 8px #777;
+$navbar-background-color: #FFF;
+$navbar-link-color: #555;
+$navbar-link-hover-color: $color-primary;
+$navbar-link-hover-background-color: lightgrey;
+$navbar-link-border: 1px solid $color-secondary;
+
+$navbar-height: 60px;
+$navbar-height-responsive: 160px;
+$navbar-link-border-radius: 5px;

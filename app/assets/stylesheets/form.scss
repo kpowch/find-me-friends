@@ -6,7 +6,7 @@
   width: 100%;
   box-sizing: border-box;
   border: none;
-  border-bottom: 2px solid $color-orange;
+  border-bottom: 2px solid $color-primary;
   border-radius: 4px;
   display: inline-block;
   font-family: $font-stack;
@@ -30,13 +30,13 @@
   text-align: center;
   /* from filled button styling */
   border-radius: 4px;
-  border: 1px solid $color-orange;
-  background-color: $color-orange;
+  border: 1px solid $color-primary;
+  background-color: $color-primary;
   color: #FFF;
   margin-top: 10px;
 
   &:hover {
     transition: all 0.5s;
-    background-color: lighten($color-blue, 5);
+    background-color: lighten($color-secondary, 5);
   }
 }
