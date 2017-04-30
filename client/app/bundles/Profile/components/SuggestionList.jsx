@@ -6,21 +6,15 @@ console.log('am I in SuggestionList or some alternate reality')
 
 class SuggestionList extends React.Component {
 
-  remove(friend) {
-    console.log('in suggestion-list remove function')
-    console.log(this.props)
-
-    return function(event) {
-      event.preventDefault();
-      return this.props.onRemove(friend);
-    }.bind(this);
-    $.ajax({
-      data: friend,
-      url: "/chatrooms",
-      type: "DELETE",
-      dataType: "json",
-      success: console.log("you are so successful at deleting friends")
-    });
+  constructor(props, _railsContext) {
+    super(props);
+    // How to set initial state in ES6 class syntax
+    // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
+    console.log('props', props)
+    this.state = {
+      onRemove: this.props.onRemove
+    };
+    this.remove = this.remove.bind(this);
   }
 
   accept(friend) {
@@ -43,6 +37,20 @@ class SuggestionList extends React.Component {
     }
   }
 
+  remove(friend) {
+    return function(event) {
+      event.preventDefault();
+      return this.props.onRemove(friend);
+    }.bind(this);
+    $.ajax({
+      data: friend,
+      url: "/chatrooms",
+      type: "DELETE",
+      dataType: "json",
+      success: console.log("you are so successful at deleting friends")
+    });
+  }
+
   render() {
     return (
       <div className="suggestion-list">
@@ -50,10 +58,10 @@ class SuggestionList extends React.Component {
           return <Friend
             friend={friend}
             onAccept={() => this.accept(friend)}
-            onRemove={() => this.props.onRemove}
+            onRemove={this.remove(friend)}
             key={i}
             />
-          }
+          }, this
         ) : null}
       </div>
     );
