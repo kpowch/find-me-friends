@@ -21,15 +21,21 @@
       <span class='form-field-input'> <%= f.text_field :bio, placeholder: 'Enter your Bio' %></span>
 
       <div>
+        <label>
+          <input type="checkbox" id="selectAll" value="selectAll">
+          Select / Deselect All
+        </label>
         <% @interests.each do |interest| %>
           <div>
-            <%= check_box_tag :interest_ids, interest.id, @user.interests.include?(interest), :name => 'user[interest_ids][]' %>
-            <%= label_tag :interest_id, interest.name %>
+            <label>
+              <%= check_box_tag :interest_ids, interest.id, @user.interests.include?(interest), :name => 'user[interest_ids][]' %>
+              <%= interest.name %>
+            </label>
           </div>
         <% end %>
       </div>
 
-      <span class="image-uploader">
+      <span class='image-uploader'>
         <%= f.label :profile_picture %><br>
         <%= f.file_field :profile_picture %>
       </span>
@@ -39,7 +45,7 @@
   </div>
 </div>
 
-<%= link_to "/users/#{current_user.id}" do %>
+<%= link_to '/users/#{current_user.id}' do %>
   <div class='button filled'>
     <span>Profile page</span>
   </div>
