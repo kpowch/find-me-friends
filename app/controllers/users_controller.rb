@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(current_user.id)
     @interests = Interest.all.order(:name)
-    #save_friendships
   end
 
   # updates edited settings in db
