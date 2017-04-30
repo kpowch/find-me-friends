@@ -8,6 +8,8 @@ class SuggestionList extends React.Component {
 
   remove(friend) {
     console.log('in suggestion-list remove function')
+    console.log(this.props)
+
     return function(event) {
       event.preventDefault();
       return this.props.onRemove(friend);
@@ -43,11 +45,12 @@ class SuggestionList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="suggestion-list">
         {this.props.friends ? this.props.friends.map(function(friend, i) {
           return <Friend
             friend={friend}
-            onRemove={() => this.props.onRemove(friend)}
+            onAccept={() => this.accept(friend)}
+            onRemove={() => this.props.onRemove}
             key={i}
             />
           }
