@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :email, :dob, presence: true
   validates_uniqueness_of :email, case_sensitive: false
-  validates :password, length:{ in: 4..15 }, confirmation: true, on: :create
+  validates :password, length:{ minimum: 4 }, confirmation: true, on: :create
   validate :no_minors, if: :dob
   validates :bio, length: { in: 0..140 }
 
