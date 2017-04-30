@@ -103,6 +103,8 @@ postgres=# CREATE ROLE friend WITH LOGIN password 'lighthouse';
 CREATE ROLE
 postgres=# CREATE DATABASE find_me_friends OWNER friend;
 CREATE DATABASE
+postgres=# ALTER ROLE friend SUPERUSER;
+ALTER ROLE
 ```
 
 `\q to quit psql`
