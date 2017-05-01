@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  # pass current user to all other controllers
+  # pass current user to all other controllers to reference when needed
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
 
-  # sends user to login page if they're authorized to the page
+  # sends current user to login page if they're not authorized to the page
   def require_login
     if current_user.nil?
       flash[:alert] = "Please sign in to see this content."
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # returns an array of user_id's from user with matching interests, ordered by # of hits
+  # returns array of user_id's who have matching interests to current user, ordered by # of common interests
   def friendlist(user)
     User.find_by_sql(
       "SELECT
@@ -36,22 +36,22 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  # should save friendships based on array provided by friendlist
-  # loops through id's, see if friendship already exists
+  # loops through friendlist array, and saves friendships if it doesn't already exist
   def save_friendships
     array = friendlist(current_user)
-    puts "array"
-    puts array
+    puts "array: \n #{array}"
     array.each do |user|
-      puts 'user id is '
-      puts user.id
-      if Friendship.where(friend_id: user.id).exists?
-        puts 'darn'
-        puts Friendship.where(friend_id: user.id)
+      puts "user id is #{user.id}"
+      puts "current user is #{current_user.id}"
+      if Friendship.where("user_id = ? AND friend_id = ?", current_user.id, user.id).exists?
+        puts "Friendship already exists: #{Friendship.where("user_id = ? AND friend_id = ?", current_user.id, user.id).inspect}"
+        next
+      elsif Friendship.where("user_id = ? AND friend_id = ?", user.id, current_user.id).exists?
+        puts "Friendship already exists: #{Friendship.where("user_id = ? AND friend_id = ?", user.id, current_user.id)}"
         next
       else
-        puts 'shit'
-        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "pending")
+        puts "#{user.id} isn't a friend of #{current_user.id} yet!"
+        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "suggested")
       end
     end
   end

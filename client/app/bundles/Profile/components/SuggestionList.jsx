@@ -4,76 +4,64 @@ import Friend from './Friend'
 
 console.log('am I in SuggestionList or some alternate reality')
 
-class SuggestionList extends React.Component {
+export default class SuggestionList extends React.Component {
 
-  constructor(props, _railsContext) {
-    super(props);
-    // How to set initial state in ES6 class syntax
-    // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-    console.log('props', props)
-    this.state = {
-      onRemove: this.props.onRemove
-    };
-    this.remove = this.remove.bind(this);
-    this.accept = this.accept.bind(this);
-  }
-
-  accept(friend) {
-    console.log("SuggestionList accept fnxn")
-    return function(e) {
-      event.preventDefault();
-        console.log('this.props in SuggestionList accept', this.props);
+  // if suggested friend added, change friendship status to 'pending' then refresh lists
+  addSuggestedFriend = (friend) => {
+    console.log('entered SuggestionList addSuggestedFriend')
+    return (ev) => {
+      ev.preventDefault();
+      // send ajax to update friendship where 'initiator' is user_id
       $.ajax({
         data: {
-
-            id: friend.friendship_id,
-            user_id: friend.current_user_id,
-            friendship_status: "pending"
-
+          id: friend.friendship.id,
+          user_id: this.props.currentUser.id,
+          // if friend_id is the current user, switch it to the friendship user_id
+          friend_id: (friend.friendship.friend_id = this.props.currentUser.id) ? friend.friendship.user_id : friend.friendship.friend_id,
+          friendship_status: 'pending'
         },
-        url: "/friendships/" + friend.friendship_id,
-        type: "PATCH",
-        dataType: "json",
-        success: console.log("Did we just become best friends?!?")
+        url: '/friendships/' + friend.friendship.id,
+        type: 'PATCH',
+        dataType: 'json',
+        success: () => this.props.refreshBothLists(friend)
       });
-      return this.props.onAccept(friend);
-    }.bind(this);
+    };
   }
 
-  remove(friend) {
-    return function(event) {
-    console.log("SuggestionList remove fnxn")
-      console.log('before ajax')
+  // if suggested friend declined, change friendship status to 'declined' then refresh list
+  declineSuggestedFriend = (friend) => {
+    console.log('entered SuggestionList declineSuggestedFriend')
+    return (ev) => {
+      ev.preventDefault();
+      // send ajax to update friendship status
       $.ajax({
         data: {
-            id: friend.friendship_id,
-            user_id: friend.current_user_id,
-            friendship_status: "declined"
-          },
-        url: "/friendships/" + friend.friendship_id,
-        type: "PATCH",
-        dataType: "json",
-        success: console.log("you are so successful at deleting friends")
+          id: friend.friendship.id,
+          friendship_status: 'declined'
+        },
+        url: '/friendships/' + friend.friendship.id,
+        type: 'PATCH',
+        dataType: 'json',
+        success: () => this.props.refreshSuggestedList(friend)
       });
-      console.log('after ajax')
-      return this.props.onRemove(friend);
-    }.bind(this);
+    };
   }
 
   render() {
     return (
-      <div className="suggestion-list">
-        {this.props.friends ? this.props.friends.map(function(friend, i) {
-          return <Friend
-            friend={friend}
-            onAccept={this.accept(friend)}
-            onRemove={this.remove(friend)}
-            key={i}
+      <div>
+        <h1> Suggested Friends </h1>
+        <div className='suggestion-list'>
+          {this.props.suggestedFriends.empty ? null : this.props.suggestedFriends.map((friend) =>
+            <Friend
+              friend={friend}
+              addSuggestedFriend={this.addSuggestedFriend}
+              declineSuggestedFriend={this.declineSuggestedFriend}
+              key={friend.user_id}
             />
-          }, this
-        ) : null}
+          )}
+        </div>
       </div>
     );
   }
 }
-export default SuggestionList;
