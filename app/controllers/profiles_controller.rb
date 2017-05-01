@@ -30,7 +30,6 @@ class ProfilesController < ApplicationController
       current = User.where(id: friendship.friend_id)
       current_hash = current.as_json
       current_person = current_hash[0]
-      puts "current person thumb: #{current_person.inspect}"
       full_user_objects.push({
         current_user_id: current_user.id,
         id: current_person["id"],
@@ -38,7 +37,7 @@ class ProfilesController < ApplicationController
         first_name: current_person["first_name"],
         last_name: current_person["last_name"],
         email: current_person["email"],
-        profile_picture: current_person["profile_picture.thumb.url"],
+        profile_picture: current_person["profile_picture"],
         bio: current_person["bio"],
         friendship: friendship
         })
