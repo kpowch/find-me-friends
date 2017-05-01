@@ -5,23 +5,42 @@ export default class PendingFriend extends React.Component {
 
   render() {
     // this makes the code more readable
-    const { friend, acceptPendingFriend, declinePendingFriend } = this.props;
+    const { friend, acceptPendingFriend, declinePendingFriend, currentUser } = this.props;
 
-    return (
-      <div className='friend'>
-        <a className='remove-filter' onClick={acceptPendingFriend(friend)}>ACCEPT</a><br/>
-        <a className='remove-filter' onClick={declinePendingFriend(friend)}>REMOVE</a><br/>
-        <div className='card-name'>
-          {friend.first_name}
+    // TODO this should be refactored as the only difference is the accept button
+    if (currentUser.id !== friend.friendship.friend_id) {
+      return (
+        <div className='friend'>
+          <a className='remove-filter' onClick={declinePendingFriend(friend)}>REMOVE</a><br/>
+          <div className='card-name'>
+            {friend.first_name}
+          </div>
+          <div className='card-name'>
+            {friend.last_name}
+          </div>
+          <img className='card-pic' src={friend.profile_picture}/>
+          <div className='card-email'>
+            {friend.email}
+          </div>
         </div>
-        <div className='card-name'>
-          {friend.last_name}
+      );
+    } else {
+      return (
+        <div className='friend'>
+          <a className='remove-filter' onClick={acceptPendingFriend(friend)}>ACCEPT</a><br/>
+          <a className='remove-filter' onClick={declinePendingFriend(friend)}>REMOVE</a><br/>
+          <div className='card-name'>
+            {friend.first_name}
+          </div>
+          <div className='card-name'>
+            {friend.last_name}
+          </div>
+          <img className='card-pic' src={friend.profile_picture}/>
+          <div className='card-email'>
+            {friend.email}
+          </div>
         </div>
-        <img className='card-pic' src={friend.profile_picture}/>
-        <div className='card-email'>
-          {friend.email}
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
