@@ -1,29 +1,21 @@
-NOTE: this page is only for admin/testing reason. should not be viewable by any users
-
 <div>
   <% if flash[:alert] %>
     <%= flash[:alert] %>
   <% end %>
 </div>
 
-<h1>Friendships</h1>
-    <% @chatrooms.each do |chatroom| %>
-    <p>
-      Chatroom #<%= chatroom.id %>
-    </p>
-    <p>
-      Members:
-      <%= chatroom.friendship.user.first_name %> (user <%= chatroom.friendship.user.id %>) and
-      <%= chatroom.friendship.friend.first_name %> (user <%= chatroom.friendship.friend.id %>)
-    </p>
-    <p>
+<div class='chatroom-main'>
+  <h1 class='edit-heading'>Chatrooms</h1>
+      <% @chatrooms.each do |chatroom| %>
+      <p>
+        Chatroom between
+        <%= chatroom.friendship.user.first_name %> and
+        <%= chatroom.friendship.friend.first_name %> </p>
       <p class='button filled'><%= link_to 'Show', chatroom %></p>
-    </p>
-    <p>
-      <p class='button filled'><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    </p>
-    <% end %>
 
+
+      <% end %>
+</div>
 
 <br />
 <p class='button filled'>
