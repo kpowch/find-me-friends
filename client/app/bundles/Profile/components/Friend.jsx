@@ -16,7 +16,7 @@ class Friend extends React.Component {
         <div className="card-name">
           {friend.last_name}
         </div>
-        <img className="card-pic" src={friend.profile_picture}/>
+        <img className="card-pic" src={friend.profile_picture.thumb.url}/>
         <div className="card-email">
           {friend.email}
         </div>

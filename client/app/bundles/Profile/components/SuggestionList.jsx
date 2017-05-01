@@ -46,11 +46,10 @@ class SuggestionList extends React.Component {
       console.log('before ajax')
       $.ajax({
         data: {
-          friendship: {
+
             id: friend.friendship_id,
             user_id: friend.current_user_id,
             friendship_status: "declined"
-          }
         },
         url: "/friendships/" + friend.friendship_id,
         type: "PATCH",
