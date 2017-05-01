@@ -37,7 +37,7 @@ class SuggestionList extends React.Component {
         success: console.log("Did we just become best friends?!?")
       });
       return this.props.onAccept(friend);
-    }
+    }.bind(this);
   }
 
   remove(friend) {
@@ -49,7 +49,7 @@ class SuggestionList extends React.Component {
           friendship: {
             id: friend.friendship_id,
             user_id: friend.current_user_id,
-            friendship_status: "denied"
+            friendship_status: "declined"
           }
         },
         url: "/friendships/" + friend.friendship_id,

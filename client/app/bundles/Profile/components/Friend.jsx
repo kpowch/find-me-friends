@@ -8,7 +8,7 @@ class Friend extends React.Component {
     const friend = this.props.friend;
     return (
       <div className="friend">
-        <a className="remove-filter" onClick={this.props.onAccept}>ACCEPT</a><br/>
+        <a className="remove-filter" onClick={this.props.onAccept}>ACCEPT</a><br/><br/>
         <a className="remove-filter" onClick={this.props.onRemove}>REMOVE</a><br/>
         <div className="card-name">
           {friend.first_name}
