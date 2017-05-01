@@ -8,7 +8,7 @@ export default class PendingFriend extends React.Component {
     return (
       <div className="friend">
         <a className="remove-filter" onClick={this.props.acceptFriend(friend)}>ACCEPT</a><br/>
-        {/* <a className="remove-filter" onClick={this.props.onRemove}>REMOVE</a><br/> */}
+        <a className="remove-filter" onClick={this.props.declineFriend(friend)}>REMOVE</a><br/>
         <div className="card-name">
           {friend.first_name}
         </div>

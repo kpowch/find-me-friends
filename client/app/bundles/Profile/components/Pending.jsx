@@ -32,9 +32,22 @@ export default class Pending extends React.Component {
     }
   }
 
-  // removeFriend = (friend) => {
-  //
-  // }
+  declineFriend = (friend) => {
+    console.log('Starting to decline friends from pending!');
+    return (event) => {
+      event.preventDefault();
+      $.ajax({
+        data: {
+          id: friend.friendship.id,
+          friendship_status: "declined"
+        },
+        url: "/friendships/" + friend.friendship.id,
+        type: "PATCH",
+        dataType: "json",
+        success: console.log('Send ajax to decline friend request!')
+      })
+    }
+  }
   //
   // componentDidMount = () => {
   //
@@ -44,7 +57,7 @@ export default class Pending extends React.Component {
     return (
       <div className='suggestion-list'>
         {this.props.pendingFriends.empty ? null : this.props.pendingFriends.map((friend) =>
-          <PendingFriend friend={friend} acceptFriend={this.acceptFriend} key={friend.user_id}/>
+          <PendingFriend friend={friend} acceptFriend={this.acceptFriend} declineFriend={this.declineFriend} key={friend.user_id}/>
         )}
       </div>
     );
