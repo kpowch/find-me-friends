@@ -16,25 +16,23 @@ export default class Pending extends React.Component {
 
   // need to also create a chatroom when friendship is accepted
   acceptFriend = (friend) => {
+    console.log('Starting to accept friends from pending!');
     return (event) => {
       event.preventDefault();
-      console.log(friend.friendship);
       $.ajax({
         data: {
-          friendship: {
-            id: friend.friendship_id,
-            user_id: current_user.id,
-            friendship_status: "accepted"
-          }
+          id: friend.friendship.id,
+          friendship_status: "accepted"
         },
-        url: "/friendships/" + friend.friendship_id,
+        url: "/friendships/" + friend.friendship.id,
         type: "PATCH",
         dataType: "json",
-        success: console.log('Accepted friend request!')
+        success: console.log('Send ajax accept friend request!')
       })
+    }
   }
 
-  // removeFriend = (event) => {
+  // removeFriend = (friend) => {
   //
   // }
   //
@@ -46,7 +44,7 @@ export default class Pending extends React.Component {
     return (
       <div className='suggestion-list'>
         {this.props.pendingFriends.empty ? null : this.props.pendingFriends.map((friend) =>
-          <PendingFriend friend={friend} acceptFriend={this.acceptFriend} key={friend.id}/>
+          <PendingFriend friend={friend} acceptFriend={this.acceptFriend} key={friend.user_id}/>
         )}
       </div>
     );
