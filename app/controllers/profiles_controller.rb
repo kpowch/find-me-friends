@@ -11,7 +11,6 @@ class ProfilesController < ApplicationController
     # get the list of suggested and pending friends
     suggested_friends = friendly_three_amigos_method
     pending_friends = pending_three_amigos_method
-    suggested_friends = suggested_three_amigos_method
 
     # pass in props to profile page
     @profile_props = {

@@ -17,7 +17,7 @@ export default class Friend extends React.Component {
         <div className='card-name'>
           {friend.last_name}
         </div>
-        <img className='card-pic' src={friend.profile_picture.thumb.url}/>
+        <img className='card-pic' src={friend.profile_picture}/>
         <div className='card-email'>
           {friend.email}
         </div>
