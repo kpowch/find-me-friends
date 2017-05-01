@@ -25,11 +25,11 @@ class SuggestionList extends React.Component {
         console.log('this.props in SuggestionList accept', this.props);
       $.ajax({
         data: {
-          friendship: {
+
             id: friend.friendship_id,
             user_id: friend.current_user_id,
             friendship_status: "pending"
-          }
+
         },
         url: "/friendships/" + friend.friendship_id,
         type: "PATCH",
@@ -46,12 +46,10 @@ class SuggestionList extends React.Component {
       console.log('before ajax')
       $.ajax({
         data: {
-          friendship: {
             id: friend.friendship_id,
             user_id: friend.current_user_id,
             friendship_status: "declined"
-          }
-        },
+          },
         url: "/friendships/" + friend.friendship_id,
         type: "PATCH",
         dataType: "json",
