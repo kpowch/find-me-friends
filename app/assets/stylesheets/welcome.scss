@@ -8,7 +8,7 @@ main.welcome-login {
   background: #fff;
   margin-right: 5%;
   border-radius: 17px;
-  box-shadow: -2px 2px 8px #777777;
+  box-shadow: $navbar-box-shadow;
 }
 
 section.welcome-tabs {
@@ -38,7 +38,6 @@ label.welcome:before {
 }
 
 label.welcome:hover {
-  color: #888;
   cursor: pointer;
 }
 
