@@ -1,28 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Friend extends React.Component {
+export default class Friend extends React.Component {
 
   render() {
-    console.log('Friend this.props', this.props)
-    const friend = this.props.friend;
+    // this makes the code more readable
+    const { friend, addSuggestedFriend, declineSuggestedFriend } = this.props;
+
     return (
-      <div className="friend">
-        <a className="remove-filter" onClick={this.props.onAccept}>ACCEPT</a><br/><br/>
-        <a className="remove-filter" onClick={this.props.onRemove}>REMOVE</a><br/>
-        <div className="card-name">
+      <div className='friend'>
+        <a className='remove-filter' onClick={addSuggestedFriend(friend)}>ACCEPT</a><br/><br/>
+        <a className='remove-filter' onClick={declineSuggestedFriend(friend)}>REMOVE</a><br/>
+        <div className='card-name'>
           {friend.first_name}
         </div>
-        <div className="card-name">
+        <div className='card-name'>
           {friend.last_name}
         </div>
-        <img className="card-pic" src={friend.profile_picture}/>
-        <div className="card-email">
+        <img className='card-pic' src={friend.profile_picture}/>
+        <div className='card-email'>
           {friend.email}
         </div>
       </div>
     );
   }
 }
-
-export default Friend;
