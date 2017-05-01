@@ -1,7 +1,7 @@
 <div class='chatroom-wrapper'>
   <div class='users-chatrooms-list'>
     <div class='scrollable'>
-      <%= render partial: 'users_chatrooms' %>
+      <%= render partial: 'users_chatrooms', locals: { chatrooms: @user_chats} %>
     </div>
   </div>
 

@@ -9,6 +9,17 @@ class ChatroomsController < ApplicationController
   # shows all the chatrooms and it's members, and buttons to create or delete them
   def index
     @chatrooms = Chatroom.all
+    @friendship_chat = Friendship.where(user_id: current_user.id).where(friendship_status: 'Accepted' && 'accepted')
+    @user_chats = Chatroom.where(friendship_id: @friendship_chat)
+    @messages = Message.where(chatroom_id: @user_chats)
+  end
+
+ def show
+    @friendship_chat = Friendship.where(user_id: current_user.id).where(friendship_status: 'Accepted' && 'accepted')
+    @user_chats = Chatroom.where(friendship_id: @friendship_chat)
+    @messages = Message.where(chatroom_id: @user_chats)
+    @chatroom = Chatroom.find_by(id: params[:id])
+    @message = Message.new
   end
 
   # TODO do we need this if there is no form? or is it required if you have create?
@@ -35,17 +46,6 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  # TODO make this more efficient? Might have to rearrange models/database
-  # shows individual chatrooms
-  def show
-    # for section showing all of the user's convos
-    @userChatrooms = Chatroom.joins(:users).where(friendships: { user: 2 })
-    @friendChatrooms = Chatroom.joins(:users).where(friendships: { friend: 2 })
-
-    # for the specific chatroom and messages
-    @chatroom = Chatroom.find_by(id: params[:id])
-    @message = Message.new
-  end
 
   # deletes a chatroom
   def destroy

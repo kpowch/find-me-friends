@@ -1,23 +1,29 @@
-<div>
-  <% if flash[:alert] %>
-    <%= flash[:alert] %>
-  <% end %>
-</div>
-
-<div class='chatroom-main'>
-  <h1 class='edit-heading'>Chatrooms</h1>
-      <% @chatrooms.each do |chatroom| %>
-      <p>
-        Chatroom between
-        <%= chatroom.friendship.user.first_name %> and
-        <%= chatroom.friendship.friend.first_name %> </p>
-      <p class='button filled'><%= link_to 'Show', chatroom %></p>
-
+<div class='chatroom-wrapper'>
+  <div class='users-chatrooms-list'>
+    <div class='scrollable'>
+      <% @user_chats.each do |chatroom| %>
+        <div class='chatroom-link'>
+          <%= link_to "chatrooms/#{chatroom.id}" do %>
+          <%= chatroom.friendship.friend.first_name %> <%= chatroom.friendship.friend.last_name %>
+          <% end %></div>
 
       <% end %>
-</div>
+    </div>
+  </div>
 
-<br />
-<p class='button filled'>
-  <%= link_to 'New Chatroom', new_chatroom_path %>
-</p>
+<div class='active-chatroom'>
+    <h1 class='chatroom-names'>
+      <i class="fa fa-comments-o" aria-hidden="true"></i> Messages
+    </h1>
+
+    <div class='messages-wrapper'>
+      <div class='panel-body scrollable' id='messages'><br/>
+        <h2>Select a friend to start chatting.</h1>
+      </div>
+    </div>
+
+    <div class='message-form form-control'>
+      Enter your message...
+    </div>
+  </div>
+</div>
