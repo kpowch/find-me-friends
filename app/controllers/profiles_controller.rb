@@ -14,8 +14,11 @@ class ProfilesController < ApplicationController
     # Pass in props to profile page
     @profile_props = {
       current_user: current_user,
+      #passes in friends suggested
       current_friends: current_friends,
+      #grabs friends with status pending
       pending_friends: pending_friends,
+      #friend status of suggested
       suggested_friends: suggested_friends
     }
   end
