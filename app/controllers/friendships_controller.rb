@@ -30,6 +30,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
+    console.log(friendship_params)
     puts 'in friendships create'
     respond_to do |format|
       if @friendship.save
