@@ -76,3 +76,12 @@
     }
   }
 }
+
+.chatroom-main {
+  max-width: 50%;
+  margin-left: 25%;
+  padding: $vertical-spacing-unit;
+  background-color: $navbar-background-color;
+  box-shadow: $navbar-box-shadow;
+  border-radius: $navbar-link-border-radius;
+}

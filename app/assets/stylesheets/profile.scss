@@ -7,51 +7,51 @@
   position: fixed;
   left: 0;
   background-color: white;
-  border-radius: 4px;
+  border-radius: $navbar-link-border-radius;
   min-height: 30%;
-  margin-top: 10px;
-  margin-left: 10px;
   text-align: center;
-  box-shadow: -2px 2px 8px #777777;
-  padding: 15px;
+  box-shadow: $navbar-box-shadow;
+  margin-left: 10px;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  max-width: 200px;
+}
+
+.fa.fa-user-o {
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
 }
 
 .sidebar-name {
-  font-weight: bold;
-  margin: 1em;
+  font-weight: $font-size-large;
 }
 
-.sidebar-bio {}
-
-.list-container {
-
-  .suggestion-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items:center;
-    padding-top: 100px;
-    margin-left: 100px;
-
-    .friend {
-      background-color: $color-primary;
-      border: 1px solid $color-primary;
-      box-shadow: -2px 2px 8px #777777;
-      color: white;
-      border-radius: 4px;
-      margin: 10px 5px;
-      padding: 5px 10px;
-      min-width: 650px;
-      max-width: 800px;
-      min-height: 60px;
-      text-align: center;
-
-      .remove-filter {
-        color: black;
-      }
-      .accept-filter {
-        color: black;
-      }
-    }
-  }
+.sidebar-email {
+  font-size: $font-size-small;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit
 }
+
+.sidebar-bio {
+  padding: $vertical-spacing-unit
+}
+
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items:center;
+  padding-top: 100px;
+  margin-left: 100px;
+}
+
+.friend {
+  background-color: $navbar-background-color;
+  box-shadow: $navbar-box-shadow;
+  border-radius: $navbar-link-border-radius;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  min-width: 650px;
+  max-width: $profile-maxwidth;
+  min-height: 60px;
+  text-align: center;
+}
+
+
+
