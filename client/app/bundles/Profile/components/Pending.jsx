@@ -16,13 +16,24 @@ export default class Pending extends React.Component {
 
   // need to also create a chatroom when friendship is accepted
   acceptFriend = (friend) => {
-
+    return (event) => {
+      event.preventDefault();
+      console.log(friend.friendship);
+      $.ajax({
+        data: {
+          friendship: {
+            id: friend.friendship_id,
+            user_id: current_user.id,
+            friendship_status: "accepted"
+          }
+        },
+        url: "/friendships/" + friend.friendship_id,
+        type: "PATCH",
+        dataType: "json",
+        success: console.log('Accepted friend request!')
+      })
   }
 
-  // acceptFriend = (event) => {
-  //
-  // }
-  //
   // removeFriend = (event) => {
   //
   // }

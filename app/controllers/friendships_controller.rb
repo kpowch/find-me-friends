@@ -30,6 +30,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
+    console.log(friendship_params)
     puts 'in friendships create'
     respond_to do |format|
       if @friendship.save
@@ -49,7 +50,7 @@ class FriendshipsController < ApplicationController
   def update
     @friendship = Friendship.find(params[:id])
     respond_to do |format|
-      if @friendship.update(friendship_params)
+      if @friendship.update(friendship_status: params[:friendship_status])
         format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
         format.json { render :show, status: :ok, location: @friendship }
       else
