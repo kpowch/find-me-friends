@@ -1,13 +1,11 @@
-<div class='fake-modal'>
-  <div class='modal-header'>
+<main class='welcome-login'>
+  <div class='welcome'>
     <h1>Sign Up</h1>
   </div>
-
   <% if flash[:alert] %>
     <%= flash[:alert] %>
   <% end %>
-
-  <div class='modal-body'>
+  <div>
     <%= form_for :user, url: '/users' do |f| %>
       <span class='form-field-input'> <%= f.text_field :first_name, placeholder: 'First Name'%></span>
       <span class='form-field-input'> <%= f.text_field :last_name, placeholder: 'Last Name' %></span>
@@ -18,4 +16,5 @@
       <%= f.submit 'Submit', class: 'form-button' %>
     <% end %>
   </div>
-</div>
+</main>
+
