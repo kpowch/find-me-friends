@@ -16,6 +16,7 @@ export default class Profile extends React.Component {
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
     console.log('props', props)
     this.state = {
+      suggested: this.props.suggested_friends,
       friendshipId: this.props.current_user.friendship_id,
       firstName: this.props.current_user.first_name,
       lastName: this.props.current_user.last_name,
