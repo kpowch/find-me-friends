@@ -9,13 +9,13 @@ class ChatroomsController < ApplicationController
   # shows all the chatrooms and it's members, and buttons to create or delete them
   def index
     @chatrooms = Chatroom.all
-    @friendship_chat = Friendship.where(user_id: current_user.id).where(friendship_status: 'Accepted' && 'accepted')
+    @friendship_chat = friendship_chats
     @user_chats = Chatroom.where(friendship_id: @friendship_chat)
     @messages = Message.where(chatroom_id: @user_chats)
   end
 
  def show
-    @friendship_chat = Friendship.where(user_id: current_user.id).where(friendship_status: 'Accepted' && 'accepted')
+    @friendship_chat = Friendship.where(user_id: current_user.id).where(friendship_status: 'accepted')
     @user_chats = Chatroom.where(friendship_id: @friendship_chat)
     @messages = Message.where(chatroom_id: @user_chats)
     @chatroom = Chatroom.find_by(id: params[:id])
@@ -68,5 +68,11 @@ class ChatroomsController < ApplicationController
 
   def set_user
     cookies[:first_name] = current_user.first_name || 'first_name=guest'
+  end
+
+  def friendship_chats
+    chats1 = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'accepted')
+    chats2 = Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'accepted')
+    return chats1 + chats2
   end
 end

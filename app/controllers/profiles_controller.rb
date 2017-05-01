@@ -24,7 +24,9 @@ class ProfilesController < ApplicationController
   def friendly_three_amigos_method
     suggestedFriends = []
     # find 'suggested' friendships involving the current user
-    suggestedFriendships = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'suggested') || Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'suggested')
+    suggestedFriendshipsInitiator = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'suggested')
+    suggestedFriendshipsReceiver = Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'suggested')
+    suggestedFriendships = suggestedFriendshipsInitiator + suggestedFriendshipsReceiver
     # save each suggested friend to the array to render
     suggestedFriendships.each do |friendship|
       # 'suggestedFriend' is the other person in the friendship
@@ -54,7 +56,9 @@ class ProfilesController < ApplicationController
   def pending_three_amigos_method
     pendingFriends = []
     # find friendships that users have initiated with current user
-    pendingFriendships = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'pending') || Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'pending')
+    pendingFriendshipsReciever =  Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'pending')
+    pendingFriendshipsInitiator = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'pending')
+    pendingFriendships = pendingFriendshipsReciever + pendingFriendshipsInitiator
     # save each pending friend to the array to render
     pendingFriendships.each do |friendship|
       # 'pendingFriend' is the person who initiated the friendship
