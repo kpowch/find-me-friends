@@ -6,7 +6,7 @@ class Friendship < ApplicationRecord
   validates :friend, presence: true
   validates :friendship_status, presence: true
   validates :friendship_status, inclusion: {
-    in: %w(pending accepted declined),
+    in: %w(suggested pending accepted declined),
     message: "%{value} is not a valid status"
   }
 end

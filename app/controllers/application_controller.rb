@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
         next
       else
         puts "#{user.id} isn't a friend yet!"
-        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "pending")
+        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "suggested")
       end
     end
   end
