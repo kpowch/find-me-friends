@@ -2,13 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Friend from './Friend'
 
-console.log('am I in SuggestionList or some alternate reality')
-
 export default class SuggestionList extends React.Component {
 
   // if suggested friend added, change friendship status to 'pending' then refresh lists
   addSuggestedFriend = (friend) => {
-    console.log('entered SuggestionList addSuggestedFriend')
     return (ev) => {
       ev.preventDefault();
       // send ajax to update friendship where 'initiator' is user_id
@@ -30,7 +27,6 @@ export default class SuggestionList extends React.Component {
 
   // if suggested friend declined, change friendship status to 'declined' then refresh list
   declineSuggestedFriend = (friend) => {
-    console.log('entered SuggestionList declineSuggestedFriend')
     return (ev) => {
       ev.preventDefault();
       // send ajax to update friendship status
