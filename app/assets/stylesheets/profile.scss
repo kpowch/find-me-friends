@@ -7,22 +7,33 @@
   position: fixed;
   left: 0;
   background-color: white;
-  border-radius: 4px;
+  border-radius: $navbar-link-border-radius;
   min-height: 30%;
-  margin-top: 10px;
-  margin-left: 10px;
   text-align: center;
-  box-shadow: -2px 2px 8px #777777;
+  box-shadow: $navbar-box-shadow;
+  margin-left: 10px;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  max-width: 200px;
+}
+
+.fa.fa-user-o {
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
 }
 
 .sidebar-name {
-  font-weight: bold;
-  margin: 1em;
+  font-weight: $font-size-large;
+}
+
+.sidebar-email {
+  font-size: $font-size-small;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit
+}
+
+.sidebar-bio {
+  padding: $vertical-spacing-unit
 }
 
 
-.list-container {
 
   .suggestion-list {
     display: flex;
@@ -53,4 +64,4 @@
       }
     }
   }
-}
+

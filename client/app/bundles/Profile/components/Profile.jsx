@@ -56,7 +56,7 @@ export default class Profile extends React.Component {
   render() {
     return (
       <div className="list-container">
-          <Sidebar first_name={this.state.first_name} last_name={this.state.last_name} email={this.state.email} bio={this.state.bio} profile_picture={this.state.profile_picture}/>
+          <Sidebar first_name={this.state.firstName} last_name={this.state.lastName} email={this.state.email} bio={this.state.bio} profile_picture={this.state.profile_picture}/>
           <Pending pending={this.state.pending} onRemove={this.remove}/>
           <SuggestionList friends={this.state.friends} onRemove={this.remove} onAccept={this.accept}/>
       </div>
