@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
         next
       else
         puts 'shit'
-        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "initialized")
+        Friendship.create(user_id: current_user.id, friend_id: user.id, friendship_status: "pending")
       end
     end
   end

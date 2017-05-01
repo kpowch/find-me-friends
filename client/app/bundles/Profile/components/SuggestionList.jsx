@@ -15,14 +15,14 @@ class SuggestionList extends React.Component {
       onRemove: this.props.onRemove
     };
     this.remove = this.remove.bind(this);
+    this.accept = this.accept.bind(this);
   }
 
   accept(friend) {
     console.log("SuggestionList accept fnxn")
     return function(e) {
-      // event.preventDefault();
+      event.preventDefault();
         console.log('this.props in SuggestionList accept', this.props);
-        return this.props.onAccept(friend);
       $.ajax({
         data: {
           friendship: {
@@ -36,22 +36,30 @@ class SuggestionList extends React.Component {
         dataType: "json",
         success: console.log("Did we just become best friends?!?")
       });
+      return this.props.onAccept(friend);
     }
   }
 
   remove(friend) {
-    console.log("SuggestionList remove fnxn")
     return function(event) {
-      event.preventDefault();
+    console.log("SuggestionList remove fnxn")
+      console.log('before ajax')
+      $.ajax({
+        data: {
+          friendship: {
+            id: friend.friendship_id,
+            user_id: friend.current_user_id,
+            friendship_status: "denied"
+          }
+        },
+        url: "/friendships/" + friend.friendship_id,
+        type: "PATCH",
+        dataType: "json",
+        success: console.log("you are so successful at deleting friends")
+      });
+      console.log('after ajax')
       return this.props.onRemove(friend);
     }.bind(this);
-    $.ajax({
-      data: friend,
-      url: "/chatrooms",
-      type: "DELETE",
-      dataType: "json",
-      success: console.log("you are so successful at deleting friends")
-    });
   }
 
   render() {
@@ -60,7 +68,7 @@ class SuggestionList extends React.Component {
         {this.props.friends ? this.props.friends.map(function(friend, i) {
           return <Friend
             friend={friend}
-            onAccept={() => this.accept(friend)}
+            onAccept={this.accept(friend)}
             onRemove={this.remove(friend)}
             key={i}
             />
