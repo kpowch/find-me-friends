@@ -40,9 +40,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'factory_girl_rails', '~> 4.0'
 
+# Image processing and storage
 # Needs ImageMagick to run. See README to install
 gem "mini_magick"
 gem 'carrierwave', '~> 1.0'
+gem "fog-google"
+gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "mime-types"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
