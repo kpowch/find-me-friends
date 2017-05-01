@@ -1,31 +1,29 @@
-NOTE: this page is only for admin/testing reason. should not be viewable by any users
+<div class='chatroom-wrapper'>
+  <div class='users-chatrooms-list'>
+    <div class='scrollable'>
+      <% @user_chats.each do |chatroom| %>
+        <div class='chatroom-link'>
+          <%= link_to "chatrooms/#{chatroom.id}" do %>
+          <%= chatroom.friendship.friend.first_name %> <%= chatroom.friendship.friend.last_name %>
+          <% end %></div>
 
-<div>
-  <% if flash[:alert] %>
-    <%= flash[:alert] %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
+
+<div class='active-chatroom'>
+    <h1 class='chatroom-names'>
+      <i class="fa fa-comments-o" aria-hidden="true"></i> Messages
+    </h1>
+
+    <div class='messages-wrapper'>
+      <div class='panel-body scrollable' id='messages'><br/>
+        <h2>Select a friend to start chatting.</h1>
+      </div>
+    </div>
+
+    <div class='message-form form-control'>
+      Enter your message...
+    </div>
+  </div>
 </div>
-
-<h1>Friendships</h1>
-    <% @chatrooms.each do |chatroom| %>
-    <p>
-      Chatroom #<%= chatroom.id %>
-    </p>
-    <p>
-      Members:
-      <%= chatroom.friendship.user.first_name %> (user <%= chatroom.friendship.user.id %>) and
-      <%= chatroom.friendship.friend.first_name %> (user <%= chatroom.friendship.friend.id %>)
-    </p>
-    <p>
-      <p class='button filled'><%= link_to 'Show', chatroom %></p>
-    </p>
-    <p>
-      <p class='button filled'><%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    </p>
-    <% end %>
-
-
-<br />
-<p class='button filled'>
-  <%= link_to 'New Chatroom', new_chatroom_path %>
-</p>

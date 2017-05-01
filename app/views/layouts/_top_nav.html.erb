@@ -1,7 +1,7 @@
 <div class='navbar-wrapper'>
   <div class='navbar'>
     <div class='nav-brand'>
-        <%= link_to 'Find Me Friends', :root %>
+        <%= link_to :root do %><i class="fa fa-search" aria-hidden="true"></i> Find Me Friends<% end %>
     </div>
 
     <div class='nav-btn'>
@@ -17,16 +17,16 @@
     <div class='nav-links'>
       <% if current_user %>
         <span class='nav-link'>
-          <%= link_to 'Chatrooms', chatrooms_path %>
+          <%= link_to chatrooms_path do %><i class="fa fa-comments-o" aria-hidden="true"></i> Chatrooms<% end%>
         </span>
         <span class='nav-link'>
-          <%= link_to "#{current_user.first_name} #{current_user.last_name}", profiles_path %>
+          <%= link_to profiles_path do %><i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_user.first_name%> <%=current_user.last_name %> <% end%>
         </span>
         <span class='nav-link'>
-          <%= link_to 'Edit Settings', edit_user_path(current_user.id) %>
+          <%= link_to edit_user_path(current_user.id) do %><i class="fa fa-pencil" aria-hidden="true"></i> Edit<% end%>
         </span>
         <span class='nav-link nav-auth'>
-          <%= link_to 'Logout', logout_path %>
+          <%= link_to logout_path do %><i class="fa fa-sign-out" aria-hidden="true"></i> Logout<% end %>
         </span>
       <% else %>
         <span class='nav-link nav-auth'>
