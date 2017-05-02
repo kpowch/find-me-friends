@@ -9,7 +9,7 @@ export default class PendingList extends React.Component {
     return (ev) => {
       ev.preventDefault();
       // sends ajax to update friendship status and create chatroom
-      function makeAjaxCall(data, url, methodType, callback) {
+      const makeAjaxCall = (data, url, methodType, callback) => {
         return new Promise((resolve, reject) => {
           $.ajax({
             data: data,
