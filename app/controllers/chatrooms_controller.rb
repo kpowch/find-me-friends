@@ -15,8 +15,8 @@ class ChatroomsController < ApplicationController
   end
 
  def show
-    @friendship_chat = Friendship.where(user_id: current_user.id).where(friendship_status: 'accepted')
-    @user_chats = Chatroom.where(friendship_id: @friendship_chat)
+    @friendship_chat = friendship_chats
+    @user_chats = Chatroom.where(friendship_id: friendship_chats)
     @messages = Message.where(chatroom_id: @user_chats)
     @chatroom = Chatroom.find_by(id: params[:id])
     @message = Message.new
