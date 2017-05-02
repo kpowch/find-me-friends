@@ -9,8 +9,8 @@ export default class Friend extends React.Component {
 
     return (
       <div className='friend'>
-        <a className='remove-filter' onClick={addSuggestedFriend(friend)}>ACCEPT</a><br/><br/>
-        <a className='remove-filter' onClick={declineSuggestedFriend(friend)}>REMOVE</a><br/>
+        <a className='remove-filter' onClick={addSuggestedFriend(friend)}>Add</a><br/><br/>
+        <a className='remove-filter' onClick={declineSuggestedFriend(friend)}>Skip</a><br/>
         <div className='card-name'>
           {friend.first_name}
         </div>
