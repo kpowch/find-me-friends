@@ -16,7 +16,8 @@ class ProfilesController < ApplicationController
     @profile_props = {
       current_user: current_user,
       suggested_friends: suggested_friends,
-      pending_friends: pending_friends
+      pending_friends: pending_friends,
+      current_interests: current_interests
     }
   end
 
@@ -86,5 +87,9 @@ class ProfilesController < ApplicationController
     end
     puts "\n\n\n\n\n\n\n\n\n\n pending friends: #{pendingFriends.inspect} \n\n\n\n\n"
     pendingFriends # return array
+  end
+
+  def current_interests
+    current_interests = @user.interests
   end
 end

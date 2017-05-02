@@ -68,7 +68,8 @@ end
 ## INTERESTS_USERS
 while j < user_count do
   k = 0
-  while k < interest_array.count do
+  m = rand(1..interest_array.count)
+  while k < m do
     InterestsUser.create(user_id: j + 1, interest_id: k + 1)
     k += 1
   end

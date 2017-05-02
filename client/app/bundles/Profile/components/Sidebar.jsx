@@ -19,6 +19,9 @@ export default class Sidebar extends React.Component {
           <div className="sidebar-email">
             {email}
           </div>
+          <div className="sidebar-interests">
+            {this.props.current_interests}
+          </div>
         </div>
     );
   }
