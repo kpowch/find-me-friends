@@ -36,6 +36,9 @@ export default class Friend extends React.Component {
             </div>
           </div>
         </div>
+        <div className='card-percent'>
+          {friend.friendship_match}
+        </div>
       </div>
     );
   }
