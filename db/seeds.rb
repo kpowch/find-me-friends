@@ -12,7 +12,7 @@ puts "Seeding Data.. .."
 user_count = 10
 i = 0
 j = 0
-k = 0
+
 
 ## USERS
 puts "Generating some homies..."
@@ -67,6 +67,7 @@ end
 
 ## INTERESTS_USERS
 while j < user_count do
+  k = 0
   while k < interest_array.count do
     InterestsUser.create(user_id: j + 1, interest_id: k + 1)
     k += 1
