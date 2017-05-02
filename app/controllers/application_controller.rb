@@ -47,7 +47,10 @@ class ApplicationController < ActionController::Base
         puts "Friendship already exists: #{Friendship.where("user_id = ? AND friend_id = ?", current_user.id, user.id).inspect}"
         next
       elsif Friendship.where("user_id = ? AND friend_id = ?", user.id, current_user.id).exists?
-        puts "Friendship already exists: #{Friendship.where("user_id = ? AND friend_id = ?", user.id, current_user.id)}"
+        puts "Friendship already exists: #{Friendship.where("user_id = ? AND friend_id = ?", user.id, current_user.id).inspect}"
+        next
+      elsif (user.id == current_user.id)
+        puts "Can't be friends with yourself!"
         next
       else
         puts "#{user.id} isn't a friend of #{current_user.id} yet!"

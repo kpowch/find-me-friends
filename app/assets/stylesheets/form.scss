@@ -30,13 +30,13 @@
   text-align: center;
   /* from filled button styling */
   border-radius: 4px;
-  border: 1px solid $color-primary;
+  border: 1px solid;
   background-color: $color-primary;
   color: #FFF;
   margin-top: 10px;
 
   &:hover {
     transition: all 0.5s;
-    background-color: lighten($color-secondary, 5);
+    background-color: $form-hover-light;
   }
 }
