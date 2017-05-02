@@ -41,6 +41,7 @@ class ProfilesController < ApplicationController
 
       # add the friend's info to the array
       suggestedFriends.push({
+        friendship_match: percent_compare(suggestedFriend.id),
         user_id: suggestedFriend.id,
         friendship: friendship,
         first_name: suggestedFriend.first_name,
@@ -93,7 +94,39 @@ class ProfilesController < ApplicationController
     array = []
     current_interests = @current_user.interests
     current_interests.each {|interest| array.push(interest.name) }
-
     array
   end
+
+  def percent_compare(friend_id)
+    friend_array = []
+    user_array = []
+    friend = User.find(friend_id)
+    friend_interests = friend.interests
+    user_interests = @current_user.interests
+    current_interests.each {|interest| user_array.push(interest) }
+    friend_interests.each {|interest| friend_array.push(interest.name) }
+    compare = friend_array & user_array
+    compare.count.to_f / user_array.count
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
