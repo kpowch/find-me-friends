@@ -90,6 +90,10 @@ class ProfilesController < ApplicationController
   end
 
   def current_interests
-    current_interests = @user.interests
+    array = []
+    current_interests = @current_user.interests
+    current_interests.each {|interest| array.push(interest.name) }
+
+    array
   end
 end
