@@ -5,7 +5,7 @@ export default class PendingFriend extends React.Component {
 
   render() {
     // this makes the code more readable
-    const { friend, acceptPendingFriend, declinePendingFriend, currentUser } = this.props;
+    const { currentUser, friend, acceptPendingFriend, declinePendingFriend } = this.props;
 
     // TODO this should be refactored as the only difference is the accept button
     if (currentUser.id !== friend.friendship.friend_id) {
