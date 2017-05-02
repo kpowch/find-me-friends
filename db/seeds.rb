@@ -8,133 +8,78 @@
 
 puts "Seeding Data.. .."
 
+## Set ho many users to seed
+user_count = 10
+i = 0
+j = 0
+k = 0
+
 ## USERS
 puts "Generating some homies..."
 User.destroy_all
 
-User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: "MOkngwjgnw",
-  password_digest: "MOkngwjgnw",
-  dob: Faker::Date.birthday(18, 35),
-  profile_picture: 'img.jpeg',
-  bio: Faker::Hipster.sentences(1),
-  created_at: '21-04-2017',
-  updated_at: '22-04-2017'
+user_count.times do |i|
+  User.create!({
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "pizza",
+    password_confirmation: "pizza",
+    dob: Faker::Date.birthday(18, 35),
+    profile_picture: File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg')),
+    bio: Faker::Hipster.sentences(1),
+    created_at: Time.now,
+    updated_at: Time.now
   })
-
-User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: "MOkngwjgnw",
-  password_digest: "MOkngwjgnw",
-  dob: Faker::Date.birthday(18, 35),
-  profile_picture: 'img.jpeg',
-  bio: Faker::Hipster.sentences(1),
-  created_at: '21-04-2017',
-  updated_at: '22-04-2017'
-  })
-
-User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: "MOkngwjgnw",
-  password_digest: "MOkngwjgnw",
-  dob: Faker::Date.birthday(18, 35),
-  profile_picture: 'img.jpeg',
-  bio: Faker::Hipster.sentences(1),
-  created_at: '21-04-2017',
-  updated_at: '22-04-2017'
-  })
-
-User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: "MOkngwjgnw",
-  password_digest: "MOkngwjgnw",
-  dob: Faker::Date.birthday(18, 35),
-  profile_picture: 'img.jpeg',
-  bio: Faker::Hipster.sentences(1),
-  created_at: '21-04-2017',
-  updated_at: '22-04-2017'
-  })
-
-User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: "MOkngwjgnw",
-  password_digest: "MOkngwjgnw",
-  dob: Faker::Date.birthday(18, 35),
-  profile_picture: 'img.jpeg',
-  bio: Faker::Hipster.sentences(1),
-  created_at: '21-04-2017',
-  updated_at: '22-04-2017'
-  })
-
-User.create!({
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: "MOkngwjgnw",
-  password_digest: "MOkngwjgnw",
-  dob: Faker::Date.birthday(18, 35),
-  profile_picture: 'img.jpeg',
-  bio: Faker::Hipster.sentences(1),
-  created_at: '21-04-2017',
-  updated_at: '22-04-2017'
-  })
+end
 
 ## FRIENDSHIPS
-puts "Making friends fall apart, as all things do...."
+puts "Creating superficial friendships..."
 Friendship.destroy_all
 
-Friendship.create(user_id: 1, friend_id: 2, friendship_status: "accepted")
-Friendship.create(user_id: 2, friend_id: 3, friendship_status: "pending")
+# Friendship.create(user_id: 1, friend_id: 2, friendship_status: "accepted")
+# Friendship.create(user_id: 2, friend_id: 3, friendship_status: "pending")
 
 ## INTERESTS
 puts "Making people enjoy doing things..."
 Interest.destroy_all
 
-Interest.create(name: Faker::Team.sport)
-Interest.create(name: Faker::Team.sport)
-Interest.create(name: Faker::Team.sport)
-Interest.create(name: Faker::Team.sport)
-Interest.create(name: "Felting")
-Interest.create(name: "Food")
+interest_array = [
+  "Knitting",
+  "Felting",
+  "Cooking",
+  "Running",
+  "Hiking",
+  "Photography",
+  "Crafting",
+  "Swimming",
+  "Dogs",
+  "Writing",
+  "Wine",
+  "Comedy",
+  "Yoga"
+]
+
+while i < interest_array.count do
+  Interest.create(name: interest_array[i])
+  i += 1
+end
 
 ## INTERESTS_USERS
-InterestsUser.create(user_id: 1, interest_id: 2)
-InterestsUser.create(user_id: 1, interest_id: 1)
-InterestsUser.create(user_id: 1, interest_id: 3)
-InterestsUser.create(user_id: 1, interest_id: 4)
-InterestsUser.create(user_id: 2, interest_id: 1)
-InterestsUser.create(user_id: 2, interest_id: 2)
-InterestsUser.create(user_id: 2, interest_id: 3)
-InterestsUser.create(user_id: 3, interest_id: 2)
-InterestsUser.create(user_id: 3, interest_id: 3)
-InterestsUser.create(user_id: 3, interest_id: 4)
-InterestsUser.create(user_id: 4, interest_id: 2)
-InterestsUser.create(user_id: 4, interest_id: 3)
-InterestsUser.create(user_id: 4, interest_id: 4)
-InterestsUser.create(user_id: 5, interest_id: 2)
-InterestsUser.create(user_id: 5, interest_id: 1)
-InterestsUser.create(user_id: 5, interest_id: 3)
-InterestsUser.create(user_id: 6, interest_id: 3)
-InterestsUser.create(user_id: 6, interest_id: 2)
-InterestsUser.create(user_id: 6, interest_id: 1)
-InterestsUser.create(user_id: 6, interest_id: 4)
+while j < user_count do
+  while k < interest_array.count do
+    InterestsUser.create(user_id: j + 1, interest_id: k + 1)
+    k += 1
+  end
+  j += 1
+end
+
 
 ## CHATROOMS
 puts "Generating some forced conversations..."
 Chatroom.destroy_all
 
-Chatroom.create(friendship_id: 1)
-Chatroom.create(friendship_id: 2)
+# Chatroom.create(friendship_id: 1)
+# Chatroom.create(friendship_id: 2)
 
 puts "Seeding Complete!"
