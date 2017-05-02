@@ -9,17 +9,32 @@ export default class Friend extends React.Component {
 
     return (
       <div className='friend'>
-        <a className='remove-filter' onClick={addSuggestedFriend(friend)}>Add</a><br/><br/>
-        <a className='remove-filter' onClick={declineSuggestedFriend(friend)}>Skip</a><br/>
-        <div className='card-name'>
-          {friend.first_name}
+        <div className='name-container'>
+          <div className='card-name-container'>
+            <img className='card-pic' src={friend.profile_picture}/>
+              <div className='name-email'>
+                <div className='card-name'>
+                  {friend.first_name} {friend.last_name}<br/>
+                </div>
+                <div className='card-email'>
+                {friend.email}<br/><br/>
+                </div>
+              </div>
+          </div>
+          <div className='card-bio'>
+             {friend.bio}<br/>
+          </div>
         </div>
-        <div className='card-name'>
-          {friend.last_name}
-        </div>
-        <img className='card-pic' src={friend.profile_picture}/>
-        <div className='card-email'>
-          {friend.email}
+
+        <div className='profile-column'>
+          <div className='friend-buttons'>
+            <div className='add-friend'>
+              <a className='form-button' onClick={addSuggestedFriend(friend)}>Add Friend</a><br/><br/>
+            </div>
+            <div className='skip-friend'>
+              <a className='button' onClick={declineSuggestedFriend(friend)}>Skip >></a><br/>
+            </div>
+          </div>
         </div>
       </div>
     );
