@@ -12,13 +12,11 @@
     </div>
 
     <h1>Welcome to Find Me Friends</h1>
-    <p>
-      Lettuce be the mutual friend to introduce you to your new best friend. Let's have this area floating next to the login modal with a photo behind.
-    </p>
+    <p>Lettuce be the mutual friend to introduce you to your new best friend. Let's have this area floating next to the login modal with a photo behind.</p>
   </div>
 
   <% if current_user.nil? %>
-    <main id="welcome-login">
+    <main class="welcome-login">
       <input id="tab1" class="signup-tab" type="radio" name="tabs" checked>
       <label for="tab1" class="welcome">Login</label>
       <input id="tab2" class="signup-tab" type="radio" name="tabs">
@@ -27,7 +25,7 @@
       <section class="welcome-tabs" id="content1">
         <div>
           <%= form_tag '/login' do %>
-            <span class='form-field-input'> <%= text_field_tag(:email, '', placeholder: 'Email') %></span>
+            <span class='form-field-input'> <%= email_field_tag(:email, '', placeholder: 'Email') %></span>
             <span class='form-field-input'> <%= password_field_tag(:password, '', placeholder: 'Password') %></span>
             <%= submit_tag 'Submit', class: 'form-button' %>
           <% end %>
@@ -40,7 +38,7 @@
             <span class='form-field-input'> <%= f.text_field :first_name, placeholder: 'First Name'%></span>
             <span class='form-field-input'> <%= f.text_field :last_name, placeholder: 'Last Name' %></span>
             <span class='form-field-imput'> <% f.label :dob %> Date of Birth: <br/><br/> <%= f.date_select :dob, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 80 %> </span>
-            <span class='form-field-input'> <%= f.text_field :email, placeholder: 'Email' %></span>
+            <span class='form-field-input'> <%= f.email_field :email, placeholder: 'Email' %></span>
             <span class='form-field-input'> <%= f.password_field :password, placeholder: 'Password'%></span>
             <span class='form-field-input'> <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %></span>
             <%= f.submit 'Submit', class: 'form-button' %>
