@@ -9,7 +9,7 @@
             <% end %>
           <% else %>
             <%= link_to "chatrooms/#{chatroom.id}" do %>
-              <%= chatroom.friendship.friend.last_name %> <%= chatroom.friendship.friend.last_name %>
+              <%= chatroom.friendship.friend.first_name %> <%= chatroom.friendship.friend.last_name %>
             <% end %>
           <% end %>
         </div>
@@ -23,9 +23,6 @@
       <div class='panel-body scrollable' id='messages'><br/>
         <h2>Select a friend to start chatting.</h2>
       </div>
-    </div>
-    <div class='message-form form-control'>
-      Enter your message...
     </div>
   </div>
 </div>
