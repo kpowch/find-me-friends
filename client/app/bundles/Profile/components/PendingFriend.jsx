@@ -11,7 +11,7 @@ export default class PendingFriend extends React.Component {
     if (currentUser.id !== friend.friendship.friend_id) {
       return (
         <div className='friend'>
-          <a className='remove-filter' onClick={declinePendingFriend(friend)}>REMOVE</a><br/>
+          <a className='remove-filter' onClick={declinePendingFriend(friend)}>Unfriend</a><br/>
           <div className='card-name'>
             {friend.first_name}
           </div>
@@ -27,8 +27,8 @@ export default class PendingFriend extends React.Component {
     } else {
       return (
         <div className='friend'>
-          <a className='remove-filter' onClick={acceptPendingFriend(friend)}>ACCEPT</a><br/>
-          <a className='remove-filter' onClick={declinePendingFriend(friend)}>REMOVE</a><br/>
+          <a className='remove-filter' onClick={acceptPendingFriend(friend)}>Accept</a><br/>
+          <a className='remove-filter' onClick={declinePendingFriend(friend)}>Decline</a><br/>
           <div className='card-name'>
             {friend.first_name}
           </div>
