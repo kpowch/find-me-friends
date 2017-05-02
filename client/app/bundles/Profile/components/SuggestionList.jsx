@@ -14,7 +14,7 @@ export default class SuggestionList extends React.Component {
           id: friend.friendship.id,
           user_id: this.props.currentUser.id,
           // if friend_id is the current user, switch it to the friendship user_id
-          friend_id: (friend.friendship.friend_id = this.props.currentUser.id) ? friend.friendship.user_id : friend.friendship.friend_id,
+          friend_id: (friend.friendship.friend_id === this.props.currentUser.id) ? friend.friendship.user_id : friend.friendship.friend_id,
           friendship_status: 'pending'
         },
         url: '/friendships/' + friend.friendship.id,
