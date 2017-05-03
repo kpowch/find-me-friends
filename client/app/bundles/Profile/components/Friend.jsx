@@ -27,6 +27,14 @@ export default class Friend extends React.Component {
         </div>
 
         <div className='profile-column'>
+          <div className="pie-wrapper progress-75 style-2">
+            <span className="label">{friend.friendship_match * 100}<span className="smaller">%</span></span>
+            <div className="pie">
+            <div className="left-side half-circle"></div>
+            <div className="right-side half-circle"></div>
+          </div>
+          <div className="shadow"></div>
+        </div>
           <div className='friend-buttons'>
             <div className='add-friend'>
               <a className='form-button' onClick={addSuggestedFriend(friend)}>Add Friend</a><br/><br/>
@@ -35,9 +43,6 @@ export default class Friend extends React.Component {
               <a className='button' onClick={declineSuggestedFriend(friend)}>Skip >></a><br/>
             </div>
           </div>
-        </div>
-        <div className='card-percent'>
-          {friend.friendship_match}
         </div>
       </div>
     );

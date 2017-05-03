@@ -16,6 +16,8 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use compass for those sweet percent circles
+# gem 'compass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -44,9 +46,6 @@ gem 'factory_girl_rails', '~> 4.0'
 # Needs ImageMagick to run. See README to install
 gem "mini_magick"
 gem 'carrierwave', '~> 1.0'
-gem "fog-google"
-gem "google-api-client", "> 0.8.5", "< 0.9"
-gem "mime-types"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
