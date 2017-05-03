@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     else
       puts "user is #{user}"
       flash[:alert] = "There was an error with your credentials. Please try again."
-      redirect_to '/'
+      redirect_to '/login'
     end
   end
 

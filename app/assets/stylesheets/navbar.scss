@@ -46,7 +46,8 @@
   &:hover {
     border: $navbar-link-border;
     border-radius: $navbar-link-border-radius;
-    color: $navbar-link-hover-color;
+    color: $font-color-white;
+    background-color: $color-primary;
   }
 }
 

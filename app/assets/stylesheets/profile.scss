@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.sidebar-card {
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  margin: $vertical-spacing-unit $horizontal-spacing-unit;
+  text-align: center;
+  background-color: $card-background-color;
+  border-radius: $default-border-radius;
+  box-shadow: $default-box-shadow;
+}
+
 .notification {
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
   margin: $vertical-spacing-unit $horizontal-spacing-unit;
@@ -13,6 +22,28 @@
   border-radius: $default-border-radius;
   box-shadow: $default-box-shadow;
 }
+
+.sidebar-name {
+  padding-top: $vertical-spacing-unit;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.sidebar-email {
+  padding-top: $vertical-spacing-unit;
+}
+
+.sidebar-title {
+  border-bottom: 1px solid #ecf0f1;
+}
+
+ul.sidebar-interests-list {
+  padding-top: $vertical-spacing-unit;
+}
+
+.sidebar-bio-content {
+  padding-top: $vertical-spacing-unit;
+}
+
 
 /* FRIENDS LIST */
 .friend {
@@ -32,6 +63,7 @@
   .card-name-container {
     display: flex;
     flex-flow: row nowrap;
+    padding: $vertical-spacing-unit;
     .card-pic {
       padding: $vertical-spacing-unit $horizontal-spacing-unit;
     }
@@ -56,7 +88,7 @@
 }
 
 .card-percent {
-
+  font-weight: bold;
 }
 .profile-column {
   flex: 0 0 20%;
