@@ -1,22 +1,19 @@
 <div class='welcome-page'>
   <div class='fullscreen-bg'>
-  <!--   <video class='fullscreen-bg__video' preload='metadata' autoplay muted loop src='assets/images/rollercoaster.mp4'></video>
- -->
-<%= video_tag "rollercoaster.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video" %>
-
+    <%= video_tag "rollercoaster.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video" %>
   </div>
   <div class='welcome-message'>
     <div class='flash-message'>
       <% if flash[:alert] %>
         <%= flash[:alert] %>
       <% end %>
-    </div>
+    </div><br/><br/><br/>
     <div class='welcome-screen'>
-      <h1>Welcome to Find Me Friends</h1>
-      <p>Lettuce be the mutual friend to introduce you to your new best friend.<br/> Let's have this area floating next to the login modal with a photo behind.</p>
+      <h1 class='welcome-header'>Welcome to Find Me Friends</h1>
+      <p class='welcome-blurb'>Let us be the <strong>mutual friend</strong> to introduce you to your new best <br/>friend. Sign up now to start making new amazing friends.</p>
     </div>
   </div>
-
+  <br/><br/><br/>
   <% if current_user.nil? %>
     <main class='welcome-login'>
       <input id='tab1' class='signup-tab' type='radio' name='tabs' checked>
