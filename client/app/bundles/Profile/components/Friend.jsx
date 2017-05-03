@@ -10,9 +10,7 @@ export default class Friend extends React.Component {
     return (
         <div className='friend'>
           <div className='name-container'>
-            <div className='card-percent'>
-              {friend.friendship_match * 100}% match to this users interests
-            </div>
+
             <div className='card-name-container'>
               <img className='card-pic' src={friend.profile_picture}/>
               <div className='name-email'>
@@ -25,6 +23,9 @@ export default class Friend extends React.Component {
               </div>
               <div className='card-bio'>
                  {friend.bio}<br/>
+                <div className='card-percent'>
+                  {friend.friendship_match * 100}% match to this users interests
+                </div>
               </div>
             </div>
           </div>
