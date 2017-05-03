@@ -4,16 +4,13 @@ Rails.application.routes.draw do
 
   resources :welcome, only: [:index]
 
-  # TODO need to delete any of these routes?
+  # TODO do we need friendships?
   resources :friendships
 
-  # routes as specified in Action Cable setup
-  # TODO potentially delete index
   resources :chatrooms, param: :id, except: [:new, :edit, :update]
 
   resources :messages, only: [:create]
 
-  # TODO old style routing, should update if we can figure out how
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -27,9 +24,9 @@ Rails.application.routes.draw do
   # TODO need to delete some more of these routes?
   namespace :admin do
     root to: 'dashboard#show'
-    resources :chatrooms, except: [:show, :edit, :update]
-    resources :users, except: [:show]
-    resources :friendships, except: [:show]
+    resources :chatrooms, only: [:index]
+    resources :users, only: [:show, :index]
+    resources :friendships, only: [:show, :index]
   end
 
   # serve websocket cable requests in-process
