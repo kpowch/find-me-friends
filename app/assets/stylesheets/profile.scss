@@ -51,6 +51,8 @@
   padding: $vertical-spacing-unit
 }
 
+/* SUGGESTION LIST */
+
 .suggestion-list {
   display: flex;
   flex-direction: column;
@@ -61,6 +63,8 @@
 }
 
 .friend {
+  display: flex;
+  flex-flow: row wrap;
   background-color: $navbar-background-color;
   box-shadow: $navbar-box-shadow;
   border-radius: $navbar-link-border-radius;
@@ -69,4 +73,58 @@
   max-width: $profile-maxwidth;
   min-height: 60px;
   text-align: center;
+}
+
+.name-container {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0 auto;
+}
+
+.card-name-container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.card-pic {
+  padding: $vertical-spacing-unit;
+}
+
+
+.card-name {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: $font-size-large;
+  padding: $vertical-spacing-unit;
+}
+
+.name-email {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: column nowrap;
+}
+.card-email {
+  font-size: $font-size-xs;
+}
+
+.profile-column {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  flex: 0 0 150px;
+}
+
+.friend-buttons {
+  padding: $vertical-spacing-unit;
+  justify-content: flex-end;
+}
+
+.add-friend {
+  align-items: baseline;
+}
+.skip-friend {
+  font-size: $font-size-xs;
+  padding: $small-padding;
+  align-items: baseline;
+
 }

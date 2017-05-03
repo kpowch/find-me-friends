@@ -65,7 +65,10 @@ export default class Profile extends React.Component {
   render() {
     return (
       <div className='list-container'>
-        <Sidebar currentUser={this.props.current_user}/>
+        <Sidebar
+          currentUser={this.props.current_user}
+          current_interests={this.props.current_interests}
+        />
         <PendingList
           currentUser={this.props.current_user}
           pendingFriends={this.state.pendingFriends}

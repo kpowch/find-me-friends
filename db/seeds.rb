@@ -12,7 +12,7 @@ puts "Seeding Data.. .."
 user_count = 10
 i = 0
 j = 0
-k = 0
+
 
 ## USERS
 puts "Generating some homies..."
@@ -27,7 +27,7 @@ user_count.times do |i|
     password_confirmation: "pizza",
     dob: Faker::Date.birthday(18, 35),
     profile_picture: File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg')),
-    bio: Faker::Hipster.sentences(1),
+    bio: Faker::Hipster.sentence(10),
     created_at: Time.now,
     updated_at: Time.now
   })
@@ -67,7 +67,9 @@ end
 
 ## INTERESTS_USERS
 while j < user_count do
-  while k < interest_array.count do
+  k = 0
+  m = rand(1..interest_array.count)
+  while k < m do
     InterestsUser.create(user_id: j + 1, interest_id: k + 1)
     k += 1
   end

@@ -11,33 +11,50 @@ export default class PendingFriend extends React.Component {
     if (currentUser.id !== friend.friendship.friend_id) {
       return (
         <div className='friend'>
-          <a className='remove-filter' onClick={declinePendingFriend(friend)}>Unfriend</a><br/>
-          <div className='card-name'>
-            {friend.first_name}
+          <div className='name-container'>
+            <div className='card-name-container'>
+              <img className='card-pic' src={friend.profile_picture}/>
+              <div className='pending-name-email'>
+                <div className='card-name'>
+                  {friend.first_name} {friend.last_name}
+                </div>
+                <div className='card-email'>
+                  {friend.email}<br/><br/>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className='card-name'>
-            {friend.last_name}
-          </div>
-          <img className='card-pic' src={friend.profile_picture}/>
-          <div className='card-email'>
-            {friend.email}
+          <div className='profile-column'>
+            <p>This friendship is awaiting a response.</p><br/>
+            <div className='skip-friend'>
+              <a className='button' onClick={declinePendingFriend(friend)}>Remove Pending</a><br/>
+            </div>
           </div>
         </div>
       );
     } else {
       return (
         <div className='friend'>
-          <a className='remove-filter' onClick={acceptPendingFriend(friend)}>Accept</a><br/>
-          <a className='remove-filter' onClick={declinePendingFriend(friend)}>Decline</a><br/>
-          <div className='card-name'>
-            {friend.first_name}
+          <div className='name-container'>
+            <div className='card-name-container'>
+              <img className='card-pic' src={friend.profile_picture}/>
+              <div className='pending-name-email'>
+                <div className='card-name'>
+                  {friend.first_name} {friend.last_name}
+                </div>
+                <div className='card-email'>
+                  {friend.email}<br/><br/>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className='card-name'>
-            {friend.last_name}
-          </div>
-          <img className='card-pic' src={friend.profile_picture}/>
-          <div className='card-email'>
-            {friend.email}
+          <div className='profile-column'>
+            <div className='add-friend'>
+              <a className='form-button' onClick={acceptPendingFriend(friend)}>Add Friend</a><br/>
+            </div><br/>
+            <div className='skip-friend'>
+              <a className='remove-filter' onClick={declinePendingFriend(friend)}>Decline</a><br/>
+            </div>
           </div>
         </div>
       );

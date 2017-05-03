@@ -11,6 +11,16 @@ main.welcome-login {
   box-shadow: $navbar-box-shadow;
 }
 
+.welcome-page {
+  display: flex;
+  flex-flow: row;
+}
+
+.welcome-screen {
+  padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
+  color: white;
+}
+
 section.welcome-tabs {
   display: none;
   padding: 20px 0 0;
