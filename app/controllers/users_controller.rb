@@ -20,8 +20,6 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         flash[:alert] = "Welcome! Please fill in your interests so we can get started."
-        # send email when a new user is registered
-        UserMailer.welcome_email(@user).deliver_now
 
         # redirect to edit user path so they can input their interests
         format.html { redirect_to edit_user_path(@user.id) }
