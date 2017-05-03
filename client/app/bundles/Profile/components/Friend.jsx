@@ -10,11 +10,14 @@ export default class Friend extends React.Component {
     return (
       <div className='friend'>
         <div className='name-container'>
+        <div className='card-percent'>
+          {friend.friendship_match * 100}% match to this users interests
+        </div>
           <div className='card-name-container'>
             <img className='card-pic' src={friend.profile_picture}/>
               <div className='name-email'>
                 <div className='card-name'>
-                  {friend.first_name} {friend.last_name}<br/>
+                  {friend.first_name + ' ' + friend.last_name}<br/>
                 </div>
                 <div className='card-email'>
                 {friend.email}<br/><br/>
@@ -35,9 +38,6 @@ export default class Friend extends React.Component {
               <a className='button' onClick={declineSuggestedFriend(friend)}>Skip >></a><br/>
             </div>
           </div>
-        </div>
-        <div className='card-percent'>
-          {friend.friendship_match}
         </div>
       </div>
     );
