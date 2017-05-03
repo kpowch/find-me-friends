@@ -5,21 +5,16 @@ class ChatroomsController < ApplicationController
   # set cookie (current user's name) so chat can differentiate between sender/receiver
   before_action :set_user
 
-  # TODO this should move to admin?
-  # shows all the chatrooms and it's members, and buttons to create or delete them
+  # shows all chatrooms that belong to current user
   def index
-    @chatrooms = Chatroom.all
-    @friendship_chat = friendship_chats
-    @user_chats = Chatroom.where(friendship_id: @friendship_chat)
+    @user_chats = Chatroom.where(friendship_id: friendship_chats)
     @messages = Message.where(chatroom_id: @user_chats)
   end
 
   # shows individual chatroom
   def show
-    # all accepted friendships a user belongs to
-    @friendship_chat = friendship_chats
     # all chatrooms a user belongs to
-    @user_chats = Chatroom.where(friendship_id: @friendship_chat)
+    @user_chats = Chatroom.where(friendship_id: friendship_chats)
     # all the messages in the chatrooms they belong to
     @messages = Message.where(chatroom_id: @user_chats)
     # chatroom their on
@@ -35,7 +30,7 @@ class ChatroomsController < ApplicationController
 
     # create notifications to alert users of a new chatroom
     friendship = Friendship.find(@chatroom.friendship_id)
-    puts "\n\m #{friendship.inspect}"
+    puts "\n\n #{friendship.inspect}"
     Notification.create({
       content: "New friendship created with #{friendship.user.first_name} #{friendship.user.last_name}!",
       user: friendship.friend,
@@ -74,8 +69,6 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
-    puts 'params'
-    puts params.inspect
     params.require(:chatroom).permit(:friendship_id)
   end
 

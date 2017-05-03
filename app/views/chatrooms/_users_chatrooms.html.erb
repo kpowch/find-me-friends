@@ -1,17 +1,9 @@
 <% chatrooms.each do |chatroom| %>
-  <% if current_user != chatroom.friendship.user %>
-       <div class='chatroom-link'>
-       <%= link_to "chatrooms/#{chatroom.id}" do %>
-       <%= chatroom.friendship.user.first_name %> <%= chatroom.friendship.user.last_name %><br/>
-       </div>
-      <% end %>
-    <br/>
-  <% else %>
-    <div class='chatroom-link'>
-      <%= link_to "chatrooms/#{chatroom.id}" do %>
-        <%= chatroom.friendship.friend.last_name %> <%= chatroom.friendship.friend.last_name %><br/>
-      <% end %>
-    </div>
-  <% end %>
+  <div class='chatroom-link'>
+    <% if current_user != chatroom.friendship.user %>
+      <%= link_to "#{chatroom.friendship.user.first_name} #{chatroom.friendship.user.last_name}", chatroom_path(chatroom.id) %>
+    <% else %>
+      <%= link_to "#{chatroom.friendship.friend.first_name} #{chatroom.friendship.friend.last_name}", chatroom_path(chatroom.id) %>
+    <% end %>
+  </div>
 <% end %>
-

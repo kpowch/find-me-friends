@@ -29,8 +29,8 @@ class ProfilesController < ApplicationController
     suggestedFriends = []
 
     # find 'suggested' friendships involving the current user
-    suggestedFriendshipsInitiator = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'suggested')
-    suggestedFriendshipsReceiver = Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'suggested')
+    suggestedFriendshipsInitiator = Friendship.where(user_id: current_user.id, friendship_status: 'suggested')
+    suggestedFriendshipsReceiver = Friendship.where(friend_id: current_user.id, friendship_status: 'suggested')
     suggestedFriendships = suggestedFriendshipsInitiator + suggestedFriendshipsReceiver
 
     # save each suggested friend to the array to render
@@ -55,7 +55,7 @@ class ProfilesController < ApplicationController
         bio: suggestedFriend.bio
       })
     end
-    puts "\n\n\n\n\n\n\n\n\n\n suggested friends: #{suggestedFriends.inspect} \n\n\n\n\n"
+    puts "\n\n suggested friends: #{suggestedFriends.inspect} \n\n"
     suggestedFriends # return array
   end
 
@@ -64,8 +64,8 @@ class ProfilesController < ApplicationController
     pendingFriends = []
 
     # find friendships that users have initiated with current user
-    pendingFriendshipsReciever =  Friendship.where('friend_id = ? AND friendship_status = ?', current_user.id, 'pending')
-    pendingFriendshipsInitiator = Friendship.where('user_id = ? AND friendship_status = ?', current_user.id, 'pending')
+    pendingFriendshipsReciever =  Friendship.where(friend_id: current_user.id, friendship_status: 'pending')
+    pendingFriendshipsInitiator = Friendship.where(user_id: current_user.id, friendship_status: 'pending')
     pendingFriendships = pendingFriendshipsReciever + pendingFriendshipsInitiator
 
     # save each pending friend to the array to render
@@ -89,7 +89,7 @@ class ProfilesController < ApplicationController
         bio: pendingFriend.bio
       })
     end
-    puts "\n\n\n\n\n\n\n\n\n\n pending friends: #{pendingFriends.inspect} \n\n\n\n\n"
+    puts "\n\n pending friends: #{pendingFriends.inspect} \n\n"
     pendingFriends # return array
   end
 
@@ -112,24 +112,3 @@ class ProfilesController < ApplicationController
     compare.count.to_f / user_array.count
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
