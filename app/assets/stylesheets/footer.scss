@@ -2,9 +2,11 @@
 
 .footer-wrapper {
   .footer {
+    width: 100%;
     margin: 20px auto 0;
-    max-width: $max-width;
+    // max-width: $max-width;
     text-align: center;
+    position: fixed;
     bottom: 0;
   }
 }

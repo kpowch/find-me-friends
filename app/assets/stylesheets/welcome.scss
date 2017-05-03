@@ -13,7 +13,8 @@ main.welcome-login {
 
 .welcome-page {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
+  font-weight: 700;
 }
 
 .welcome-screen {
@@ -28,6 +29,7 @@ p.welcome-blurb {
 
 h1.welcome-header {
   font-size: 44px;
+  padding-bottom: 31px;
 }
 
 section.welcome-tabs {
