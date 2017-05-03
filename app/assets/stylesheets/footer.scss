@@ -2,12 +2,20 @@
 
 .footer-wrapper {
   .footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
     margin: 20px auto 0;
-    // max-width: $max-width;
+    max-width: $max-width;
     text-align: center;
     position: fixed;
     bottom: 0;
+
+    .github-link {
+      margin: 0px 30px;
+    }
   }
 }
 

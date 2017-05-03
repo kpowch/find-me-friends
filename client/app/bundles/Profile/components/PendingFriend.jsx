@@ -16,11 +16,7 @@ export default class PendingFriend extends React.Component {
               <img className='card-pic' src={friend.profile_picture}/>
               <div className='name-email'>
                 <div className='card-name'>
-<<<<<<< HEAD
                   {friend.first_name + ' ' + friend.last_name}
-=======
-                  {friend.first_name} {friend.last_name}<br/>
->>>>>>> 7b9e2380b613d2978edff8ff1f8f8d037cdfb3ee
                 </div>
                 <div className='card-email'>
                 {friend.email}<br/><br/>
@@ -51,11 +47,7 @@ export default class PendingFriend extends React.Component {
               <img className='card-pic' src={friend.profile_picture}/>
               <div className='name-email'>
                 <div className='card-name'>
-<<<<<<< HEAD
                   {friend.first_name + ' ' + friend.last_name}
-=======
-                  {friend.first_name} {friend.last_name}<br/>
->>>>>>> 7b9e2380b613d2978edff8ff1f8f8d037cdfb3ee
                 </div>
                 <div className='card-email'>
                 {friend.email}<br/><br/>

@@ -8,33 +8,26 @@ export default class Friend extends React.Component {
     const { friend, addSuggestedFriend, declineSuggestedFriend } = this.props;
 
     return (
-      <div className='friend'>
-        <div className='name-container'>
-        <div className='card-percent'>
-          {friend.friendship_match * 100}% match to this users interests
-        </div>
-          <div className='card-name-container'>
-            <img className='card-pic' src={friend.profile_picture}/>
-
+        <div className='friend'>
+          <div className='name-container'>
+            <div className='card-percent'>
+              {friend.friendship_match * 100}% match to this users interests
+            </div>
+            <div className='card-name-container'>
+              <img className='card-pic' src={friend.profile_picture}/>
               <div className='name-email'>
                 <div className='card-name'>
                   {friend.first_name + ' ' + friend.last_name}<br/>
                 </div>
-                <div className='card-email'>
-                {friend.email}<br/><br/>
-                </div>
-
               </div>
               <div className='card-email'>
-              {friend.email}<br/><br/>
+                {friend.email}<br/><br/>
+              </div>
+              <div className='card-bio'>
+                 {friend.bio}<br/>
               </div>
             </div>
           </div>
-          <div className='card-bio'>
-             {friend.bio}<br/>
-          </div>
-        </div>
-
         <div className='profile-column'>
           <div className='friend-buttons'>
             <div className='add-friend'>
