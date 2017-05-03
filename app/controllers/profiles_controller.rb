@@ -11,12 +11,15 @@ class ProfilesController < ApplicationController
     # get the list of suggested and pending friends
     suggested_friends = friendly_three_amigos_method
     pending_friends = pending_three_amigos_method
+    # notifications indicating new chatrooms
+    notifications = Notification.where(user_id: current_user.id)
 
     # pass in props to profile page
     @profile_props = {
       current_user: current_user,
       suggested_friends: suggested_friends,
-      pending_friends: pending_friends
+      pending_friends: pending_friends,
+      notifications: notifications
     }
   end
 
