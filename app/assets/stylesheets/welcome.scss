@@ -5,10 +5,10 @@ main.welcome-login {
   max-width: 500px;
   padding: $large-padding;
   margin: 0 auto;
-  background: $font-color-white;
+  background: white;
   margin-right: 5%;
   border-radius: $login-border-radius;
-  box-shadow: $navbar-box-shadow;
+  box-shadow: $default-box-shadow;
 }
 
 .welcome-page {
@@ -19,7 +19,15 @@ main.welcome-login {
 .welcome-screen {
   padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
   color: $font-color-white;
-  font-weight: 700;
+  text-align: center;
+}
+
+p.welcome-blurb {
+  font-size: 19px;
+}
+
+h1.welcome-header {
+  font-size: 44px;
 }
 
 section.welcome-tabs {
@@ -64,6 +72,24 @@ input.signup-tab:checked + label {
   display: block;
 }
 
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 @media screen and (max-width: 650px) {
   label.welcome {
     font-size: 0;
@@ -78,4 +104,16 @@ input.signup-tab:checked + label {
   label.welcome {
     padding: 15px;
   }
+}
+
+
+.video {
+ position: fixed;
+ top: 50%; left: 50%;
+ z-index: 1;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ transform: translate(-50%, -50%);
 }

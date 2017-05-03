@@ -1,6 +1,6 @@
 <%= link_to 'Back', admin_root_url %>
 <div>
-  <h1> There are currently <%= @users.count %> users finding frands.</h1>
+  <h1> There are currently <%= @users.count %> users finding friends.</h1>
 </div>
   <table>
     <tr>
@@ -11,6 +11,6 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= user.first_name %> <%= user.last_name %></td>
-      <td>Delete currently doesn't work
+      <td><%= user.email %></td>
 <% end %>
   </table>

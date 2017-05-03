@@ -2,45 +2,45 @@
 $font-stack: 'Noto Sans', 'Open Sans', sans-serif;
 $font-logo:'Pacifico', cursive;
 $font-size-base: 16px;
-$font-size-xs: 10px;
 $font-size-small: 12px;
 $font-size-medium: 18px;
 $font-size-large: 28px;
 $font-size-logo: 40px;
 
-$color-primary: #fafafa;
-$color-secondary: #287fb8;
-$color-background: #fafafa;
+
 $font-color-main: #555;
 $font-color-white: #FFFFFF;
+$color-primary: #f89b36;
+$color-secondary: #287fb8;
+$color-background: #e7e7e8;
 $color-darkgrey: #757575;
+$card-background-color: #FFFFFF;
 
 $max-width: 1200px;
 $horizontal-spacing-unit: 10px;
 $vertical-spacing-unit: 10px;
 $small-padding: 5px;
 $large-padding: 20px;
+$page-padding-top: 20px;
 
-/* PROFIL VARIABLES */
-$profile-maxwidth: 800px;
+$default-border-radius: 5px;
+$default-box-shadow: -2px 2px 8px #777;
 
-/* NAVBAR VARIABLES */
-$navbar-font-size: 18px;
+/* PAGE SPECIFIC */
+$login-border-radius: 17px;
+$form-hover-light: #f1ac61;
+$chatroom-sender-color: #37c7b5;
+$chatroom-receiver-color: #dcdcdc;
 
+/* NAVBAR/FOOTER VARIABLES */
 $navbar-box-shadow: -2px 2px 8px #777;
-$navbar-background-color: #FF9800;
+$navbar-font-size: 18px;
+$navbar-background-color: #FFF;
 $navbar-link-color: #555;
 $navbar-link-hover-color: $color-primary;
 $navbar-link-hover-background-color: lightgrey;
 $navbar-link-border: 1px solid $color-secondary;
 $navbar-height: 60px;
+$footer-height: 100px;
 $navbar-height-responsive: 160px;
 $navbar-link-border-radius: 5px;
-$border-radius-lots: 12px;
-
-$login-border-radius: 17px;
-
-$form-hover-light: #f1ac61;
-
-$chatroom-max-width: 100%;
-$chatroom-current-user-color: #37c7b5;

@@ -15,6 +15,7 @@ export default class Friend extends React.Component {
         </div>
           <div className='card-name-container'>
             <img className='card-pic' src={friend.profile_picture}/>
+<<<<<<< HEAD
               <div className='name-email'>
                 <div className='card-name'>
                   {friend.first_name + ' ' + friend.last_name}<br/>
@@ -22,7 +23,16 @@ export default class Friend extends React.Component {
                 <div className='card-email'>
                 {friend.email}<br/><br/>
                 </div>
+=======
+            <div className='name-email'>
+              <div className='card-name'>
+                {friend.first_name} {friend.last_name}<br/>
+>>>>>>> 7b9e2380b613d2978edff8ff1f8f8d037cdfb3ee
               </div>
+              <div className='card-email'>
+              {friend.email}<br/><br/>
+              </div>
+            </div>
           </div>
           <div className='card-bio'>
              {friend.bio}<br/>
