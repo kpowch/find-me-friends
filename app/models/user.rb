@@ -26,9 +26,10 @@ class User < ApplicationRecord
   validate :profile_picture_size_validation
 
   def self.authenticate_with_credentials(email, password)
+    puts "email is #{email} and password is #{password}"
     # find the user after stripping email of extra whitespace
-    user = User.find_by_email(email.strip)
-
+    user = User.find_by(email: email.strip)
+    puts "user in authenitaction is #{user}"
     if user && user.authenticate(password)
       return user
     else

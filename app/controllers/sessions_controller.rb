@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       save_friendships
       redirect_to profiles_path
     else
+      puts "user is #{user}"
       flash[:alert] = "There was an error with your credentials. Please try again."
       redirect_to '/'
     end

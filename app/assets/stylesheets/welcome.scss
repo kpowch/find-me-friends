@@ -12,9 +12,9 @@ main.welcome-login {
 }
 
 .welcome-page {
-  margin-top: 30%;
+  margin-top: 17%;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   font-weight: 700;
 }
 
@@ -22,6 +22,11 @@ main.welcome-login {
   padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
   color: $font-color-white;
   text-align: center;
+}
+
+.flash-message {
+  margin-left: 5%;
+  color: #f89b36;
 }
 
 p.welcome-blurb {
