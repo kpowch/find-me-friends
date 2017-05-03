@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.sidebar-profile {
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  margin: $vertical-spacing-unit $horizontal-spacing-unit;
+  text-align: center;
+  background-color: $card-background-color;
+  border-radius: $default-border-radius;
+  box-shadow: $default-box-shadow;
+}
+
 .notification {
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
   margin: $vertical-spacing-unit $horizontal-spacing-unit;
@@ -25,6 +34,14 @@
   padding: 10px;
 }
 
+.sidebar-title {
+  padding: $small-padding;
+  font-size: $font-size-small;
+}
+.sidebar-name {
+  padding-top: $vertical-spacing-unit;
+}
+
 .name-container {
   flex: 1 0 80%;
   display: flex;
@@ -32,6 +49,7 @@
   .card-name-container {
     display: flex;
     flex-flow: row nowrap;
+    padding: $vertical-spacing-unit;
     .card-pic {
       padding: $vertical-spacing-unit $horizontal-spacing-unit;
     }
