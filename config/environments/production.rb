@@ -16,6 +16,14 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :user_name => ENV['USER_EMAIL'],
+    :password => ENV['USER_PASS'],
+    :authentication => "plain",
+    :enable_stattls_auto => true
+  }
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
