@@ -1,14 +1,14 @@
-<div class='chatroom-wrapper'>
-  <div class='users-chatrooms-list'>
+<div class='scrollable-wrapper'>
+  <div class='left-scrollable-wrapper'>
     <div class='scrollable'>
      <%= render partial: 'users_chatrooms', locals: { chatrooms: @user_chats} %>
    </div>
   </div>
 
-  <div class='active-chatroom'>
+  <div class='right-scrollable-wrapper-wrapper'>
     <h1 class='chatroom-names'>
     <i class='fa fa-comments-o' aria-hidden='true'></i> Messages</h1>
-    <div class='messages-wrapper'>
+    <div class='right-scrollable-wrapper'>
       <div class='panel-body scrollable' id='messages'><br/>
         <h2>Select a friend to start chatting.</h2>
       </div>
