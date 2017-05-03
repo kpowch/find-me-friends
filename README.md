@@ -118,12 +118,13 @@ If at any time you want to stop postgres:
 Once you have the database, you can get to the table using:
 `psql find_me_friends`
 
-If you need to change something with the migrations/seeds and you need to drop the table, follow these steps:
+THIS HAS BEEN REPLACED! Now you just need to run `bin/rake db:reset` and it migrates and seeds.
+<!-- If you need to change something with the migrations/seeds and you need to drop the table, follow these steps:
 1. Make the migrations: `bin/rails g migration <migration name>`
 2. Drop the table: `bin/rails db:drop`
 3. Create the database again: `psql -d postgres` then `create database find_me_friends owner friend;` (same as above)
 4. Migrate the tables: `bin/rails db:migrate`
-4. Seed the database: `bin/rails db:seed`
+4. Seed the database: `bin/rails db:seed` -->
 
 # Resources
 [Shakacode React on Rails boilerplate](https://github.com/shakacode/react_on_rails)
