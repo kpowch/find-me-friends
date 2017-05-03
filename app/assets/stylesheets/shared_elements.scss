@@ -3,12 +3,12 @@
 /* Buttons with links */
 .button {
   cursor: pointer;
-  padding: 10px;
+  padding: $horizontal-spacing-unit $vertical-spacing-unit;
   min-width: 120px;
   text-align: center;
 
   &.outlined {
-    border-radius: 4px;
+    border-radius: $navbar-link-border-radius;
     border: 1px solid $color-secondary;
   }
 
@@ -16,7 +16,7 @@
     border-radius: 4px;
     border: 1px solid $color-secondary;
     background-color: $color-secondary;
-    color: #FFF;
+    color: $font-color-white;
   }
 
   span {
@@ -49,25 +49,3 @@
   }
 }
 
-/* Fake Modals */
-.fake-modal {
-  margin: 120px auto 0;
-  max-width: 500px;
-  border-radius: 10px;
-  background-color: $color-secondary;
-  overflow: hidden;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-
-  .modal-header {
-    background-color: $color-background;
-    padding: 20px;
-
-    h1 {
-      color: #FFF;
-    }
-  }
-
-  .modal-body {
-    padding: 20px;
-  }
-}
