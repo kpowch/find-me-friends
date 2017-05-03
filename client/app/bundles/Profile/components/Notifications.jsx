@@ -9,6 +9,7 @@ export default class Sidebar extends React.Component {
 
     return (
       <div className='sidebar-notifications notification'>
+        <h2 className='sidebar-title'>Notifications</h2>
         {notifications.map((n) =>
           <p key={n.id}>{n.content}</p>
         )}
