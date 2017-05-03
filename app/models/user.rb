@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :inverse_friends, through: :inverse_friendships, source: :user
 
   has_many :messages
+  has_many :notifications
 
   mount_uploader :profile_picture, AvatarUploader
 
