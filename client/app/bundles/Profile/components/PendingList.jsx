@@ -35,7 +35,7 @@ export default class PendingList extends React.Component {
           'PATCH'
         ),
         makeAjaxCall(
-          { friendship_id: friend.friendship.id },
+          { chatroom: { friendship_id: friend.friendship.id } },
           '/chatrooms/',
           'POST'
         )
