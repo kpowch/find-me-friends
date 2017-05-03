@@ -5,7 +5,7 @@ main.welcome-login {
   max-width: 500px;
   padding: $large-padding;
   margin: 0 auto;
-  background: $font-color-white;
+  background: white;
   margin-right: 5%;
   border-radius: $login-border-radius;
   box-shadow: $navbar-box-shadow;
@@ -77,4 +77,16 @@ input.signup-tab:checked + label {
   label.welcome {
     padding: 15px;
   }
+}
+
+
+.video {
+ position: fixed;
+ top: 50%; left: 50%;
+ z-index: 1;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ transform: translate(-50%, -50%);
 }
