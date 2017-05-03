@@ -1,83 +1,44 @@
 @import 'application';
 
-.chatroom-wrapper {
-  max-width: $max-width;
-  margin: 0 auto;
-  height: 85vh;
-  display: flex;
-  flex-flow: row nowrap;
+.chatroom-link {
+  border: 1px solid $navbar-background-color;
+  padding: 20px;
+  text-align: center;
+  background-color: $navbar-background-color;
+  border-radius: $default-border-radius;
+  margin: $vertical-spacing-unit $horizontal-spacing-unit 0 0;
+}
 
-  .users-chatrooms-list {
-    flex: 0 1 30%;
-    position: relative;
+.panel-body p {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: $horizontal-spacing-unit $vertical-spacing-unit;
+  border-radius: 20px;
+  background-color: $chatroom-receiver-color;
+  word-wrap: break-word;
+  max-width: 70%;
+}
 
-    .scrollable {
-      position: absolute;
-      overflow: auto;
-      width: $chatroom-max-width;
-
-      .chatroom-link {
-        border: 1px solid $navbar-background-color;
-        padding: 20px;
-        text-align: center;
-        background-color: $navbar-background-color;
-        border-radius: $border-radius-lots;
-        margin: 2px;
-      }
-    }
+.currentUser {
+  text-align: right;
+  p {
+    background-color: $chatroom-sender-color;
+    color: white;
   }
+}
 
-  .active-chatroom {
-    flex: 1 0 70%;
-    height: $chatroom-max-width;
-    display: flex;
-    flex-flow: column nowrap;
-    padding: 10px;
+.message-form  {
+  flex: 0 0 auto;
+  z-index: 99;
+  background: $font-color-white;
+  padding: $horizontal-spacing-unit $vertical-spacing-unit;
 
-    .messages-wrapper {
-      position: relative;
-      overflow: auto;
-      height: $chatroom-max-width;
-
-      .scrollable {
-        position: absolute;
-        overflow: auto;
-        width: $chatroom-max-width;
-
-        &.panel-body p {
-          display: inline-block;
-          margin-bottom: 20px;
-          padding: $horizontal-spacing-unit $vertical-spacing-unit;
-          border-radius: 20px;
-          background-color: #dcdcdc;
-          word-wrap: break-word;
-          max-width: 70%;
-        }
-
-        .currentUser {
-          text-align: right;
-          p {
-            background-color: $chatroom-current-user-color;
-            color: white;
-          }
-        }
-      }
-    }
-
-    .message-form  {
-      flex: 0 0 auto;
-      z-index: 99;
-      background: $font-color-white;
-      padding: $horizontal-spacing-unit $vertical-spacing-unit;
-
-      textarea {
-        border: none;
-        font-family: $font-stack;
-        font-size: 16px;
-        width: $chatroom-max-width;
-        resize: none;
-      }
-    }
+  textarea {
+    border: none;
+    font-family: $font-stack;
+    font-size: 16px;
+    width: 100%;
+    resize: none;
   }
 }
 
@@ -86,6 +47,6 @@
   margin-left: 25%;
   padding: $vertical-spacing-unit;
   background-color: $navbar-background-color;
-  box-shadow: $navbar-box-shadow;
+  box-shadow: $default-box-shadow;
   border-radius: $navbar-link-border-radius;
 }

@@ -64,22 +64,33 @@ export default class Profile extends React.Component {
 
   render() {
     return (
-      <div className='list-container'>
-        <Sidebar
-          currentUser={this.props.current_user}
-          current_interests={this.props.current_interests}
-        />
-        <PendingList
-          currentUser={this.props.current_user}
-          pendingFriends={this.state.pendingFriends}
-          refreshPendingList={this.refreshPendingList}
-        />
-        <SuggestionList
-          currentUser={this.props.current_user}
-          suggestedFriends={this.state.suggestedFriends}
-          refreshSuggestedList={this.refreshSuggestedList}
-          refreshBothLists={this.refreshBothLists}
-        />
+      <div className='scrollable-wrapper'>
+        <div className='left-scrollable-wrapper'>
+          <div className='scrollable'>
+            <Sidebar
+              currentUser={this.props.current_user}
+              current_interests={this.props.current_interests}
+              notifications={this.props.notifications}
+            />
+          </div>
+        </div>
+        <div className='right-scrollable-wrapper-wrapper'>
+          <div className='right-scrollable-wrapper'>
+            <div className='scrollable'>
+            <PendingList
+              currentUser={this.props.current_user}
+              pendingFriends={this.state.pendingFriends}
+              refreshPendingList={this.refreshPendingList}
+            />
+            <SuggestionList
+              currentUser={this.props.current_user}
+              suggestedFriends={this.state.suggestedFriends}
+              refreshSuggestedList={this.refreshSuggestedList}
+              refreshBothLists={this.refreshBothLists}
+            />
+          </div>
+          </div>
+        </div>
       </div>
     );
   }

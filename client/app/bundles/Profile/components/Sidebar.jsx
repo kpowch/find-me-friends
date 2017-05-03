@@ -1,33 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Notifications from './Notifications';
 
 export default class Sidebar extends React.Component {
 
   render() {
     // this makes the code more readable
     const { first_name, last_name, email, bio, profile_picture } = this.props.currentUser;
+    const { current_interests, notifications } = this.props
 
     return (
-      <div className="sidebar">
-        <div className="sidebar-name">
-          <i className="fa fa-user-o fa-2x" aria-hidden="true"></i>
+      <div className='sidebar-wrapper'>
+        <h1 className='sidebar-name fa fa-user-o fa-2x'>
           {first_name} {last_name}
-        </div>
-        <div className="sidebar-bio">
-          Bio: "{bio}"
-        </div>
-        <div className="sidebar-email">
+        </h1>
+        <p className='sidebar-email'>
           {email}
-        </div>
-        <div className="sidebar-interests">
+        </p>
+        <p className='sidebar-bio'>
+          Bio: <span className='sidebar-bio-content'>'{bio}'</span>
+        </p>
+        <div className='sidebar-interests'>
           Interests:
-          <ul className="sidebar-interests-list">
-            {this.props.current_interests.map((interest, i) =>
-              <li key={i}>
-                {interest}
-              </li>
-              )}
+          <ul className='sidebar-interests-list'>
+            {current_interests.map((interest, i) =>
+              <li key={i}>{interest}</li>
+            )}
           </ul>
+        </div>
+        <div className='sidebar-notifications'>
+          <Notifications notifications={notifications} />
         </div>
       </div>
     );

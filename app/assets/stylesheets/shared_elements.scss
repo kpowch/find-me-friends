@@ -1,6 +1,6 @@
 @import 'application';
 
-/* Buttons with links */
+/* BUTTONS */
 .button {
   cursor: pointer;
   padding: $horizontal-spacing-unit $vertical-spacing-unit;
@@ -49,3 +49,42 @@
   }
 }
 
+/* FLEX PAGE */
+.scrollable-wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  height: 70vh;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: $horizontal-spacing-unit;
+}
+
+.left-scrollable-wrapper {
+  flex: 0 1 30%;
+  position: relative;
+
+  .scrollable {
+    position: absolute;
+    overflow: auto;
+    width: 100%;
+  }
+}
+
+.right-scrollable-wrapper-wrapper {
+  flex: 1 0 70%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .right-scrollable-wrapper {
+    position: relative;
+    overflow: auto;
+    height: 100%;
+
+    .scrollable {
+      position: absolute;
+      overflow: auto;
+      width: 100%;
+    }
+  }
+}
