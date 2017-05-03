@@ -1,130 +1,79 @@
-// Place all the styles related to the profile controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'application';
 
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
-}
-
-.fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $chatroom-max-width;
-    height: $chatroom-max-width;
-}
-
-.sidebar {
-  position: fixed;
-  left: 0;
-  background-color: $font-color-white;
-  border-radius: $navbar-link-border-radius;
-  min-height: 30%;
+/* SIDEBAR */
+.sidebar-wrapper {
   text-align: center;
-  box-shadow: $navbar-box-shadow;
-  margin-left: 10px;
+}
+
+.notification {
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
-  max-width: 200px;
+  margin: $vertical-spacing-unit $horizontal-spacing-unit;
+  text-align: center;
+  background-color: $card-background-color;
+  border-radius: $default-border-radius;
+  box-shadow: $default-box-shadow;
 }
 
-.fa.fa-user-o {
-  padding: $vertical-spacing-unit $horizontal-spacing-unit;
-}
-
-.sidebar-name {
-  font-weight: $font-size-large;
-}
-
-.sidebar-email {
-  font-size: $font-size-small;
-  padding: $vertical-spacing-unit $horizontal-spacing-unit
-}
-
-.sidebar-bio {
-  padding: $vertical-spacing-unit
-}
-
-/* SUGGESTION LIST */
-
-.suggestion-list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items:center;
-  padding-top: 100px;
-  margin-left: 100px;
-}
-
+/* FRIENDS LIST */
 .friend {
   display: flex;
   flex-flow: row wrap;
-  background-color: $navbar-background-color;
-  box-shadow: $navbar-box-shadow;
-  border-radius: $navbar-link-border-radius;
-  padding: $vertical-spacing-unit $horizontal-spacing-unit;
-  min-width: 650px;
-  max-width: $profile-maxwidth;
-  min-height: 60px;
-  text-align: center;
+  margin: $vertical-spacing-unit $horizontal-spacing-unit $large-padding;
+  background-color: $card-background-color;
+  box-shadow: $default-box-shadow;
+  border-radius: $default-border-radius;
+  padding: 10px;
 }
 
 .name-container {
+  flex: 1 0 80%;
   display: flex;
   flex-flow: column nowrap;
-  flex: 1 0 auto;
+  .card-name-container {
+    display: flex;
+    flex-flow: row nowrap;
+    .card-pic {
+      padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    }
+    .name-email {
+      display: flex;
+      justify-content: flex-end;
+      flex-flow: column nowrap;
+      .card-name {
+        text-align: left;
+        font-size: $font-size-large;
+        padding: $vertical-spacing-unit 0;
+      }
+      .card-email {
+        font-size: $font-size-small;
+      }
+    }
+  }
+  .card-bio {
+    // max-width: 400px;
+    padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  }
 }
 
-.card-name-container {
-  display: flex;
-  flex-flow: row nowrap;
-}
+.card-percent {
 
-.card-pic {
-  padding: $vertical-spacing-unit;
 }
-
-
-.card-name {
-  display: flex;
-  flex-flow: row nowrap;
-  font-size: $font-size-large;
-  padding: $vertical-spacing-unit;
-}
-
-.name-email {
-  display: flex;
-  justify-content: flex-end;
-  flex-flow: column nowrap;
-}
-.card-email {
-  font-size: $font-size-xs;
-}
-
 .profile-column {
+  flex: 0 0 20%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  flex: 0 0 150px;
-}
 
-.friend-buttons {
-  padding: $vertical-spacing-unit;
-  justify-content: flex-end;
-}
+  .friend-buttons {
+    padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    align-self: flex-end;
+    text-align: right;
 
-.add-friend {
-  align-items: baseline;
-}
+    .add-friend {
+    }
 
-.skip-friend {
-  font-size: $font-size-xs;
-  padding: $small-padding;
-  align-items: baseline;
+    .skip-friend {
+      font-size: $font-size-small;
+    }
+  }
 }

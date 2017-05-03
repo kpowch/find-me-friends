@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
     pending_friends = pending_three_amigos_method
     # notifications indicating new chatrooms
     notifications = Notification.where(user_id: current_user.id)
+    puts "\n\n User notifications #{notifications.inspect}\n\n\n"
 
     # pass in props to profile page
     @profile_props = {
