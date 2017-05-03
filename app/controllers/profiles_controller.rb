@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
       current_user: current_user,
       suggested_friends: suggested_friends,
       pending_friends: pending_friends,
-      notifications: notifications
+      notifications: notifications,
       current_interests: current_interests
     }
   end
