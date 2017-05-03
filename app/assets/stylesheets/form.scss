@@ -3,7 +3,7 @@
 .form-field-input input {
   padding: 5px 10px;
   margin: 8px 0;
-  width: $chatroom-max-width;
+  width: 100%;
   box-sizing: border-box;
   border: none;
   border-bottom: 2px solid $color-primary;
@@ -20,7 +20,7 @@
 
 .form-button {
   -webkit-appearance: none;
-  width: $chatroom-max-width;
+  width: 100%;
   font-family: $font-stack;
   font-size: 16px;
   /* from button styling */
