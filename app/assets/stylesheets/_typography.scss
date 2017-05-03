@@ -34,5 +34,5 @@ p, span {
   padding-bottom: $vertical-spacing-unit;
 }
 main {
-  margin-top: $navbar-height + 30px;
+  margin-top: $navbar-height + $page-padding-top;
 }
