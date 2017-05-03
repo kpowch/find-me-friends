@@ -19,6 +19,15 @@ main.welcome-login {
 .welcome-screen {
   padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
   color: $font-color-white;
+  text-align: center;
+}
+
+p.welcome-blurb {
+  font-size: 19px;
+}
+
+h1.welcome-header {
+  font-size: 44px;
 }
 
 section.welcome-tabs {
