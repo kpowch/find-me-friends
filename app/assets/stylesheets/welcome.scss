@@ -3,11 +3,11 @@
 main.welcome-login {
   min-width: 320px;
   max-width: 500px;
-  padding: 21px;
+  padding: $large-padding;
   margin: 0 auto;
-  background: #fff;
+  background: $font-color-white;
   margin-right: 5%;
-  border-radius: 17px;
+  border-radius: $login-border-radius;
   box-shadow: $navbar-box-shadow;
 }
 
@@ -18,7 +18,7 @@ main.welcome-login {
 
 .welcome-screen {
   padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
-  color: white;
+  color: $font-color-white;
 }
 
 section.welcome-tabs {
@@ -44,7 +44,7 @@ label.welcome {
 label.welcome:before {
   font-family: fontawesome;
   font-weight: normal;
-  margin-right: 10px;
+  margin-right: $horizontal-spacing-unit;
 }
 
 label.welcome:hover {
@@ -54,7 +54,7 @@ label.welcome:hover {
 input.signup-tab:checked + label {
   color: #555;
   border: 1px solid #ddd;
-  border-top: 2px solid orange;
+  border-top: 2px solid $color-primary;
   border-bottom: 1px solid #fff;
 }
 
@@ -69,7 +69,7 @@ input.signup-tab:checked + label {
   }
   label.welcome:before {
     margin: 0;
-    font-size: 18px;
+    font-size: $font-size-medium;
   }
 }
 
