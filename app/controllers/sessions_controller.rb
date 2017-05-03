@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to profiles_path
     else
       flash[:alert] = "There was an error with your credentials. Please try again."
-      redirect_to '/'
+      redirect_to '/login'
     end
   end
 

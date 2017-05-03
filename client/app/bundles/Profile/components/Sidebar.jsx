@@ -11,27 +11,27 @@ export default class Sidebar extends React.Component {
 
     return (
       <div className='sidebar-wrapper'>
-        <div className='sidebar-profile'>
-          <div className='sidebar-title'>
-            Your Profile:
-          </div>
+        <div className='sidebar-card'>
           <h1 className='sidebar-name'>
              {first_name} {last_name}
           </h1>
           <p className='sidebar-email'>
             {email}
           </p>
-          <p className='sidebar-bio'>
-            Bio: <span className='sidebar-bio-content'>'{bio}'</span>
-          </p>
-          <div className='sidebar-interests'>
-            Interests:
-            <ul className='sidebar-interests-list'>
-              {current_interests.map((interest, i) =>
-                <li key={i}>{interest}</li>
-              )}
-            </ul>
+        </div>
+        <div className='sidebar-card'>
+          <h2 className='sidebar-title'>About Me</h2>
+          <div className='sidebar-bio-content'>
+            <span>'{bio}'</span>
           </div>
+        </div>
+        <div className='sidebar-card'>
+          <h2 className='sidebar-title'>Interests</h2>
+          <ul className='sidebar-interests-list'>
+            {current_interests.map((interest, i) =>
+              <li key={i}>{interest}</li>
+            )}
+          </ul>
         </div>
         <div className='sidebar-notifications'>
           <Notifications notifications={notifications} />

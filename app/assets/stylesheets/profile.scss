@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.sidebar-profile {
+.sidebar-card {
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
   margin: $vertical-spacing-unit $horizontal-spacing-unit;
   text-align: center;
@@ -23,6 +23,28 @@
   box-shadow: $default-box-shadow;
 }
 
+.sidebar-name {
+  padding-top: $vertical-spacing-unit;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.sidebar-email {
+  padding-top: $vertical-spacing-unit;
+}
+
+.sidebar-title {
+  border-bottom: 1px solid #ecf0f1;
+}
+
+ul.sidebar-interests-list {
+  padding-top: $vertical-spacing-unit;
+}
+
+.sidebar-bio-content {
+  padding-top: $vertical-spacing-unit;
+}
+
+
 /* FRIENDS LIST */
 .friend {
   display: flex;
@@ -32,14 +54,6 @@
   box-shadow: $default-box-shadow;
   border-radius: $default-border-radius;
   padding: 10px;
-}
-
-.sidebar-title {
-  padding: $small-padding;
-  font-size: $font-size-small;
-}
-.sidebar-name {
-  padding-top: $vertical-spacing-unit;
 }
 
 .name-container {
