@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :friendships
 
   # routes as specified in Action Cable setup
-  # TODO potentially delete index, new
-  resources :chatrooms, param: :id, except: [:edit, :update]
+  # TODO potentially delete index
+  resources :chatrooms, param: :id, except: [:new, :edit, :update]
 
   resources :messages, only: [:create]
 
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :destroy]
 
   resources :profiles, only: [:index]
+
+  resources :notifications, only: [:create, :destroy]
 
   # TODO need to delete some more of these routes?
   namespace :admin do
