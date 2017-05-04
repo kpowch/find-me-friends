@@ -6,8 +6,8 @@ class NotificationsController < ApplicationController
   end
 
   def destroy
-    notification = Notification.find([params[:notification]])
-    notification.destroy
+    @notification = Notification.find_by(id: params[:id])
+    @notification.destroy
   end
 
   private

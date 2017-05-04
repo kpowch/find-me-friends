@@ -13,7 +13,8 @@ export default class Profile extends React.Component {
     console.log('props in profile', props)
     this.state = {
       suggestedFriends: this.props.suggested_friends,
-      pendingFriends: this.props.pending_friends
+      pendingFriends: this.props.pending_friends,
+      notifications: this.props.notifications
   };
 }
 
@@ -71,6 +72,7 @@ export default class Profile extends React.Component {
               currentUser={this.props.current_user}
               current_interests={this.props.current_interests}
               notifications={this.props.notifications}
+              refreshNotificationList={this.refreshNotificationList}
             />
           </div>
         </div>
