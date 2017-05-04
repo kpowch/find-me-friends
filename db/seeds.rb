@@ -26,7 +26,7 @@ user_count.times do |i|
     password_confirmation: "pizza",
     dob: Faker::Date.birthday(18, 35),
     profile_picture: File.open(File.join(Rails.root, '/app/assets/images/no_photo.jpg')),
-    bio: Faker::Hipster.sentence(10),
+    bio: Faker::Hipster.sentence(5),
     created_at: Time.now,
     updated_at: Time.now
   })
