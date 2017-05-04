@@ -21,6 +21,7 @@
   background-color: $card-background-color;
   border-radius: $default-border-radius;
   box-shadow: $default-box-shadow;
+
 }
 
 .sidebar-name {
@@ -30,6 +31,7 @@
 
 .sidebar-email {
   padding-top: $vertical-spacing-unit;
+  font-weight: 300;
 }
 
 .sidebar-title {
@@ -38,10 +40,12 @@
 
 ul.sidebar-interests-list {
   padding-top: $vertical-spacing-unit;
+  font-weight: 300;
 }
 
 .sidebar-bio-content {
   padding-top: $vertical-spacing-unit;
+  font-weight: 300;
 }
 
 
@@ -77,11 +81,13 @@ ul.sidebar-interests-list {
       }
       .card-email {
         font-size: $font-size-small;
+        font-weight: 300;
       }
     }
   }
   .card-bio {
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    font-weight: 300;
   }
 }
 
@@ -111,10 +117,12 @@ ul.sidebar-interests-list {
     .awaiting-response {
       text-align: center;
       margin-bottom: 10px;
+      font-weight: 300;
     }
 
     .skip-friend {
       font-size: $font-size-small;
+      font-weight: 300;
       .button {
         display: inline-block;
         width: auto;
