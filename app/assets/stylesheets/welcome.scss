@@ -23,6 +23,8 @@ main.welcome-login {
   padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
   color: $welcome-page-font-color;
   text-align: center;
+  background: rgba(0,0,0,0.2);
+  margin-left: 80px;
 }
 
 .flash-message {
@@ -31,8 +33,11 @@ main.welcome-login {
 }
 
 p.welcome-blurb {
-  font-size: 19px;
+  font-size: 30px;
   font-weight: 300;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 50px;
 }
 
 h1.welcome-header {

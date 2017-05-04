@@ -4,7 +4,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
     $('#messages').append(this.returnMessageElement(data));
 
     // moves window down so most recent message is in view
-    $('.messages-wrapper').scrollTop($('.panel-body.scrollable').height());
+    $('.chatroom-page').scrollTop($('.panel-body.scrollable').height());
   },
 
   returnMessageElement: function(data) {
