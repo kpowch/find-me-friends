@@ -28,6 +28,7 @@ export default class Sidebar extends React.Component {
 
     return (
       <div className='sidebar-wrapper'>
+        <h1 className='profile-heading profile-heading-placeholder'>Settings</h1>
         <div className='sidebar-card'>
           <h1 className='sidebar-name'>
              {first_name} {last_name}

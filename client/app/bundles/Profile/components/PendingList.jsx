@@ -70,7 +70,7 @@ export default class PendingList extends React.Component {
     } else {
       return (
         <div>
-          <h1> Pending Friends </h1>
+          <h1 className='profile-heading'> Pending Friends </h1>
           <div className='suggestion-list'>
             {this.props.pendingFriends.map((friend) =>
               <PendingFriend

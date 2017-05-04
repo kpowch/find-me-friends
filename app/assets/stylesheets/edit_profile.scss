@@ -4,9 +4,9 @@
   max-width: 50%;
   margin-left: 25%;
   padding: $vertical-spacing-unit;
-  background-color: $navbar-background-color;
+  background-color: $card-background-color;
   box-shadow: $default-box-shadow;
-  border-radius: $navbar-link-border-radius;
+  border-radius: $default-border-radius;
 }
 
 .user.edit.form {
@@ -32,13 +32,13 @@ label.interests:hover {
 
 .edit-heading {
   padding: $vertical-spacing-unit;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid $underline-color;
 }
 
 .interest-heading {
   font-size: 24px;
   text-align: center;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid $underline-color;
   padding: $vertical-spacing-unit;
 }
 
