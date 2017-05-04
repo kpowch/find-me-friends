@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import InterestMatchChart from './InterestMatchChart';
 
 export default class Friend extends React.Component {
 
@@ -28,7 +29,7 @@ export default class Friend extends React.Component {
 
         <div className='profile-column'>
           <div className='card-percent'>
-            {Math.round(friend.friendship_match * 100)}% interest match
+            <InterestMatchChart match={Math.round(friend.friendship_match * 100)} />
           </div>
           <div className='friend-buttons'>
             <div className='add-friend'>

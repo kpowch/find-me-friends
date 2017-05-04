@@ -51,7 +51,7 @@ export default class SuggestionList extends React.Component {
     } else {
         return (
           <div>
-            <h1> Suggested Friends </h1>
+            <h1 className='profile-heading'> Suggested Friends </h1>
             <div className='suggestion-list'>
             {this.props.suggestedFriends.slice(0, 3).map((friend) =>
               <Friend
