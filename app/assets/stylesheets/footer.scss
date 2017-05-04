@@ -1,9 +1,9 @@
 @import 'application';
 
-.footer-wrapper {
 
-  .footer {
+.footer {
     bottom: 0;
+    color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -17,6 +17,6 @@
     .github-link {
       margin: 0px 30px;
     }
-  }
 }
+
 
