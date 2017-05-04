@@ -6,15 +6,16 @@
   width: 100%;
   box-sizing: border-box;
   border: none;
-  border-bottom: 2px solid $color-primary;
-  border-radius: 4px;
+  border-bottom: 1px solid $color-primary;
   display: inline-block;
   font-family: $font-stack;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 300;
 
   &:focus {
     outline: none;
     color: $color-darkgrey;
+    font-weight: 400;
   }
 }
 

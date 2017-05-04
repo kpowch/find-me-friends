@@ -13,10 +13,36 @@
   padding: 15px;
 }
 
+.interests-list {
+  column-count: 2;
+}
+
 .interest-list {
-  padding: 3px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+label.interests {
+  cursor: pointer;
+}
+
+label.interests:hover {
+  font-weight: 900;
 }
 
 .edit-heading {
   padding: $vertical-spacing-unit;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.interest-heading {
+  font-size: 24px;
+  text-align: center;
+  border-bottom: 1px solid #ecf0f1;
+  padding: $vertical-spacing-unit;
+}
+
+.upload-photo {
+  padding: $vertical-spacing-unit;
+  font-size: 18px;
 }

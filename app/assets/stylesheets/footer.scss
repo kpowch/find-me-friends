@@ -1,9 +1,9 @@
 @import 'application';
 
-.footer-wrapper {
 
-  .footer {
+.footer {
     bottom: 0;
+    color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,10 +13,15 @@
     max-width: $max-width;
     text-align: center;
     font-size: 85%;
+    font-weight: 300;
+
+    a {
+        color: #757575;
+    }
 
     .github-link {
       margin: 0px 30px;
     }
-  }
 }
+
 

@@ -8,6 +8,7 @@
   position: fixed;
   top: 0;
   z-index: 900;
+  line-height: 58px;
 }
 
 .navbar {
@@ -20,7 +21,9 @@
 }
 
 .nav-brand {
-  font-family: $font-logo;
+  font-family: $font-stack;
+  font-weight: 900;
+  font-style: italic;
   font-size: $font-size-logo;
   color: $color-primary;
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
@@ -44,10 +47,10 @@
     font-size: $navbar-font-size;
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
   &:hover {
-    border: $navbar-link-border;
     border-radius: $navbar-link-border-radius;
     color: $font-color-white;
-    background-color: $color-primary;
+    background-color: #757575;
+    font-weight: 300;
   }
 }
 
