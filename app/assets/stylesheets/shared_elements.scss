@@ -53,10 +53,10 @@
 .scrollable-wrapper {
   max-width: $max-width;
   margin: 0 auto;
-  height: 70vh;
+  height: 77vh;
   display: flex;
   flex-flow: row nowrap;
-  padding: $horizontal-spacing-unit;
+  padding: 0px $horizontal-spacing-unit;
 }
 
 .left-scrollable-wrapper {
