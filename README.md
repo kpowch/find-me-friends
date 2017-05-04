@@ -78,6 +78,12 @@ gem install rails               # download and install latest stable Rails
 gem install foreman             # download and install Foreman
 bundle && yarn
 ```
+### Reseting DB on Heroku
+
+` $ heroku pg:reset DATABASE`
+` $ heroku run rake db:migrate`
+` $ heroku run rake db:seed`
+` $ heroku restart`
 
 ### To Run the Server
 

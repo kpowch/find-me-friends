@@ -5,13 +5,17 @@ export default class Sidebar extends React.Component {
 
   render() {
     // this makes the code more readable
-    const { notifications } = this.props
+    const { notifications, deleteNotification } = this.props
 
     return (
-      <div className='sidebar-notifications notification'>
-        <h2 className='sidebar-title'>Notifications</h2>
+      <div>
         {notifications.map((n) =>
-          <p key={n.id}>{n.content}</p>
+          <a key={n.id} onClick={deleteNotification(n)}>
+            <div className='notification'>
+              <p className="fa fa-bell" aria-hidden="true"></p>
+              <p >{n.content}</p>
+            </div>
+          </a>
         )}
       </div>
     )

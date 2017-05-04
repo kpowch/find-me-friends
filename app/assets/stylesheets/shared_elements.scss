@@ -9,13 +9,13 @@
 
   &.outlined {
     border-radius: $navbar-link-border-radius;
-    border: 1px solid $color-secondary;
+    border: 1px solid #3b5998;
   }
 
   &.filled {
     border-radius: 4px;
     border: 1px solid $color-secondary;
-    background-color: $color-secondary;
+    background-color: $color-background;
     color: $font-color-white;
   }
 

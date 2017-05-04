@@ -32,6 +32,7 @@ main.welcome-login {
 
 p.welcome-blurb {
   font-size: 19px;
+  font-weight: 300;
 }
 
 h1.welcome-header {
@@ -114,7 +115,6 @@ input.signup-tab:checked + label {
     padding: 15px;
   }
 }
-
 
 .video {
  position: fixed;

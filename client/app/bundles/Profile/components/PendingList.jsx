@@ -65,21 +65,25 @@ export default class PendingList extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1> Pending Friends </h1>
-        <div className='suggestion-list'>
-          {this.props.pendingFriends.empty ? null : this.props.pendingFriends.map((friend) =>
-            <PendingFriend
-              friend={friend}
-              acceptPendingFriend={this.acceptPendingFriend}
-              declinePendingFriend={this.declinePendingFriend}
-              currentUser={this.props.currentUser}
-              key={friend.user_id}
-            />
-          )}
+    if (this.props.pendingFriends.length === 0) {
+      return null
+    } else {
+      return (
+        <div>
+          <h1> Pending Friends </h1>
+          <div className='suggestion-list'>
+            {this.props.pendingFriends.map((friend) =>
+              <PendingFriend
+                friend={friend}
+                acceptPendingFriend={this.acceptPendingFriend}
+                declinePendingFriend={this.declinePendingFriend}
+                currentUser={this.props.currentUser}
+                key={friend.user_id}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }

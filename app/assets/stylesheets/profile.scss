@@ -21,6 +21,10 @@
   background-color: $card-background-color;
   border-radius: $default-border-radius;
   box-shadow: $default-box-shadow;
+
+  &:hover {
+    background-color: darken($card-background-color, 10);
+  }
 }
 
 .sidebar-name {
@@ -30,6 +34,7 @@
 
 .sidebar-email {
   padding-top: $vertical-spacing-unit;
+  font-weight: 300;
 }
 
 .sidebar-title {
@@ -38,17 +43,19 @@
 
 ul.sidebar-interests-list {
   padding-top: $vertical-spacing-unit;
+  font-weight: 300;
 }
 
 .sidebar-bio-content {
   padding-top: $vertical-spacing-unit;
+  font-weight: 300;
 }
 
 
 /* FRIENDS LIST */
 .friend {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   margin: $vertical-spacing-unit $horizontal-spacing-unit $large-padding;
   background-color: $card-background-color;
   box-shadow: $default-box-shadow;
@@ -63,11 +70,10 @@ ul.sidebar-interests-list {
   .card-name-container {
     display: flex;
     flex-flow: row nowrap;
-    padding: $vertical-spacing-unit;
     .card-pic {
       padding: $vertical-spacing-unit $horizontal-spacing-unit;
     }
-    .name-email {
+     .name-email {
       display: flex;
       justify-content: flex-end;
       flex-flow: column nowrap;
@@ -78,34 +84,50 @@ ul.sidebar-interests-list {
       }
       .card-email {
         font-size: $font-size-small;
+        font-weight: 300;
       }
     }
   }
   .card-bio {
-    // max-width: 400px;
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    font-weight: 300;
   }
 }
 
-.card-percent {
-  font-weight: bold;
-}
 .profile-column {
   flex: 0 0 20%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
 
+  .card-percent {
+  }
+
   .friend-buttons {
-    padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    padding: $vertical-spacing-unit $horizontal-spacing-unit 0 0;
     align-self: flex-end;
     text-align: right;
 
     .add-friend {
+      .form-button {
+        display: inline-block;
+        width: auto;
+      }
+    }
+
+    .awaiting-response {
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 300;
     }
 
     .skip-friend {
       font-size: $font-size-small;
+      font-weight: 300;
+      .button {
+        display: inline-block;
+        width: auto;
+      }
     }
   }
 }

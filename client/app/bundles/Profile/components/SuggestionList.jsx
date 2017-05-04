@@ -44,20 +44,26 @@ export default class SuggestionList extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1> Suggested Friends </h1>
-        <div className='suggestion-list'>
-          {this.props.suggestedFriends.empty ? null : this.props.suggestedFriends.slice(0, 3).map((friend) =>
-            <Friend
-              friend={friend}
-              addSuggestedFriend={this.addSuggestedFriend}
-              declineSuggestedFriend={this.declineSuggestedFriend}
-              key={friend.user_id}
-            />
-          )}
+    if (this.props.suggestedFriends.length === 0) {
+      return (
+        <div className='suggestion-list'>Sorry, no suggested friends at this moment</div>
+      )
+    } else {
+        return (
+          <div>
+            <h1> Suggested Friends </h1>
+            <div className='suggestion-list'>
+            {this.props.suggestedFriends.slice(0, 3).map((friend) =>
+              <Friend
+                friend={friend}
+                addSuggestedFriend={this.addSuggestedFriend}
+                declineSuggestedFriend={this.declineSuggestedFriend}
+                key={friend.user_id}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }

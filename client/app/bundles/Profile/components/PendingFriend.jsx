@@ -8,7 +8,6 @@ export default class PendingFriend extends React.Component {
     const { currentUser, friend, acceptPendingFriend, declinePendingFriend } = this.props;
 
     // TODO this should be refactored as the only difference is the accept button
-    if (currentUser.id !== friend.friendship.friend_id) {
       return (
         <div className='friend'>
           <div className='name-container'>
@@ -19,60 +18,41 @@ export default class PendingFriend extends React.Component {
                   {friend.first_name + ' ' + friend.last_name}
                 </div>
                 <div className='card-email'>
-                {friend.email}<br/><br/>
+                  {friend.email}
                 </div>
               </div>
             </div>
             <div className='card-bio'>
-               {friend.bio}<br/>
+               {friend.bio}
             </div>
           </div>
 
           <div className='profile-column'>
-            <p>This friendship is awaiting a response.</p><br/>
-            <div className='skip-friend'>
-              <a className='button' onClick={declinePendingFriend(friend)}>Remove Pending</a><br/>
+            <div className='card-percent'>
+              {Math.round(friend.friendship_match * 100)}% interest match
             </div>
-          </div>
-          <div className='card-percent'>
-            {friend.friendship_match}
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className='friend'>
-          <div className='name-container'>
-            <div className='card-name-container'>
-              <img className='card-pic' src={friend.profile_picture}/>
-              <div className='name-email'>
-                <div className='card-name'>
-                  {friend.first_name + ' ' + friend.last_name}
-                </div>
-                <div className='card-email'>
-                {friend.email}<br/><br/>
-                </div>
-              </div>
-            </div>
-            <div className='card-bio'>
-               {friend.bio}<br/>
-            </div>
-          </div>
-          <div className='profile-column'>
             <div className='friend-buttons'>
-              <div className='add-friend'>
-                <a className='form-button' onClick={acceptPendingFriend(friend)}>Accept</a><br/><br/>
+            {currentUser.id !== friend.friendship.friend_id && (
+              <div>
+                <div className='awaiting-response'>Pending friendship awaiting response.</div>
+                <div className='skip-friend'>
+                  <a className='button' onClick={declinePendingFriend(friend)}>Remove Pending >></a>
+                </div>
               </div>
-              <div className='skip-friend'>
-                <a className='remove-filter' onClick={declinePendingFriend(friend)}>Decline >></a><br/>
+            )}
+            {currentUser.id === friend.friendship.friend_id && (
+              <div>
+                <div className='add-friend'>
+                  <a className='form-button' onClick={acceptPendingFriend(friend)}>Accept</a>
+                </div>
+                <div className='skip-friend'>
+                  <a className='button' onClick={declinePendingFriend(friend)}>Decline >></a>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-          <div className='card-percent'>
-            {friend.friendship_match}
           </div>
         </div>
       );
     }
-  }
 }
