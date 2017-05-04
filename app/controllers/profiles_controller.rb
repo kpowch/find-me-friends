@@ -80,6 +80,7 @@ class ProfilesController < ApplicationController
 
       # add the friend's info to the array
       pendingFriends.push({
+        friendship_match: percent_compare(pendingFriend.id),
         user_id: pendingFriend.id,
         friendship: friendship,
         first_name: pendingFriend.first_name,

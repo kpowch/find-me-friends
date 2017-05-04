@@ -48,7 +48,7 @@ ul.sidebar-interests-list {
 /* FRIENDS LIST */
 .friend {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   margin: $vertical-spacing-unit $horizontal-spacing-unit $large-padding;
   background-color: $card-background-color;
   box-shadow: $default-box-shadow;
@@ -63,11 +63,10 @@ ul.sidebar-interests-list {
   .card-name-container {
     display: flex;
     flex-flow: row nowrap;
-    padding: $vertical-spacing-unit;
     .card-pic {
       padding: $vertical-spacing-unit $horizontal-spacing-unit;
     }
-    .name-email {
+     .name-email {
       display: flex;
       justify-content: flex-end;
       flex-flow: column nowrap;
@@ -82,30 +81,44 @@ ul.sidebar-interests-list {
     }
   }
   .card-bio {
-    // max-width: 400px;
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
   }
 }
 
-.card-percent {
-  font-weight: bold;
-}
+
+
 .profile-column {
   flex: 0 0 20%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
 
+  .card-percent {
+  }
+
   .friend-buttons {
-    padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    padding: $vertical-spacing-unit $horizontal-spacing-unit 0 0;
     align-self: flex-end;
     text-align: right;
 
     .add-friend {
+      .form-button {
+        display: inline-block;
+        width: auto;
+      }
+    }
+
+    .awaiting-response {
+      text-align: center;
+      margin-bottom: 10px;
     }
 
     .skip-friend {
       font-size: $font-size-small;
+      .button {
+        display: inline-block;
+        width: auto;
+      }
     }
   }
 }
