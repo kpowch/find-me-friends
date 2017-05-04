@@ -1,16 +1,18 @@
 @import 'application';
 
 .footer-wrapper {
+
   .footer {
+    bottom: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin: 20px auto 0;
+    margin: 5px auto 0;
     max-width: $max-width;
     text-align: center;
-    bottom: 0;
+    font-size: 85%;
 
     .github-link {
       margin: 0px 30px;
