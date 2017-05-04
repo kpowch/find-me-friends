@@ -18,3 +18,24 @@
     margin: 0px 30px;
   }
 }
+
+.tos {
+  line-height: 20px;
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+  text-align: center;
+  background-color: $card-background-color;
+  border-radius: $default-border-radius;
+  box-shadow: $default-box-shadow;
+  max-width: 50%;
+  text-align: center;
+  margin: 100px auto;
+}
+
+h1.tos-header {
+  border-bottom: 1px solid #ecf0f1;
+  padding: $vertical-spacing-unit;
+}
+
+.tos-body {
+  padding: $vertical-spacing-unit $horizontal-spacing-unit;
+}
