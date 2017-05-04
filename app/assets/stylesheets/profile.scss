@@ -21,6 +21,9 @@
   background-color: $card-background-color;
   border-radius: $default-border-radius;
   box-shadow: $default-box-shadow;
+  &:hover {
+    background-color: darken($card-background-color, 10);
+  }
 }
 
 .sidebar-name {
@@ -84,8 +87,6 @@ ul.sidebar-interests-list {
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
   }
 }
-
-
 
 .profile-column {
   flex: 0 0 20%;
