@@ -110,6 +110,6 @@ class ProfilesController < ApplicationController
     current_interests.each {|interest| user_array.push(interest) }
     friend_interests.each {|interest| friend_array.push(interest.name) }
     compare = friend_array & user_array
-    compare.count.to_f / user_array.count
+    (compare.count.to_f / user_array.count).round(2)
   end
 end
