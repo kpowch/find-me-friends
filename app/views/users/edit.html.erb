@@ -4,37 +4,32 @@
     <%= flash[:alert] %>
   <% end %>
 </div>
-<div class='button filled'>
-  <span><%= link_to 'Home', :root %></span>
-</div>
 <div class='user edit form'>
   <div class='user form edit-user'>
-    <h1 class='edit-heading'>Edit Settings</h1>
+    <h1 class='edit-heading'>Edit Settings</h1><br/>
     <%= form_for (@user) do |f| %>
       <span class='form-field-input'> <%= f.text_field :first_name, value: current_user.first_name %></span>
       <span class='form-field-input'> <%= f.text_field :last_name, value: current_user.last_name %></span>
       <span class='form-field-input'> <%= f.text_field :email, value: current_user.email %></span>
       <span class='form-field-input'> <%= f.text_field :bio, placeholder: 'Enter your Bio' %></span>
+      <div class='upload-photo'>
+        Upload a photo <br/><br/>
+        <%= f.file_field :profile_picture %>
+      </div>
+      <div class='interest-heading'>
+        Your Interests
+      </div>
       <div class='interests-list'>
         <% @interests.each do |interest| %>
           <div class='interest-list'>
-            <label>
+            <label class='interests'>
               <%= check_box_tag :interest_ids, interest.id, @user.interests.include?(interest), :name => 'user[interest_ids][]' %>
-              <%= interest.name %>
+              <%= interest.name %><br/>
             </label>
           </div>
         <% end %>
       </div><br/>
-      <span class='image-uploader buttons'>
-        <%= f.label :profile_picture %><br/><br/>
-        <%= f.file_field :profile_picture %>
-      </span>
       <%= f.submit 'Submit', class: 'form-button' %>
     <% end %>
   </div>
 </div>
-<%= link_to '/users/#{current_user.id}' do %>
-  <div class='button filled'>
-    <span>Profile page</span>
-  </div>
-<% end %>
