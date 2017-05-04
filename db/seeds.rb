@@ -9,10 +9,9 @@
 puts "Seeding Data.. .."
 
 ## Set ho many users to seed
-user_count = 10
+user_count = 30
 i = 0
 j = 0
-
 
 ## USERS
 puts "Generating some homies..."
@@ -33,13 +32,6 @@ user_count.times do |i|
   })
 end
 
-## FRIENDSHIPS
-puts "Creating superficial friendships..."
-Friendship.destroy_all
-
-# Friendship.create(user_id: 1, friend_id: 2, friendship_status: "accepted")
-# Friendship.create(user_id: 2, friend_id: 3, friendship_status: "pending")
-
 ## INTERESTS
 puts "Making people enjoy doing things..."
 Interest.destroy_all
@@ -57,7 +49,10 @@ interest_array = [
   "Writing",
   "Wine",
   "Comedy",
-  "Yoga"
+  "Yoga",
+  "Disc Golf",
+  "Coding",
+  "Chess"
 ]
 
 while i < interest_array.count do
@@ -78,7 +73,7 @@ end
 
 
 ## CHATROOMS
-puts "Generating some forced conversations..."
+puts "Deleting any conversations..."
 Chatroom.destroy_all
 
 # Chatroom.create(friendship_id: 1)
