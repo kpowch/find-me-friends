@@ -25,7 +25,7 @@
   font-weight: 900;
   font-style: italic;
   font-size: $font-size-logo;
-  color: $color-primary;
+  color: $logo-color;
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
 }
 
@@ -48,8 +48,8 @@
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
   &:hover {
     border-radius: $navbar-link-border-radius;
-    color: $font-color-white;
-    background-color: #757575;
+    color: $nav-link-color-hover;
+    background-color: $navbar-link-hover-background-color;
     font-weight: 300;
   }
 }
@@ -79,10 +79,14 @@
     top: $navbar-height;
     right: 0;
     width: 100%;
+    overflow: hidden;
+    text-align: right;
   }
   .nav-link {
     display: block;
     padding: $vertical-spacing-unit $horizontal-spacing-unit;
+    margin: 0;
+    padding: 0;
   }
   #nav-check:not(:checked) + .nav-links {
     height: 0px;

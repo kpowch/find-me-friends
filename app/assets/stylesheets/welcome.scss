@@ -5,7 +5,7 @@ main.welcome-login {
   max-width: 500px;
   padding: $large-padding;
   margin: 0 auto;
-  background: white;
+  background: $login-form-background;
   margin-right: 5%;
   border-radius: $login-border-radius;
   box-shadow: $default-box-shadow;
@@ -21,13 +21,13 @@ main.welcome-login {
 
 .welcome-screen {
   padding: $horizontal-spacing-unit $vertical-spacing-unit * 2;
-  color: $font-color-white;
+  color: $welcome-page-font-color;
   text-align: center;
 }
 
 .flash-message {
   margin-left: 5%;
-  color: #f89b36;
+  color: $color-primary;
 }
 
 p.welcome-blurb {
@@ -117,12 +117,12 @@ input.signup-tab:checked + label {
 }
 
 .video {
- position: fixed;
- top: 50%; left: 50%;
- z-index: 1;
- min-width: 100%;
- min-height: 100%;
- width: auto;
- height: auto;
- transform: translate(-50%, -50%);
+   position: fixed;
+   top: 50%; left: 50%;
+   z-index: 1;
+   min-width: 100%;
+   min-height: 100%;
+   width: auto;
+   height: auto;
+   transform: translate(-50%, -50%);
 }

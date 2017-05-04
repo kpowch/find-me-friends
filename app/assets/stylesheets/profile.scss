@@ -9,7 +9,7 @@
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
   margin: $vertical-spacing-unit $horizontal-spacing-unit;
   text-align: center;
-  background-color: $card-background-color;
+  background-color: $notification-background-color;
   border-radius: $default-border-radius;
   box-shadow: $default-box-shadow;
 }
@@ -18,17 +18,17 @@
   padding: $vertical-spacing-unit $horizontal-spacing-unit;
   margin: $vertical-spacing-unit $horizontal-spacing-unit;
   text-align: center;
-  background-color: $card-background-color;
+  background-color: $notification-background-color;
   border-radius: $default-border-radius;
   box-shadow: $default-box-shadow;
   &:hover {
-    background-color: darken($card-background-color, 10);
+    background-color: darken($notification-background-color, 10);
   }
 }
 
 .sidebar-name {
   padding-top: $vertical-spacing-unit;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid $underline-color;
 }
 
 .sidebar-email {
@@ -36,7 +36,7 @@
 }
 
 .sidebar-title {
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid $underline-color;
 }
 
 ul.sidebar-interests-list {
@@ -49,6 +49,14 @@ ul.sidebar-interests-list {
 
 
 /* FRIENDS LIST */
+.profile-heading {
+  text-shadow: 1px 1px white;
+  &.profile-heading-placeholder {
+    color: $color-background;
+    text-shadow: none;
+  }
+}
+
 .friend {
   display: flex;
   flex-flow: row nowrap;
@@ -95,6 +103,13 @@ ul.sidebar-interests-list {
   justify-content: flex-end;
 
   .card-percent {
+    text-align: center;
+    .interest-chart {
+      margin: 0 auto;
+      height: 120px;
+      width: 120px;
+      font-family: $font-stack;
+    }
   }
 
   .friend-buttons {
