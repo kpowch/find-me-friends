@@ -2,14 +2,15 @@ Rails.application.routes.draw do
   # welcome page
   root 'welcome#index'
 
-  resources :welcome, only: [:index]
+  resources :welcome, only: [:index, :show]
 
-  # TODO do we need friendships?
   resources :friendships
 
   resources :chatrooms, param: :id, except: [:new, :edit, :update]
 
   resources :messages, only: [:create]
+
+  resources :tos, only: [:index]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
