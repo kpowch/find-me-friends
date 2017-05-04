@@ -1,5 +1,22 @@
 @import 'application';
 
+.chatroom-heading {
+  text-shadow: 1px 1px white;
+  &.chatroom-heading-placeholder {
+    color: $color-background;
+    text-shadow: none;
+  }
+}
+
+.user-chatrooms {
+  margin-top: 28px;
+}
+
+.chatroom-page {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: $default-border-radius;
+}
 .chatroom-link {
   border: 1px solid $navbar-background-color;
   padding: 20px;
@@ -11,7 +28,7 @@
 
 .panel-body p {
   display: inline-block;
-  margin-bottom: 20px;
+  margin: 10px 10px 0 10px;
   padding: $horizontal-spacing-unit $vertical-spacing-unit;
   border-radius: 20px;
   background-color: $chatroom-receiver-color;
